@@ -6,6 +6,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AngularFireAuth } from "@angular/fire/compat/auth";
 import { environment } from 'src/environments/environment';
 import { FirebaseApp, firebaseApp$ } from '@angular/fire/app';
+
 @Component({
   selector: 'app-checkin',
   templateUrl: './checkin.component.html',

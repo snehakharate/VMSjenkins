@@ -4,9 +4,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  {path: 'login', component: LoginComponent}
+  
+  {path:'', component:LoginComponent},
+  {path:'home', component:HomeComponent}
+
 ];
 
 @NgModule({

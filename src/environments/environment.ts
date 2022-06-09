@@ -1,12 +1,12 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyAg9CLtTGTtzp_e8bwmnBXKR_6X_1GnRWQ",
-    authDomain: "visitor-management-syste-321fa.firebaseapp.com",
-    projectId: "visitor-management-syste-321fa",
-    storageBucket: "visitor-management-syste-321fa.appspot.com",
-    messagingSenderId: "144771420048",
-    appId: "1:144771420048:web:386cbd47058076ef5d6d15",
-    measurementId: "G-4HGCCF56PS"
+    apiKey: "AIzaSyBxaYPOaPxKDSo_OZDrRZQkNPY9x1uPtIo",
+    authDomain: "usmart-vms.firebaseapp.com",
+    projectId: "usmart-vms",
+    storageBucket: "usmart-vms.appspot.com",
+    messagingSenderId: "1068371710787",
+    appId: "1:1068371710787:web:08952a7cbe983cde0595f6",
+    measurementId: "G-0NSJW3LHPF"
   }
 };

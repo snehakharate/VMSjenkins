@@ -9,11 +9,15 @@ import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { AngularFireModule } from '@angular/fire/compat';
 
 import { environment } from 'src/environments/environment';
+import { CheckinComponent } from './checkin/checkin.component';
+import { FirebaseApp, FirebaseAppModule } from '@angular/fire/app';
+import { initializeApp } from 'firebase/app';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    CheckinComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +25,6 @@ import { environment } from 'src/environments/environment';
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]

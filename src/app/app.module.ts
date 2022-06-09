@@ -12,12 +12,16 @@ import { environment } from 'src/environments/environment';
 import { CheckinComponent } from './checkin/checkin.component';
 import { FirebaseApp, FirebaseAppModule } from '@angular/fire/app';
 import { initializeApp } from 'firebase/app';
+import { NavComponent } from './nav/nav.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    CheckinComponent
+    CheckinComponent,
+    NavComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

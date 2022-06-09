@@ -1,0 +1,48 @@
+.head{
+    min-height: 100vh;
+    width: 100%;
+    background-image:linear-gradient(rgb(4,9,30,0.3),rgba(4,9,30,0.3)), url(../../assets/bg.jpg);
+    background-position: center;
+    overflow-x: hidden;
+    overflow-y: hidden !important;
+    -webkit-background-size: cover; 
+    -moz-background-size: cover; 
+    -o-background-size: cover; 
+    background-size: cover;
+    position: relative;
+
+}
+
+.logo{
+    height: 4rem;
+}
+
+.login{
+    max-width:35% !important ;
+    border-radius: 10px;
+}
+
+.btn-primary{
+   background-color: #76479a;
+   border-color:#76479a;
+}
+
+.btn-primary:hover{
+    background-color: #8b62ab;
+   border-color:#76479a;
+}
+
+@media screen and (max-width:992px) {
+    .login{
+        max-width:70% !important; 
+    }
+    
+}
+
+@media screen and (max-width:440px) {
+    .login{
+        max-width:85% !important; 
+    }
+    
+}
+

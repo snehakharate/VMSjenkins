@@ -1,4 +1,4 @@
-.logo{
+/* .logo{
     height: 2rem;
 }
 
@@ -23,4 +23,13 @@
         display: none;
     }
     
+} */
+
+.home{
+    background-color: #3F6BB0;
+}
+
+
+@media  screen and (max-width:999px) {
+   
 }

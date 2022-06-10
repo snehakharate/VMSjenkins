@@ -11,7 +11,7 @@ import { DatabaseService } from '../database.service';
 export class LoginComponent implements OnInit {
 
   loginForm = new FormGroup({
-    userName: new FormControl('', Validators.compose([Validators.required])),
+    userId: new FormControl('', Validators.compose([Validators.required])),
     password: new FormControl('', Validators.compose([Validators.required]))
   });
 
@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
 
   doLogin(formData: FormGroup) {
     if (formData.valid) {
-        this.db.loginUser(formData.value.userName,formData.value.password);
+        this.db.loginUser(formData.value.userId,formData.value.password);
     }
   }
 }

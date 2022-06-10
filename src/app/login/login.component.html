@@ -1,25 +1,29 @@
-<body class="head">
-    <main class="bg-dark container login p-4 mt-5">
+
+    <main class="bg-dark bg-opacity-50 login p-4">
         <div class="text-center">
             <img class="logo mb-2" src="../../assets/logo.svg" alt="Logo">
-            <h3 class="text-center text-white">Visitor Management System</h3>
+            <!-- <h3 class="text-center text-white">Visitor Management System</h3> -->
         </div>
         <form [formGroup]="loginForm" (ngSubmit)="doLogin(loginForm)" class="myForm">
             <!-- Email input -->
             <div class="form-outline my-4">
-              <label class="form-label text-white" for="form2Example1">Email address</label>
-              <input type="text" id="form2Example1" class="form-control" formControlName="userName"/>
+              <label class="form-label text-white" for="form2Example1">Organization Security Code</label>
+              <input type="text" id="form2Example1" class="form-control" formControlName="userId" placeholder="Security Code"/>
             </div>
           
             <!-- Password input -->
             <div class="form-outline mb-4">
               <label class="form-label text-white" for="form2Example2">Password</label>
-              <input type="password" id="form2Example2" class="form-control" formControlName="password" />
+              <input type="password" id="form2Example2" class="form-control" formControlName="password" placeholder="Enter Password" />
             </div>
-          
+
+            <!--forget password-->
+            <div class="form-outline mb-4 text-end">
+              <a class="text-white" href="url">Forgot Password?</a>
+            </div>
+
             <!-- Submit button -->
-            <button type="submit" class="btn btn-primary btn w-100 mt-3 mb-4 fw-bold">Login</button>
+            <button type="submit" class="btn btn-primary btn w-100 mt-3 mb-4 fw-bold">Sign in</button>
           
           </form>
     </main>
-</body>

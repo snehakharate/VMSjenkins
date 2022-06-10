@@ -4,11 +4,11 @@
             <img class="logo mb-2" src="../../assets/logo.svg" alt="Logo">
             <h3 class="text-center text-white">Visitor Management System</h3>
         </div>
-        <form [formGroup]="loginForm" (ngSubmit)="doLogin(loginForm)" class="myForm">
+        <form [formGroup]="registerForm" (ngSubmit)="doRegister(registerForm)" class="myForm">
             <!-- Email input -->
             <div class="form-outline my-4">
               <label class="form-label text-white" for="form2Example1">Email address</label>
-              <input type="text" id="form2Example1" class="form-control" formControlName="userName"/>
+              <input type="email" id="form2Example1" class="form-control" formControlName="userName"/>
             </div>
           
             <!-- Password input -->
@@ -19,7 +19,6 @@
           
             <!-- Submit button -->
             <button type="submit" class="btn btn-primary btn w-100 mt-3 mb-4 fw-bold">Login</button>
-          
           </form>
     </main>
 </body>

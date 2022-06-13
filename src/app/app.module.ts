@@ -14,6 +14,7 @@ import { FirebaseApp, FirebaseAppModule } from '@angular/fire/app';
 import { initializeApp } from 'firebase/app';
 import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore/';
 import { VverifyComponent } from './vverify/vverify.component';
 import { TitleComponent } from './title/title.component';
 import { FormComponent } from './form/form.component';
@@ -38,6 +39,7 @@ import { LogoComponent } from './logo/logo.component';
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
+    AngularFirestoreModule,
     WebcamModule
   ],
   providers: [],

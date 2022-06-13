@@ -1,19 +1,27 @@
-.card{
-    border-radius: 1.5rem;
+.container{
+  padding: 1.5rem;
+  margin: auto;
+  margin-top:2%;
+  margin-left: 10%;
+  max-width: 60%;
+  border-radius: 1.5rem;
 }
 
-.row{
-    max-width:35% !important ;
-    border-radius: 10px;
-    margin-top: 8%;
-    margin-left: 10%;
-}
 
 .title{
     background-color: #3F6BB0;
     border-radius: 0.3rem;
-    width: 25%;
-    height: 100%;
-    margin-top: 7%;
-    margin-left: 15%;
+    margin:auto;
+    margin-top:5%;
+    margin-left: 30%;
+    width: fit-content;
+    padding: 10px 10px;
+}
+
+@media screen and (max-width:999px) {
+  .title{
+    margin: auto;
+    margin-top: 4rem;
+  }
+
 }

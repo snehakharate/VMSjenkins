@@ -1,0 +1,123 @@
+<app-nav></app-nav>
+    <!-- <app-title></app-title> -->
+<main class="bg-dark bg-opacity-50 login p-5 mt-3 overflow-auto">
+    <form class="myForm">
+
+        <div class="form-row overflow-auto overflow-hidden">
+            
+            <!-- row1 -->
+            <div class="row mb-2">
+                <div class="col">
+                    <label class="form-label text-white" for="form2Example1">Visitor Name<p class="text-danger d-inline"> *</p></label>  
+                    <input type="text" class="form-control" placeholder="Full Name" aria-label="First name">
+                </div>
+                <div class="col">
+                    <label class="form-label text-white" for="form2Example1">Visitor Mobile<p class="text-danger d-inline"> *</p></label>  
+                    <input type="text" class="form-control" placeholder="Mobile Number" aria-label="First name">
+                </div>
+              </div>
+
+            <!-- row2 -->
+            <div class="row mb-2">
+                <div class="col">
+                    <label class="form-label text-white" for="form2Example1">Purpose Of Visit<p class="text-danger d-inline"> *</p></label>  
+                    <!-- <input type="text" class="form-control" placeholder="First name" aria-label="First name"> -->
+                    <div class="input-group mb-3">
+                        <!-- <label class="input-group-text" for="inputGroupSelect01">Options</label> -->
+                        <select class="form-select" id="inputGroupSelect01">
+                          <option selected>Select</option>
+                          <option value="1">One</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                        </select>
+                      </div>
+                </div>
+                <div class="col">
+                    <label class="form-label text-white" for="form2Example1">Employee Name<p class="text-danger d-inline"> *</p></label>  
+                    <input type="text" class="form-control" placeholder="Enter Employee Name" aria-label="First name">
+                </div>
+              </div>
+
+              <!-- row3 -->
+            <div class="row mb-2">
+                <div class="col">
+                    <label class="form-label text-white" for="form2Example1">Identity Proof<p class="text-danger d-inline"> *</p></label>  
+                    <div class="input-group mb-3">
+                        <!-- <label class="input-group-text" for="inputGroupSelect01">Options</label> -->
+                        <select class="form-select" id="inputGroupSelect01">
+                          <option selected>Select</option>
+                          <option value="1">One</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                        </select>
+                      </div>
+                </div>
+                <div class="col">
+                    <label class="form-label text-white" for="form2Example1">Identity Number<p class="text-danger d-inline"> *</p></label>  
+                    <input type="text" class="form-control" placeholder="" aria-label="First name">
+                </div>
+              </div>
+
+              <!-- row4 -->
+            <div class="row mb-2">
+                <div class="col">
+                    <label class="form-label text-white" for="form2Example1">Total Visitors<p class="text-danger d-inline"> *</p></label>  
+                    <input type="text" class="form-control" placeholder="" aria-label="First name">
+                </div>
+                <div class="col">
+                    <label class="form-label text-white" for="form2Example1">Company Address<p class="text-danger d-inline"> *</p></label>  
+                    <input type="text" class="form-control" placeholder="" aria-label="First name">
+                </div>
+            </div>                         
+            </div>
+
+        <!-- Submit button -->
+        <div class="text-center">
+            <!-- <button type="submit" class="btn btn-primary btn w-25 mt-3 mb-4 fw-bold">Submit</button> -->
+            <button type="button" class="btn btn-primary fw-bold mt-3 mb-4">Sumbit</button>
+        </div>
+
+         <!-- row5 -->
+         <div class="row mb-2">
+            <div class="col">
+                <label class="form-label text-white" for="form2Example1">Tab</label>
+              <input type="text" class="form-control" placeholder="Tab Details" aria-label="First name">
+            </div>
+            <div class="col">
+                <label class="form-label text-white" for="form2Example1">Laptop</label>
+              <input type="text" class="form-control" placeholder="Laptop Details" aria-label="Last name">
+            </div>
+          </div>
+
+          <!-- row6 -->
+         <div class="row mb-5">
+            <div class="col">
+                <label class="form-label text-white" for="form2Example1">Pendrive</label>
+              <input type="text" class="form-control" placeholder="Pendrive Details" aria-label="First name">
+            </div>
+            <div class="col ">
+                <label class="form-label text-white" for="form2Example1">Any Other</label>
+              <input type="text" class="form-control" placeholder="Other Details" aria-label="Last name">
+            </div>
+          </div>
+
+          <div class="">
+            <button (click)="CheckPermissions()" class="btn btn-primary btn w-50 mt-3 mb-4 fw-bold d-flex justify-content-start align-items-center" style="border-color:black;"> <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-camera me-3" viewBox="0 0 16 16">
+                <path d="M15 12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.172a3 3 0 0 0 2.12-.879l.83-.828A1 1 0 0 1 6.827 3h2.344a1 1 0 0 1 .707.293l.828.828A3 3 0 0 0 12.828 5H14a1 1 0 0 1 1 1v6zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2z"/>
+                <path d="M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
+              </svg> Camera</button>
+        </div>
+
+        <div>
+            <webcam [trigger]="$trigger" (imageCapture)="snapshot($event)"></webcam>
+            <button (click)="captureImage()"  class="btn btn-primary btn w-25 mt-3 mb-4 fw-bold d-flex justify-content-start align-items-center" style="border-color:black;">Capture Image</button>
+        </div>
+
+        <div >
+            <img [src]="newImage" height="250" width="250">
+            <button (click)="proceed()">Proceed</button>
+            <!-- *ngIf="stream"*ngIf="previewImage"  -->
+        </div>
+      </form>
+
+</main>

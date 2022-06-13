@@ -1,0 +1,47 @@
+
+.login{
+    max-width:55% !important ;
+    border-radius: 10px;
+    margin-top: 8%;
+    margin-left: 10%;
+}
+
+.btn-primary{
+   background-color: #3F6BB0;
+   border-color:#3F6BB0;
+}
+
+/* .btn-primary:hover{
+    background-color: #476fb0;
+   border-color:#476fb0;
+} */
+
+p{
+    font-size: 20px;
+}
+
+.text{
+    font-size: 1rem;
+    float: left;
+}
+
+main{
+    height: 70vh;
+
+}
+
+@media screen and (max-width:992px) {
+    .login{
+        max-width:70% !important; 
+    }
+    .form-label{
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width:440px) {
+    .login{
+        max-width:85% !important; 
+    }
+}
+

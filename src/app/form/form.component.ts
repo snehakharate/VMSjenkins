@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { WebcamImage } from 'ngx-webcam';
 import { Observable, Subject } from 'rxjs';
 import { FormControl, FormGroup , Validators } from '@angular/forms';
+import { SharedServiceService } from '../shared-service.service';
 
 @Component({
   selector: 'app-form',
@@ -33,6 +34,13 @@ export class FormComponent implements OnInit {
   previewImage: string = '';
   newImage:string = '';
   btnLabel: string = 'Capture image';
+
+  constructor(public sharedService: SharedServiceService) {
+  }
+
+  ngOnInit(): void {
+    console.log(this.sharedService.userId)
+  }
 
   get $trigger(): Observable<void>{
     return this.trigger.asObservable();
@@ -73,11 +81,6 @@ export class FormComponent implements OnInit {
 
   proceed() {
     console.log(this.newImage);
-  }
-
-  constructor() { }
-
-  ngOnInit(): void {
   }
 
 }

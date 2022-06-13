@@ -3,6 +3,7 @@ import { Data, Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AngularFireAuth } from "@angular/fire/compat/auth";
 import { DatabaseService } from '../database.service';
+import { SharedServiceService } from '../shared-service.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,13 +16,14 @@ export class LoginComponent implements OnInit {
     password: new FormControl('', Validators.compose([Validators.required]))
   });
 
-  constructor(private afAuth: AngularFireAuth, private router: Router,private db : DatabaseService) { }
+  constructor(private afAuth: AngularFireAuth, private router: Router,private db : DatabaseService, public sharedService: SharedServiceService) { }
 
   ngOnInit() {
   }
 
   doLogin(formData: FormGroup) {
     if (formData.valid) {
+        this.sharedService.userId = formData.value.userId;
         this.db.loginUser(formData.value.userId,formData.value.password);
     }
   }

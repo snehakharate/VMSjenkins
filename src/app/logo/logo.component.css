@@ -1,0 +1,24 @@
+.dlogo{
+    margin-bottom: 5rem;
+}
+.logo{
+    height: 5rem;
+}
+
+@media screen and (min-width:992px) {
+    .dlogo{
+        display: none;
+    }
+
+}
+
+@media screen and (min-width:750px) {
+    .logo{
+        height: 9rem;
+    }
+}
+
+
+@media screen and (max-width:992px) {
+
+}

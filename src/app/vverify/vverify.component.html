@@ -1,19 +1,27 @@
 <app-nav></app-nav>
-<app-title></app-title>
+
+<div class=" title column text-center text-white">
+  <h1 class="fs-3 fw-bold m-0">WELCOME TO U-SMART</h1>
+</div>
   <main class="bg-dark bg-opacity-50 login p-5 mt-3">
     <form class="myForm">
- 
+
         <div class="form-outline my-1">
           <label class="form-label text-white" for="form2Example1">Enter Visitor Mobile Number </label>
-          <input type="text" id="form2Example1" class="form-control" formControlName="userName" placeholder="Security Code"/>
+          <input type="text" id="form2Example1" class="form-control" formControlName="mob" placeholder="Mobile Number"/><a href="">Get OTP</a>
+        </div>
+
+        <div class="form-outline my-1 mt-3">
+          <label class="form-label text-white" for="form2Example1">Verify OTP </label>
+          <input type="text" id="form2Example1" class="form-control" formControlName="otp" placeholder="Enter OTP"/>
         </div>
 
         <!-- Submit button -->
         <div class="text-center">
             <!-- <button type="submit" class="btn btn-primary btn w-25 mt-3 mb-4 fw-bold">Submit</button> -->
-            <button type="button" class="btn btn-primary btn fw-bold mt-3">Sumbit</button>
+            <button type="button" class="btn btn-primary btn fw-bold mt-3">Verify</button>
         </div>
-        
-      
+
+
       </form>
 </main>

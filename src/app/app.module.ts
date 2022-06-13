@@ -16,7 +16,6 @@ import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore/';
 import { VverifyComponent } from './vverify/vverify.component';
-import { TitleComponent } from './title/title.component';
 import { FormComponent } from './form/form.component';
 import { WebcamModule } from 'ngx-webcam';
 import { LogoComponent } from './logo/logo.component';
@@ -29,7 +28,6 @@ import { LogoComponent } from './logo/logo.component';
     NavComponent,
     HomeComponent,
     VverifyComponent,
-    TitleComponent,
     FormComponent,
     LogoComponent
   ],

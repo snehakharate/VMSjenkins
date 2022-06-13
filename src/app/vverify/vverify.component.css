@@ -4,7 +4,7 @@
     max-width:35% !important ;
     border-radius: 10px;
     margin-top: 8%;
-    margin-left: 10%;
+    margin-left: 24%;
 }
 
 .btn-primary{
@@ -24,13 +24,16 @@
 
 @media screen and (max-width:992px) {
     .login{
-        max-width:70% !important; 
+        max-width:70% !important;
+        margin: auto;
     }
 }
 
 @media screen and (max-width:440px) {
     .login{
-        max-width:85% !important; 
+        max-width:85% !important;
+        margin: auto;
+        padding: 1.5rem !important;
     }
 }
 

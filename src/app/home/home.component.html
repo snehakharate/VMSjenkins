@@ -1,30 +1,34 @@
 <app-nav></app-nav>
 
-<div class=" title column text-center text-white">
-  <h1 class="fs-3 fw-bold m-0">WELCOME TO U-SMART</h1>
-</div>
 
-<div class="container row bg-dark opacity-75 text-white">
-  <div class="row">
-    <div class="col d-flex justify-content-evenly gitalign-items-center">
-      <h2>Check In</h2>
-      <img class="ms-3" src="../../assets/check-in-desk_1.svg" height="105" alt="Check In">
-    </div>
-    <div class="col d-flex justify-content-center align-items-center">
-      <h2>Check Out</h2>
-      <img src="../../assets/check-out.svg" height="105" alt="Check Out">
-    </div>
+  <div class=" title column text-center text-white">
+    <h1 class="fs-3 fw-bold m-0">WELCOME TO U-SMART</h1>
   </div>
 
-  <div class="row">
-    <div class="col d-flex justify-content-evenly align-items-center">
-      <h2>Daily Visitor</h2>
-      <img src="../../assets/id-card.svg" height="105" alt="Daily Visitor">
+  <div class="container row bg-dark opacity-75 text-white">
+    <div class="row">
+      <div class="col  bg-custom">
+        <a [routerLink]="['/vverify']" class="text-decoration-none d-flex justify-content-center align-items-center">
+          <h2>Check In</h2>
+          <img src="../../assets/check-in-desk_1.svg" height="105" alt="Check In">
+        </a>
+      </div>
+      <div class="col d-flex justify-content-center align-items-center bg-custom">
+        <h2>Check Out</h2>
+        <img src="../../assets/check-out.svg" height="105" alt="Check Out">
+      </div>
     </div>
-    <div class="col d-flex justify-content-center align-items-center">
-      <h2>Pre-Appointment</h2>
-      <img src="../../assets/timetable.svg" height="105" alt="Pre-Appointment">
-    </div>
-  </div>
 
-  </div>
+    <div class="row">
+      <div class="col d-flex justify-content-center align-items-center bg-custom">
+        <h2>Daily Visitor</h2>
+        <img src="../../assets/id-card.svg" height="95" alt="Daily Visitor">
+      </div>
+      <div class="col d-flex justify-content-center align-items-center bg-custom">
+        <h2>Pre<br>Appointment</h2>
+        <img src="../../assets/timetable.svg" height="95" alt="Pre-Appointment ">
+      </div>
+    </div>
+
+    </div>
+

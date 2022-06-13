@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WebcamImage } from 'ngx-webcam';
 import { Observable, Subject } from 'rxjs';
+import { FormControl, FormGroup , Validators } from '@angular/forms';
 import { SharedServiceService } from '../shared-service.service';
 
 @Component({
@@ -10,6 +11,23 @@ import { SharedServiceService } from '../shared-service.service';
 })
 export class FormComponent implements OnInit {
 
+  visitorDetails = new FormGroup(
+    {
+      vName: new FormControl('',Validators.compose([Validators.required])),
+      vMobile: new FormControl('',Validators.compose([Validators.required])),
+      vPov: new FormControl('',Validators.compose([Validators.required])),
+      empName: new FormControl('',Validators.compose([Validators.required])),
+      vId: new FormControl('',Validators.compose([Validators.required])),
+      vIdno: new FormControl('',Validators.compose([Validators.required])),
+      vCaddr: new FormControl('',Validators.compose([Validators.required])),
+      totalVis: new FormControl('',Validators.compose([Validators.required])),
+      vTab: new FormControl('',Validators.compose([Validators.required])),
+      vLap: new FormControl('',Validators.compose([Validators.required])),
+      vPen: new FormControl('',Validators.compose([Validators.required])),
+      vOther: new FormControl('',Validators.compose([Validators.required]))
+    }
+  )
+
   stream: any = null;
   status: any = null;
   trigger: Subject<void>=new Subject();
@@ -17,7 +35,7 @@ export class FormComponent implements OnInit {
   newImage:string = '';
   btnLabel: string = 'Capture image';
 
-  constructor(public sharedService: SharedServiceService) { 
+  constructor(public sharedService: SharedServiceService) {
   }
 
   ngOnInit(): void {

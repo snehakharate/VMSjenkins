@@ -1,35 +1,17 @@
-/* .logo{
-    height: 2rem;
-}
 
-.links{
-    float: right;
-}
-
-.mob{
-    display: none;
-}
-
-.desktop{
-    margin-left: auto;
-}
-
-
-@media  screen and (max-width:999px) {
-    .mob{
-        display: block;
-    }
-    .desktop{
-        display: none;
-    }
-    
-} */
 
 .home{
     background-color: #3F6BB0;
 }
 
-
+.row{
+  min-width: 40%;
+}
 @media  screen and (max-width:999px) {
-   
+   .row{
+    min-width: 100% !important;
+   }
+   nav{
+    padding: 0;
+   }
 }

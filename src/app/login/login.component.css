@@ -5,9 +5,9 @@
     background-position: center;
     overflow-x: hidden;
     overflow-y: hidden !important;
-    -webkit-background-size: cover; 
-    -moz-background-size: cover; 
-    -o-background-size: cover; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
     position: relative;
 
@@ -41,15 +41,17 @@
 
 @media screen and (max-width:992px) {
     .login{
-        max-width:70% !important; 
+        max-width:70% !important;
+        margin: auto;
+        margin-top: 30%;
     }
-    
+
 }
 
 @media screen and (max-width:440px) {
     .login{
-        max-width:85% !important; 
+        max-width:85% !important;
     }
-    
+
 }
 

@@ -15,7 +15,11 @@ import { initializeApp } from 'firebase/app';
 import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore/';
-import { RegisterComponent } from './register/register.component';
+import { VverifyComponent } from './vverify/vverify.component';
+import { TitleComponent } from './title/title.component';
+import { FormComponent } from './form/form.component';
+import { WebcamModule } from 'ngx-webcam';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +27,9 @@ import { RegisterComponent } from './register/register.component';
     CheckinComponent,
     NavComponent,
     HomeComponent,
-    RegisterComponent
+    VverifyComponent,
+    TitleComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +37,8 @@ import { RegisterComponent } from './register/register.component';
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    WebcamModule
   ],
   providers: [],
   bootstrap: [AppComponent]

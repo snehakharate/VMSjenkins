@@ -21,7 +21,7 @@ export class FormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.sharedService.userId)
+    console.log(this.sharedService.get('userId'))
   }
 
   get $trigger(): Observable<void>{

@@ -23,7 +23,6 @@ export class LoginComponent implements OnInit {
 
   doLogin(formData: FormGroup) {
     if (formData.valid) {
-        this.sharedService.userId = formData.value.userId;
         this.db.loginUser(formData.value.userId,formData.value.password);
     }
   }

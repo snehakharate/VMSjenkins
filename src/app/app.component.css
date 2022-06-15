@@ -4,10 +4,10 @@
     background-image: url(../assets/bg.jpg);
     background-position: center;
     overflow-x: hidden;
-    overflow-y: hidden !important; 
-    -webkit-background-size: cover; 
-    -moz-background-size: cover; 
-    -o-background-size: cover; 
+    overflow-y: hidden !important;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
     /* position: relative; */
 
@@ -24,19 +24,19 @@
     a{
         font-size: 0.8rem;
     }
-    
+
 }
 
 @media screen and (max-width:700px) {
     a{
         font-size: 0.6rem;
     }
-    
+
 }
 
 /* @media screen and (max-width:500px) {
     a{
         font-size: 0.5rem;
     }
-    
+
 } */

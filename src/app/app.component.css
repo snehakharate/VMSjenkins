@@ -1,13 +1,13 @@
 .head{
     min-height: 100vh;
     width: 100%;
-    background-image:linear-gradient(rgb(4,9,30,0.3),rgba(4,9,30,0.3)), url(../assets/bg.jpg);
+    background-image:linear-gradient(rgb(4,9,30,0.3),rgba(4,9,30,0.3)), url('../assets/bg.jpg');
     background-position: center;
     overflow-x: hidden;
-    overflow-y: hidden !important; 
-    -webkit-background-size: cover; 
-    -moz-background-size: cover; 
-    -o-background-size: cover; 
+    overflow-y: hidden !important;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
     /* position: relative; */
 
@@ -24,19 +24,19 @@
     a{
         font-size: 0.8rem;
     }
-    
+
 }
 
 @media screen and (max-width:700px) {
     a{
         font-size: 0.6rem;
     }
-    
+
 }
 
 /* @media screen and (max-width:500px) {
     a{
         font-size: 0.5rem;
     }
-    
+
 } */

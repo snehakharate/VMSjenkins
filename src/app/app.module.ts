@@ -9,7 +9,6 @@ import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { AngularFireModule } from '@angular/fire/compat';
 
 import { environment } from 'src/environments/environment';
-import { CheckinComponent } from './checkin/checkin.component';
 import { FirebaseApp, FirebaseAppModule } from '@angular/fire/app';
 import { initializeApp } from 'firebase/app';
 import { NavComponent } from './nav/nav.component';
@@ -26,7 +25,6 @@ import { GatepassdetailsComponent } from './gatepassdetails/gatepassdetails.comp
   declarations: [
     AppComponent,
     LoginComponent,
-    CheckinComponent,
     NavComponent,
     HomeComponent,
     VverifyComponent,

@@ -20,6 +20,7 @@ import { FormComponent } from './form/form.component';
 import { WebcamModule } from 'ngx-webcam';
 import { LogoComponent } from './logo/logo.component';
 import { GatepassdetailsComponent } from './gatepassdetails/gatepassdetails.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { GatepassdetailsComponent } from './gatepassdetails/gatepassdetails.comp
     VverifyComponent,
     FormComponent,
     LogoComponent,
-    GatepassdetailsComponent
+    GatepassdetailsComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,

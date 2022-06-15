@@ -20,6 +20,8 @@ import { WebcamModule } from 'ngx-webcam';
 import { LogoComponent } from './logo/logo.component';
 import {HttpClientModule} from '@angular/common/http';
 import { GatepassdetailsComponent } from './gatepassdetails/gatepassdetails.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { CheckinComponent } from './checkin/checkin.component';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { GatepassdetailsComponent } from './gatepassdetails/gatepassdetails.comp
     VverifyComponent,
     FormComponent,
     LogoComponent,
-    GatepassdetailsComponent
+    GatepassdetailsComponent,
+    CheckoutComponent,
+    CheckinComponent
   ],
   imports: [
     BrowserModule,

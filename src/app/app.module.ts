@@ -19,6 +19,7 @@ import { VverifyComponent } from './vverify/vverify.component';
 import { FormComponent } from './form/form.component';
 import { WebcamModule } from 'ngx-webcam';
 import { LogoComponent } from './logo/logo.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { LogoComponent } from './logo/logo.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
-    WebcamModule
+    WebcamModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

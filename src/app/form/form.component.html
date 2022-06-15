@@ -40,8 +40,16 @@
                 </div>
                 <div class="col-lg-6">
                     <label class="form-label text-white" for="form2Example1">Employee Name<p class="text-danger d-inline">*</p></label>
-                    <input type="text" class="form-control" formControlName="empName" placeholder="Enter Employee Name" required aria-label="First name">
-                </div>
+                    <input type="text" class="form-control" list = "employees" formControlName="empName" placeholder="Enter Employee Name" required aria-label="First name">
+                    <datalist id = "employees">
+                      <option value="{{emp.name}}" *ngFor="let emp of employeesD">{{emp.name}}</option>
+                    </datalist>
+                    <!-- <ul>
+                      <li *ngFor="let emp of employeesD">
+                        {{ emp.name }}
+                      </li>
+                     </ul> -->
+                  </div>
               </div>
 
               <!-- row3 -->

@@ -8,13 +8,16 @@ export class SharedServiceService {
   userId = '';
   constructor(public storService: StorageService) { }
 
-  set(userId: string){
-    this.storService.set('userId',userId);
+  set(key: string,userId: string){
+    this.storService.set(key,userId);
   }
 
   get(key:string){
     return this.storService.get(key)
   }
-  
+
+  erase(){
+    this.storService.erase();
+  }
 
 }

@@ -3,7 +3,7 @@ import { WebcamImage } from 'ngx-webcam';
 import { Observable, Subject } from 'rxjs';
 import { FormControl, FormGroup , Validators } from '@angular/forms';
 import { SharedServiceService } from '../shared-service.service';
-
+import { firstValueFrom } from 'rxjs';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -34,12 +34,18 @@ export class FormComponent implements OnInit {
   previewImage: string = '';
   newImage:string = '';
   btnLabel: string = 'Capture image';
+  userData: any;
+  employeesD: any
+  
 
   constructor(public sharedService: SharedServiceService) {
   }
 
   ngOnInit(): void {
-    console.log(this.sharedService.get('userId'))
+    this.userData = this.sharedService.get('userData')
+    this.userData = JSON.parse(this.userData)
+    this.employeesD = this.userData.empDetails
+    console.log(this.employeesD)
   }
 
   get $trigger(): Observable<void>{

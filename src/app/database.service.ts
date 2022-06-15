@@ -5,7 +5,7 @@ import { Data, Router } from '@angular/router';
 import { Observable, observable } from 'rxjs';
 import { firstValueFrom } from 'rxjs';
 import { AngularFireAuth } from "@angular/fire/compat/auth";
-
+import { SharedServiceService } from './shared-service.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class DatabaseService {
   private dataCollection: AngularFirestoreCollection<any>;
   userEmail: any;
 
-  constructor(db: AngularFirestore,private afAuth: AngularFireAuth,private router:Router) { 
+  constructor(db: AngularFirestore,private afAuth: AngularFireAuth,private router:Router, public sharedService: SharedServiceService) { 
     this.db = db;
     this.dataCollection = db.collection<any>('users');
   }
@@ -56,6 +56,7 @@ export class DatabaseService {
     this.afAuth.signInWithEmailAndPassword(this.userEmail, password)
     .then(loginResponse => {
           console.log(loginResponse);
+          this.sharedService.set('userId',userId);
           this.router.navigate(['home']);
     })
         .catch(error => {
@@ -71,5 +72,15 @@ export class DatabaseService {
     const userEmail = (await userSnapshot).data().userEmail;
     //console.log(userEmail)
     return userEmail;
+  }
+
+  async getuserData(userId: any){
+    const userSnapshot = firstValueFrom(await this.db
+      .collection<any>('users')
+      .doc(userId)
+      .get());
+    const userData = (await userSnapshot).data();
+    this.sharedService.set('userData',JSON.stringify(userData))
+    return userData;
   }
 }

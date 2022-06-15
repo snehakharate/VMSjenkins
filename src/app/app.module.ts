@@ -9,7 +9,6 @@ import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { AngularFireModule } from '@angular/fire/compat';
 
 import { environment } from 'src/environments/environment';
-import { CheckinComponent } from './checkin/checkin.component';
 import { FirebaseApp, FirebaseAppModule } from '@angular/fire/app';
 import { initializeApp } from 'firebase/app';
 import { NavComponent } from './nav/nav.component';
@@ -19,18 +18,20 @@ import { VverifyComponent } from './vverify/vverify.component';
 import { FormComponent } from './form/form.component';
 import { WebcamModule } from 'ngx-webcam';
 import { LogoComponent } from './logo/logo.component';
+import {HttpClientModule} from '@angular/common/http';
+import { GatepassdetailsComponent } from './gatepassdetails/gatepassdetails.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    CheckinComponent,
     NavComponent,
     HomeComponent,
     VverifyComponent,
     FormComponent,
     LogoComponent,
+    GatepassdetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +40,8 @@ import { LogoComponent } from './logo/logo.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
-    WebcamModule
+    WebcamModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

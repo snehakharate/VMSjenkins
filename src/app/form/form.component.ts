@@ -2,8 +2,8 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { WebcamImage, WebcamInitError, WebcamUtil } from 'ngx-webcam';
 import { Observable, Subject } from 'rxjs';
 import { FormControl, FormGroup , Validators } from '@angular/forms';
-
-
+import { SharedServiceService } from '../shared-service.service';
+import { firstValueFrom } from 'rxjs';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -29,9 +29,18 @@ export class FormComponent implements OnInit {
     }
   )
 
+  constructor(public sharedService: SharedServiceService){}
 
-  ngOnInit() {
+  stream: any = null;
+  status: any = null;
+  userData: any;
+  employeesD: any
 
+  ngOnInit(): void {
+    this.userData = this.sharedService.get('userData')
+    this.userData = JSON.parse(this.userData)
+    this.employeesD = this.userData.empDetails
+    console.log(this.employeesD)
   }
 
   showWebcam = true;

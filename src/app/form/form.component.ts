@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { WebcamImage } from 'ngx-webcam';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { WebcamImage, WebcamInitError, WebcamUtil } from 'ngx-webcam';
 import { Observable, Subject } from 'rxjs';
 import { FormControl, FormGroup , Validators } from '@angular/forms';
 import { SharedServiceService } from '../shared-service.service';
@@ -10,6 +10,7 @@ import { firstValueFrom } from 'rxjs';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
+
 
   visitorDetails = new FormGroup(
     {
@@ -28,18 +29,12 @@ export class FormComponent implements OnInit {
     }
   )
 
+  constructor(public sharedService: SharedServiceService){}
+
   stream: any = null;
   status: any = null;
-  trigger: Subject<void>=new Subject();
-  previewImage: string = '';
-  newImage:string = '';
-  btnLabel: string = 'Capture image';
   userData: any;
   employeesD: any
-  
-
-  constructor(public sharedService: SharedServiceService) {
-  }
 
   ngOnInit(): void {
     this.userData = this.sharedService.get('userData')
@@ -48,45 +43,44 @@ export class FormComponent implements OnInit {
     console.log(this.employeesD)
   }
 
-  get $trigger(): Observable<void>{
-    return this.trigger.asObservable();
+  showWebcam = true;
+  private trigger: Subject<any> = new Subject();
+
+  public webcamImage!: WebcamImage;
+  private nextWebcam: Subject<any> = new Subject();
+
+  captureImage  = '';
+
+
+
+  public triggerSnapshot(): void {
+      this.trigger.next('any');
+      this.showWebcam = !this.showWebcam;
   }
 
-  snapshot(event: WebcamImage){
-    console.log(event);
-    this.previewImage = event.imageAsDataUrl;
-    this.captureImage()
-    this.btnLabel = 'Re capture image'
+
+
+  public handleImage(webcamImage: WebcamImage): void {
+      this.webcamImage = webcamImage;
+      this.captureImage = webcamImage!.imageAsDataUrl;
+      console.info('received webcam image', this.webcamImage);
+
   }
 
-  CheckPermissions() {
-    navigator.mediaDevices.getUserMedia({
-      video: {
-        width: 500,
-        height: 500
-      }
-    }).then((res) => {
-      console.log("response", res);
-      this.stream = res;
-      this.status = 'My camera is accessing';
-      this.btnLabel = 'Capture image';
-    }).catch(err => {
-      console.log(err);
-      if(err?.message === 'Permission denied') {
-        this.status = 'Permission denied please try again by approving the access';
-      } else {
-        this.status = 'You may not having camera system, Please try again ...';
-      }
-    })
+
+  public get triggerObservable(): Observable<any> {
+
+      return this.trigger.asObservable();
   }
 
-  captureImage() {
-    this.newImage = this.previewImage;
-    this.trigger.next();
+
+  public get nextWebcamObservable(): Observable<any> {
+
+      return this.nextWebcam.asObservable();
   }
 
-  proceed() {
-    console.log(this.newImage);
-  }
+
 
 }
+
+

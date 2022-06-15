@@ -21,6 +21,7 @@ import { LogoComponent } from './logo/logo.component';
 import {HttpClientModule} from '@angular/common/http';
 import { GatepassdetailsComponent } from './gatepassdetails/gatepassdetails.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

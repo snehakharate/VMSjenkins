@@ -21,6 +21,7 @@ import { LogoComponent } from './logo/logo.component';
 import {HttpClientModule} from '@angular/common/http';
 import { GatepassdetailsComponent } from './gatepassdetails/gatepassdetails.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { CheckinComponent } from './checkin/checkin.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
     FormComponent,
     LogoComponent,
     GatepassdetailsComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    CheckinComponent
   ],
   imports: [
     BrowserModule,

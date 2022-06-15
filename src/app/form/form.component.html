@@ -69,7 +69,7 @@
                     <label class="form-label text-white" for="form2Example1">Total Visitors<p class="text-danger d-inline"> *</p></label>
                     <input type="text" class="form-control" placeholder="" aria-label="First name">
                 </div> -->
-                <div class="col-lg-6">
+                <div class="col">
                     <label class="form-label text-white" for="form2Example1">Company Address<p class="text-danger d-inline">*</p></label>
                     <input type="text" class="form-control" formControlName="vCaddr" required placeholder="" aria-label="First name">
                 </div>
@@ -134,7 +134,7 @@
 
         <div >
             <img [src]="newImage" height="250" width="250">
-            <button (click)="proceed()">Proceed</button>
+            <button (click)="proceed()" class="btn btn-primary btn mt-3 mb-4 fw-bold d-flex justify-content-start align-items-center" style="border-color:black;">Proceed</button>
             <!-- *ngIf="stream"*ngIf="previewImage"  -->
         </div>
       </form>

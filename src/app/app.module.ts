@@ -19,6 +19,7 @@ import { VverifyComponent } from './vverify/vverify.component';
 import { FormComponent } from './form/form.component';
 import { WebcamModule } from 'ngx-webcam';
 import { LogoComponent } from './logo/logo.component';
+import { GatepassdetailsComponent } from './gatepassdetails/gatepassdetails.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { LogoComponent } from './logo/logo.component';
     HomeComponent,
     VverifyComponent,
     FormComponent,
-    LogoComponent
+    LogoComponent,
+    GatepassdetailsComponent
   ],
   imports: [
     BrowserModule,

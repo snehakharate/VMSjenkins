@@ -8,6 +8,9 @@ import { HomeComponent } from './home/home.component';
 import { VverifyComponent } from './vverify/vverify.component';
 import { FormComponent } from './form/form.component';
 import { GatepassdetailsComponent } from './gatepassdetails/gatepassdetails.component';
+import { combineChange } from '@angular/fire/compat/firestore';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { CheckinComponent } from './checkin/checkin.component';
 
 const routes: Routes = [
   
@@ -15,7 +18,9 @@ const routes: Routes = [
   {path:'home', component:HomeComponent},
   {path: 'vverify', component:VverifyComponent},
   {path: 'form', component:FormComponent},
-  {path: 'gpdetails', component:GatepassdetailsComponent}
+  {path: 'gpdetails', component:GatepassdetailsComponent},
+  {path: 'checkout', component: CheckoutComponent},
+  {path: 'checkin', component: CheckinComponent}
 
 ];
 

@@ -1,0 +1,123 @@
+main{
+    height: 80vh;
+}
+.checkin{
+    max-width:75% !important ;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 4rem;
+}
+
+.bg-custom{
+    background-color: #3F6BB0;
+}
+.btn-primary{
+    background-color: rgb(143, 137, 137);
+    border: 0;
+    font-size: small;
+} 
+h5{
+    font-size: 1rem;
+}
+.line{
+    border-right: 0.1rem solid rgb(76, 75, 75);
+    margin-right: 0.5rem;
+}
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    background-color: rgb(243,243,243);
+    opacity: 85%;
+  
+  }
+
+  th { 
+    background: #3F6BB0; 
+    color: white; 
+    font-weight: bold; 
+  }
+  td, th { 
+    padding: 6px; 
+    border: 1px solid #ccc; 
+    text-align: left; 
+  }
+
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+	
+	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+	
+	/*
+	Label the data
+	*/
+	td:nth-of-type(1):before { content: "Sr No."; }
+	td:nth-of-type(2):before { content: "Visitor Name"; }
+	td:nth-of-type(3):before { content: "Visitor Mobile"; }
+	td:nth-of-type(4):before { content: "Host Name"; }
+	td:nth-of-type(5):before { content: "Meeting Purpose"; }
+	td:nth-of-type(6):before { content: "Entry Time"; }
+	td:nth-of-type(7):before { content: "Visitor Details"; }
+	td:nth-of-type(8):before { content: "Logout"; }
+}
+
+
+  
+@media screen and (max-width:992px) {
+    .checkin
+{
+        max-width:70% !important;
+        margin: auto;
+    }
+    main{
+        margin-top: 3rem !important;
+    }
+}
+
+@media screen and (max-width:440px) {
+  
+    .checkin
+{
+        max-width:95% !important;
+        margin: auto;
+        padding: 1.3rem !important;
+    }
+    main{
+        margin-top: 3rem !important;
+    }
+    .count{
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+}

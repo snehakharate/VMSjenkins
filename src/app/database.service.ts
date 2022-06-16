@@ -18,6 +18,7 @@ export class DatabaseService {
   userEmail: any;
   userId: any;
   urlImg: any;
+  visitorsData: any;
 
   constructor(db: AngularFirestore,private afAuth: AngularFireAuth,private router:Router, public sharedService: SharedServiceService, public fireStorage: AngularFireStorage) { 
     this.db = db;
@@ -145,5 +146,27 @@ export class DatabaseService {
     ).ref.getDownloadURL();
     this.sharedService.set('urlImg',this.urlImg)
     console.log(this.urlImg)
+  }
+
+  async getvisitors(userId: any){
+    const userSnapshot = firstValueFrom(await this.db
+      .collection<any>('users')
+      .doc(userId)
+      .get());
+    const visitors = (await userSnapshot).data().visitors;
+    this.visitorsData = []
+    for(let m=0;m<visitors.length;m++){
+      this.visitorsData.push(await this.getvisitorData(visitors[m]))
+    }
+    return this.visitorsData
+  }
+
+  async getvisitorData(visitorId: string){
+    const userSnapshot = firstValueFrom(await this.db
+      .collection<any>('visitors')
+      .doc(visitorId)
+      .get());
+    const visitorData = (await userSnapshot).data();
+    return visitorData
   }
 }

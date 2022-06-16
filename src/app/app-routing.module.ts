@@ -9,7 +9,6 @@ import { VverifyComponent } from './vverify/vverify.component';
 import { FormComponent } from './form/form.component';
 import { GatepassdetailsComponent } from './gatepassdetails/gatepassdetails.component';
 import { combineChange } from '@angular/fire/compat/firestore';
-import { CheckoutComponent } from './checkout/checkout.component';
 import { CheckinComponent } from './checkin/checkin.component';
 import { DailyVisitorComponent } from './daily-visitor/daily-visitor.component';
 import { PreAppointmentComponent } from './pre-appointment/pre-appointment.component';
@@ -23,8 +22,7 @@ const routes: Routes = [
   {path: 'vverify', component:VverifyComponent},
   {path: 'form', component:FormComponent},
   {path: 'gpdetails', component:GatepassdetailsComponent},
-  {path: 'checkout', component: CheckoutComponent},
-  {path: 'checkin', component: CheckinComponent},
+  {path: 'checkout', component: CheckinComponent},
   {path:'dailyVisitor', component: DailyVisitorComponent},
   {path:'preApp', component: PreAppointmentComponent},
   {path: 'gatePass', component:GatePassComponent},

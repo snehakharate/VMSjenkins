@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { FormGroup,FormControl,Validators } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { firstValueFrom } from 'rxjs';
+import { SharedServiceService } from '../shared-service.service';
 @Component({
   selector: 'app-vverify',
   templateUrl: './vverify.component.html',
@@ -19,7 +20,7 @@ export class VverifyComponent implements OnInit {
     mob: new FormControl('', Validators.compose([Validators.required])),
     otp: new FormControl('', Validators.compose([Validators.required]))
   });
-  constructor(public router: Router, private http: HttpClient) { }
+  constructor(public router: Router, private http: HttpClient, public sharedService: SharedServiceService) { }
 
   ngOnInit(): void {
   }
@@ -41,6 +42,7 @@ export class VverifyComponent implements OnInit {
      this.dataNew = res
      this.verified = Number(this.dataNew.output.toString())
      if(this.verified){
+      this.sharedService.set('mobile',this.verifyForm.value.mob)
       this.router.navigate(['form']);
      } 
      console.log(this.verified)

@@ -7,7 +7,7 @@ import { LoginComponent } from './login/login.component';
 
 import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { AngularFireModule } from '@angular/fire/compat';
-
+import { AngularFireStorageModule } from '@angular/fire/compat/storage/';
 import { environment } from 'src/environments/environment';
 import { FirebaseApp, FirebaseAppModule } from '@angular/fire/app';
 import { initializeApp } from 'firebase/app';
@@ -22,6 +22,11 @@ import {HttpClientModule} from '@angular/common/http';
 import { GatepassdetailsComponent } from './gatepassdetails/gatepassdetails.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { CheckinComponent } from './checkin/checkin.component';
+import { DailyVisitorComponent } from './daily-visitor/daily-visitor.component';
+import { PreAppointmentComponent } from './pre-appointment/pre-appointment.component';
+import { GatePassComponent } from './gate-pass/gate-pass.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+
 
 
 @NgModule({
@@ -35,7 +40,11 @@ import { CheckinComponent } from './checkin/checkin.component';
     LogoComponent,
     GatepassdetailsComponent,
     CheckoutComponent,
-    CheckinComponent
+    CheckinComponent,
+    DailyVisitorComponent,
+    PreAppointmentComponent,
+    GatePassComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +53,7 @@ import { CheckinComponent } from './checkin/checkin.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
+    AngularFireStorageModule,
     WebcamModule,
     HttpClientModule
   ],

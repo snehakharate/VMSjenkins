@@ -6,6 +6,7 @@ import { Observable, observable } from 'rxjs';
 import { firstValueFrom } from 'rxjs';
 import { AngularFireAuth } from "@angular/fire/compat/auth";
 import { SharedServiceService } from './shared-service.service';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +16,11 @@ export class DatabaseService {
   db: AngularFirestore;
   private dataCollection: AngularFirestoreCollection<any>;
   userEmail: any;
+  userId: any;
+  urlImg: any;
+  visitorsData: any;
 
-  constructor(db: AngularFirestore,private afAuth: AngularFireAuth,private router:Router, public sharedService: SharedServiceService) { 
+  constructor(db: AngularFirestore,private afAuth: AngularFireAuth,private router:Router, public sharedService: SharedServiceService, public fireStorage: AngularFireStorage) { 
     this.db = db;
     this.dataCollection = db.collection<any>('users');
   }
@@ -82,5 +86,87 @@ export class DatabaseService {
     const userData = (await userSnapshot).data();
     this.sharedService.set('userData',JSON.stringify(userData))
     return userData;
+  }
+
+  async addVisitor(Form: any, additional: any) {
+    //await this.addCsvFun(filePath, "/" + Form.value.compName + "_" + filePath.name)
+    const totalUsersSnapshot = firstValueFrom(await this.db
+      .collection<any>('visitors')
+      .doc('totalVisitors')
+      .get());
+    const totalUsers = (await totalUsersSnapshot).data().visitorId;
+    const visitorData = {
+      vName: Form.value.vName,
+      vMobile: Form.value.vMobile,
+      vPov: Form.value.vPov,
+      empName: Form.value.empName,
+      vId: Form.value.vId,
+      vIdno: Form.value.vIdno,
+      vCaddr: Form.value.vCaddr,
+      totalVis: Form.value.totalVis,
+      vTab: Form.value.vTab,
+      vLap: Form.value.vLap,
+      vPen: Form.value.vPen,
+      vOther: Form.value.vOther,
+      vImg: this.sharedService.get('urlImg')?.toString(),
+      addVisitor: []
+    };
+    const newUser = this.db
+      .collection<any>('visitors')
+      .doc((111111 + totalUsers + 1).toString())
+      .set(visitorData);
+    const snapshot = this.db
+      .collection<any>('visitors')
+      .doc('totalVisitors')
+      .set({ visitorId: totalUsers + 1 });
+    this.userId = this.sharedService.get('userId')
+    this.db
+      .collection<any>('users')
+      .doc(this.userId.toString())
+      .update({
+        visitors: firebase.firestore.FieldValue.arrayUnion((111111 + totalUsers + 1).toString()),
+      }); 
+    for(let m=0;m<additional.length;m++)
+    {
+        this.db
+        .collection<any>('visitors')
+        .doc((111111 + totalUsers + 1).toString())
+        .update({
+          addVisitor: firebase.firestore.FieldValue.arrayUnion(additional[m]),
+        }); 
+    }
+  }
+
+  async addImgFun(orgPath: any, filePath: any) {
+    this.urlImg = await (
+      await this.fireStorage.upload(
+          filePath,
+        orgPath
+      )
+    ).ref.getDownloadURL();
+    this.sharedService.set('urlImg',this.urlImg)
+    console.log(this.urlImg)
+  }
+
+  async getvisitors(userId: any){
+    const userSnapshot = firstValueFrom(await this.db
+      .collection<any>('users')
+      .doc(userId)
+      .get());
+    const visitors = (await userSnapshot).data().visitors;
+    this.visitorsData = []
+    for(let m=0;m<visitors.length;m++){
+      this.visitorsData.push(await this.getvisitorData(visitors[m]))
+    }
+    return this.visitorsData
+  }
+
+  async getvisitorData(visitorId: string){
+    const userSnapshot = firstValueFrom(await this.db
+      .collection<any>('visitors')
+      .doc(visitorId)
+      .get());
+    const visitorData = (await userSnapshot).data();
+    return visitorData
   }
 }

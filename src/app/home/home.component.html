@@ -13,20 +13,26 @@
           <img src="../../assets/check-in-desk_1.svg" height="105" alt="Check In">
         </a>
       </div>
-      <div class="col d-flex justify-content-center align-items-center bg-custom">
-        <h2>Check Out</h2>
-        <img src="../../assets/check-out.svg" height="105" alt="Check Out">
+      <div class="col bg-custom">
+        <a [routerLink]="['/checkin']" class="text-decoration-none d-flex justify-content-center align-items-center">
+          <h2>Check Out</h2>
+          <img src="../../assets/check-out.svg" height="105" alt="Check Out">
+        </a>
       </div>
     </div>
 
     <div class="row">
-      <div class="col d-flex justify-content-center align-items-center bg-custom">
-        <h2>Daily Visitor</h2>
-        <img src="../../assets/id-card.svg" height="95" alt="Daily Visitor">
+      <div class="col bg-custom">
+        <a  [routerLink]="['/dailyVisitor']" class="text-decoration-none d-flex justify-content-center align-items-center">
+          <h2>Daily Visitor</h2>
+          <img src="../../assets/id-card.svg" height="95" alt="Daily Visitor">
+        </a>
       </div>
-      <div class="col d-flex justify-content-center align-items-center bg-custom">
-        <h2>Pre<br>Appointment</h2>
-        <img src="../../assets/timetable.svg" height="95" alt="Pre-Appointment ">
+      <div class="col bg-custom">
+        <a   [routerLink]="['/preApp']" class="text-decoration-none d-flex justify-content-center align-items-center">
+          <h2>Pre<br>Appointment</h2>
+          <img src="../../assets/timetable.svg" height="95" alt="Pre-Appointment ">
+        </a>
       </div>
     </div>
 

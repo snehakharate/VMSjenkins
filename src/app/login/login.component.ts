@@ -26,4 +26,11 @@ export class LoginComponent implements OnInit {
         this.db.loginUser(formData.value.userId,formData.value.password);
     }
   }
+
+  popUp(){
+    this.router.navigate(['../forgotPass']);
+  }
+
+
+
 }

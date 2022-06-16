@@ -7,7 +7,7 @@ import { LoginComponent } from './login/login.component';
 
 import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { AngularFireModule } from '@angular/fire/compat';
-
+import { AngularFireStorageModule } from '@angular/fire/compat/storage/';
 import { environment } from 'src/environments/environment';
 import { FirebaseApp, FirebaseAppModule } from '@angular/fire/app';
 import { initializeApp } from 'firebase/app';
@@ -40,6 +40,7 @@ import { GatepassdetailsComponent } from './gatepassdetails/gatepassdetails.comp
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
+    AngularFireStorageModule,
     WebcamModule,
     HttpClientModule
   ],

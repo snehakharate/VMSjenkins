@@ -18,7 +18,7 @@
                 </div>
                 <div class="col">
                     <label class="form-label text-white" for="form2Example1">Visitor Mobile<p class="text-danger d-inline">*</p></label>
-                    <input type="number" formControlName="vMobile" class="form-control" placeholder="Mobile Number" readonly required aria-label="First name">
+                    <input type="number" formControlName="vMobile" [(ngModel)]="visitorMob" class="form-control" placeholder="Mobile Number" readonly required aria-label="First name">
                 </div>
               </div>
 
@@ -87,22 +87,19 @@
             <div class="row mb-2">
                 <div class="col-lg-6">
                     <label class="form-label text-white" for="form2Example1">Total Visitors<p class="text-danger d-inline">*</p></label>
-                    <input type="number" class="form-control" formControlName="totalVis" required placeholder="" aria-label="First name">
+                    <input type="number" class="form-control" (change) = "createArray()" formControlName="totalVis" required placeholder="" aria-label="First name">
                 </div>
-
                 <div class="col">
                     <!-- <label class="form-label text-white" for="form2Example1">Company Address<p class="text-danger d-inline"> *</p></label>
                     <input type="text" class="form-control" placeholder="" aria-label="First name"> -->
                     <button type="button" class="btn btn-primary add fw-bold">Add</button>
                 </div>
             </div>
+            <div class="col-lg-6" *ngFor="let visitor of visitors; let k = index">
+              <label class="form-label text-white" for="form2Example1">Additional Visitor<p class="text-danger d-inline">*</p></label>
+              <input type="text" class="form-control" (change)="addVisitorName(k)" formControlName = 'example' required  placeholder="" aria-label="First name">
             </div>
-
-        <!-- Submit button -->
-        <div class="text-center">
-            <!-- <button type="submit" class="btn btn-primary btn w-25 mt-3 mb-4 fw-bold">Submit</button> -->
-            <button type="button" class="btn btn-primary fw-bold mt-3 mb-4">Sumbit</button>
-        </div>
+            </div>
 
          <!-- row5 -->
          <div class="row mb-2">
@@ -127,17 +124,10 @@
               <input type="text" formControlName="vOther" class="form-control" placeholder="Other Details" aria-label="Last name">
             </div>
           </div>
-
-
-
-
-
-
-<div class="bg-white">
-
-            <input id="mobCam" name="mobCam"  class="text-dark"  type="file" accept="image/*" capture="environment">
-            <label for="mobCam">Camera</label>
-</div>
+          <div class="bg-white">
+                        <input id="mobCam" name="mobCam"  class="text-dark"  type="file" accept="image/*" capture="environment">
+                        <label for="mobCam">Camera</label>
+          </div>
 
               <div id="deskCam" class="container">
 
@@ -149,13 +139,9 @@
                   <webcam  [allowCameraSwitch]="true" [height]="250" class="webcam" *ngIf="showWebcam"
                       [trigger]="triggerObservable"
                       (imageCapture)="handleImage($event)"></webcam>
-
                       <img *ngIf="!showWebcam" src="{{ captureImage }}" height="300px">
+                      <input id="webCam" formControlName="vImg" name="webCam"  class="text-dark"  type="file">
               </div>
-
-
-
-
 
         <!-- <div>
             <webcam [trigger]="$trigger" (imageCapture)="snapshot($event)"></webcam>
@@ -167,6 +153,11 @@
             <button (click)="proceed()">Proceed</button>
             *ngIf="stream"*ngIf="previewImage"
         </div> -->
+        <!-- Submit button -->
+        <div class="text-center">
+            <!-- <button type="submit" class="btn btn-primary btn w-25 mt-3 mb-4 fw-bold">Submit</button> -->
+            <button type="button" class="btn btn-primary fw-bold mt-3 mb-4" (click) = "submitData()">Sumbit</button>
+        </div>
       </form>
 
 </main>

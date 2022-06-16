@@ -17,7 +17,7 @@ h2{
 main{
     height: 80vh;
 }
-.form{
+.gatePassD{
     max-width:55% !important ;
     border-radius: 10px;
     margin: auto;
@@ -34,7 +34,7 @@ img{
 
 
 @media screen and (max-width:992px) {
-    .form{
+    .gatePassD{
         max-width:70% !important;
         margin: auto;
     }
@@ -45,7 +45,7 @@ img{
 
 @media screen and (max-width:440px) {
   
-    .form{
+    .gatePassD{
         max-width:95% !important;
         margin: auto;
         padding: 1.3rem !important;

@@ -1,7 +1,7 @@
 main{
     height: 80vh;
 }
-.checkout{
+.dailyV{
     max-width:75% !important ;
     border-radius: 10px;
     margin: auto;
@@ -96,15 +96,15 @@ only screen and (max-width: 760px),
 	td:nth-of-type(4):before { content: "Host Name"; }
 	td:nth-of-type(5):before { content: "Meeting Purpose"; }
 	td:nth-of-type(6):before { content: "Entry Time"; }
-	td:nth-of-type(7):before { content: "Visitor Details"; }
-	td:nth-of-type(8):before { content: "Logout"; }
+	td:nth-of-type(7):before { content: "Exit Time"; }
+	td:nth-of-type(8):before { content: "Details"; }
 }
 
 
   
 @media screen and (max-width:992px) {
 
-    .checkout
+    .dailyV
 {
         max-width:70% !important;
         margin: auto;
@@ -131,7 +131,7 @@ only screen and (max-width: 760px),
         font-size: 0.85rem !important;
     }
   
-    .checkout
+    .dailyV
 {
         max-width:95% !important;
         margin: auto;
@@ -155,7 +155,7 @@ only screen and (max-width: 760px),
     h5{
         font-size: 1.4rem !important;
     }
- .checkout{
+ .dailyV{
     margin-top: 5rem !important;
     max-width:85% !important ;
  }

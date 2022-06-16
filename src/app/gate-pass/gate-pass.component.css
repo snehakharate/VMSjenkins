@@ -1,6 +1,5 @@
 
-
-.vVerify{
+.gatePass{
     max-width:35% !important ;
     border-radius: 10px;
     margin-top: 8%;
@@ -13,7 +12,7 @@
 }
 
 .btn-primary:hover{
-    background-color: #476fb0;
+   background-color: #476fb0;
    border-color:#476fb0;
 }
 
@@ -23,14 +22,14 @@
 }
 
 @media screen and (max-width:992px) {
-    .vVerify{
+    .gatePass{
         max-width:70% !important;
         margin: auto;
     }
 }
 
 @media screen and (max-width:440px) {
-    .vVerify{
+    .gatePass{
         max-width:85% !important;
         margin: auto;
         padding: 1.5rem !important;

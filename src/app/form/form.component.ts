@@ -113,7 +113,8 @@ export class FormComponent implements OnInit {
       this.db.addVisitor(this.visitorDetails,this.visitors)
     }
     else{
-      console.log('invalid data', this.visitorDetails)
+      console.log('invalid data')
+      // console.log(this.visitorDetails.value.vName)
     }
   }
 

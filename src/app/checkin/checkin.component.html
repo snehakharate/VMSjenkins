@@ -19,9 +19,8 @@
                 <h5 class="m-0">Check In:<p class="d-inline">4</p> </h5>
               </div>
           </div>
-     
           <div class="col-lg d-flex p-0 search">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search">
           </div>
         </div>
       </div>
@@ -43,7 +42,7 @@
 	</tr>
 	</thead>
 	<tbody *ngFor="let visitor of visitorData, let k = index">
-	<tr>
+	<tr  >
         <td>{{k + 1}}</td>
         <td>{{visitor.vName}}</td>
         <td>{{visitor.vMobile}}</td>
@@ -52,7 +51,6 @@
         <td>10:00:00</td>
         <td><button type="button" class="btn btn-primary" (click) = "nextPage(k)">PASS DETAILS</button></td>
         <td><button type="button" class="btn button btn-danger">LOGOUT</button></td>
-
 	</tr>
 	<!-- <tr>
         <td>1</td>

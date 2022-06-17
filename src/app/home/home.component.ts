@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   constructor(public sharedService: SharedServiceService, public router: Router, public db : DatabaseService) { }
 
   ngOnInit(): void {
-    if(this.sharedService.get('userId') == ''){
+    if(!this.sharedService.get('userId')){
         this.router.navigate(['']);
         console.log(this.sharedService.get('userId'))
     }

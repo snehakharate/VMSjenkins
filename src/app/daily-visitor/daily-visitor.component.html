@@ -1,7 +1,7 @@
 <app-nav></app-nav>
 
-
-<main class="bg-dark bg-opacity-50 dailyV px-5 py-3 overflow-auto ">
+<router-outlet></router-outlet>
+<main *ngIf = '!this.pageshift' class="bg-dark bg-opacity-50 dailyV px-5 py-3 overflow-auto ">
 
     <div class="container">
         <div class="row text-white title-2">
@@ -42,45 +42,17 @@
         <th >Details</th>
 	</tr>
 	</thead>
-	<tbody>
-	<tr>
-        <td>1</td>
-        <td>Rahul Sharma</td>
-        <td>7458632180</td>
-        <td>Anil</td>
-        <td>Interview</td>
-        <td>10:00:00</td>
-        <td>12:05:22</td>
-        <td><button type="button" class="btn btn-primary">DETAILS</button></td>
-        
-
-	</tr>
-	<tr>
-        <td>1</td>
-        <td>Rahul Sharma</td>
-        <td>7458632180</td>
-        <td>Anil</td>
-        <td>Interview</td>
-        <td>10:00:00</td>
-        <td>12:05:22</td>
-        <td><button type="button" class="btn btn-primary">DETAILS</button></td>
-        
-
-	</tr>
+	<tbody *ngFor="let visitor of visitorData, let k = index">
     <tr>
-        <td>1</td>
-        <td>Rahul Sharma</td>
-        <td>7458632180</td>
-        <td>Anil</td>
-        <td>Interview</td>
+        <td>{{k + 1}}</td>
+        <td>{{visitor.vName}}</td>
+        <td>{{visitor.vMobile}}</td>
+        <td>{{visitor.empName}}</td>
+        <td>{{visitor.vPov}}</td>
         <td>10:00:00</td>
         <td>12:05:22</td>
-        <td><button type="button" class="btn btn-primary">DETAILS</button></td>
-        
-
+        <td><button type="button" class="btn btn-primary" (click) = "nextPage(k)">DETAILS</button></td>
 	</tr>
-
-    
 	</tbody>
 </table>
 

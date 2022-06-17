@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SharedServiceService } from '../shared-service.service';
-// import { GatepassdetailsComponent } from '../gatepassdetails/gatepassdetails.component';
 
 @Component({
   selector: 'app-gate-pass',
@@ -10,11 +10,13 @@ import { SharedServiceService } from '../shared-service.service';
 export class GatePassComponent implements OnInit {
   html_Img: any;
 
-  constructor(public sharedService: SharedServiceService) {
-    // this.html_Img = htmlImg
-   }
+  constructor(public sharedService: SharedServiceService, public router: Router) { }
 
   ngOnInit(): void {
+    if(!this.sharedService.get('userId')){
+      this.router.navigate(['']);
+      console.log(this.sharedService.get('userId'))
+    }
   }
 
 }

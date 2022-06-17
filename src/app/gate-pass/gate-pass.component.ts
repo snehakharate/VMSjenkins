@@ -8,6 +8,7 @@ import { SharedServiceService } from '../shared-service.service';
   styleUrls: ['./gate-pass.component.css']
 })
 export class GatePassComponent implements OnInit {
+  html_Img: any;
 
   constructor(public sharedService: SharedServiceService, public router: Router) { }
 

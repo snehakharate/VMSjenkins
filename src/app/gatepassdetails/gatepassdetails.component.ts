@@ -34,7 +34,7 @@ export class GatepassdetailsComponent implements OnInit {
     htmlToImage.toJpeg(this.gatePass)
   .then(function (dataUrl) {
     var link = document.createElement('a');
-    link.download = 'my-image-name.jpeg';
+    link.download = 'U-SMART-Gate Pass.jpeg';
     link.href = dataUrl;
     link.click();
   })

@@ -19,7 +19,7 @@ export class NavComponent implements OnInit {
 
   logOut(){
     this.sharedService.erase();
-    this.sharedService.set('userId','');
+    // this.sharedService.set('userId','');
     this.router.navigate(['../'])
   }
 

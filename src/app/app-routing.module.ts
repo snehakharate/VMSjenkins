@@ -24,7 +24,7 @@ const routes: Routes = [
   {path: 'checkout', component: CheckinComponent},
   {path:'dailyVisitor', component: DailyVisitorComponent},
   {path:'preApp', component: PreAppointmentComponent},
-  {path: 'gatePass', component:GatePassComponent},
+  {path: 'gatepass', component:GatePassComponent},
   {path:'forgotPass', component:ForgotPasswordComponent}
 
 ];

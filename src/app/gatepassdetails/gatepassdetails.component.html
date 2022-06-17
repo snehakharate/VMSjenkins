@@ -5,152 +5,74 @@
 <main class="bg-dark bg-opacity-50 gatePassD px-5 py-3 overflow-auto">
 
     <div class="text-center">
-        <button type="button" class="btn fw-bold mb-4 text-white" style="background-color: #3F6BB0;"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+        <button type="button" class="btn fw-bold mb-4 text-white" style="background-color: #3F6BB0;" (click) = "navigate()"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
           </svg> Back</button>
     </div>
 
-    
+    <button (click)="htmlPng()" class="btn btn-primary">PNG</button>
+<div  class="gatePass ">
 
-      <div class="row">
-        <div class="col d-flex justify-content-center align-items-center" style="background-color: #3F6BB0;">
-            <!-- <p class="text-white mx-1">VISITOR INFORMATION</p> -->
-            <h2 class="text-white fs-5">VISITOR INFORMATION</h2>
-        </div>
-      </div>
+        <div  id="img">
+          <div class="gpBg">
+            <div class="wrapper1">
+              <div class="row justify-content-end">
+                <img src="../../assets/title.svg" alt="Title and Logo">
+              </div>
+              <div>
+                <h1 class="compTitle">Your Company Name</h1>
+              </div>
+              <div class="compBg m-auto">
+              <h6 class="compName">TATA CONSULTANCY SERVICES</h6>
+              <div class="d-flex align-items-center">
+                <svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill location ms-1" viewBox="0 0 16 16">
+                  <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                </svg>
+                <p class="ms-1">Pune</p>
+              </div>
+            </div>
+            <hr>
 
-<!-- row 1 -->
-      <div class="row">
-        <div class="col right">
-            <p>Visitor Image</p>
-        </div>
-        <div class="col left">
-           <img class=" img-fluid my-3" src="../../assets/visitor.jpg" alt="">
-        </div>
-      </div>
+            <!-- Visitor Details -->
+              <div class="row">
+                <div class="col">
+                  <h1 class="visitor">Visitor Name</h1>
+                  <h6>John Doe</h6>
+                </div>
+                <div class="col">
+                  <h1 class="visitor">Date</h1>
+                  <h6>17/06/2022</h6>
+                </div>
+              </div>
 
-      <!-- row 2 -->
-      <div class="row">
-        <div class="col right">
-            <p>Name</p>
-        </div>
-        <div class="col left">
-           <p>Dnyanada</p>
-        </div>
-      </div>
+              <div class="row">
+                <div class="col">
+                  <h1 class="visitor">Whom To Meet</h1>
+                  <h6>Dnyanada Mahajan</h6>
+                </div>
+                <div class="col">
+                  <h1 class="visitor">Time</h1>
+                  <h6>5.00 PM</h6>
+                </div>
+              </div>
+            </div>
+          </div>
 
-      <div class="row">
-        <div class="col right">
-            <p>Visitor Mobile Number </p>
+          <div class="gpBg2">
+            <div class="wrapper2 row">
+              <div class="col-5">
+                <img class="imgBox" src="../../assets/visitor.jpg" alt="">
+              </div>
+              <div class="col">
+                <h1 class="visitor text-white m-0 mt-3">Purpose : <h6 class="d-inline m-0">Interview</h6></h1>
+                <h1 class="visitor text-white m-0 mt-4">Asset :  <h6 class="d-inline m-0">Laptop, Mobile Phone, Pendrive</h6></h1>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col left">
-           <p>7548963214</p>
-        </div>
-      </div>
+</div>
 
-      <div class="row">
-        <div class="col right">
-            <p>Meeting Purpose</p>
-        </div>
-        <div class="col left">
-           <p></p>
-        </div>
-      </div>
 
-      <div class="row">
-        <div class="col right">
-            <p>Comapny address</p>
-        </div>
-        <div class="col left">
-           <p></p>
-        </div>
-      </div>
 
-      <div class="row">
-        <div class="col right">
-            <p>Accessories</p>
-        </div>
-        <div class="col left">
-           <p>Laptop: </p>
-           <p>Tab: </p>
-           <p>Pendrive: </p>
-           <p>Other: </p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col right">
-            <p>Total Visitor</p>
-        </div>
-        <div class="col left">
-           <p>1</p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col right">
-            <p>Employee Name</p>
-        </div>
-        <div class="col left">
-           <p>Anil</p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col right">
-            <p>Employee Mobile</p>
-        </div>
-        <div class="col left">
-           <p>9745862013</p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col right">
-            <p>Department</p>
-        </div>
-        <div class="col left">
-           <p>Account</p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col right">
-            <p>Additional Vistor Name</p>
-        </div>
-        <div class="col left">
-           <p>..</p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col right">
-            <p>Visit Date</p>
-        </div>
-        <div class="col left">
-           <p>15-06-22</p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col right">
-            <p>In Time</p>
-        </div>
-        <div class="col left">
-           <p>11:00:00</p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col right">
-            <p>Out Time</p>
-        </div>
-        <div class="col left">
-           <p>01:05:00</p>
-        </div>
-      </div>
-
-      
-    
 
 </main>

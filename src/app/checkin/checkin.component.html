@@ -1,7 +1,7 @@
 <app-nav></app-nav>
 
-
-<main class="bg-dark bg-opacity-50 checkout px-5 py-3 overflow-auto ">
+<router-outlet></router-outlet>
+<main *ngIf = '!this.pageshift' class="bg-dark bg-opacity-50 checkout px-5 py-3 overflow-auto ">
 
     <div class="container">
         <div class="row text-white title-2">
@@ -49,7 +49,7 @@
         <td>{{visitor.empName}}</td>
         <td>{{visitor.vPov}}</td>
         <td>10:00:00</td>
-        <td><button type="button" class="btn btn-primary">PASS DETAILS</button></td>
+        <td><button type="button" class="btn btn-primary" (click) = "nextPage(k)">PASS DETAILS</button></td>
         <td><button type="button" class="btn button btn-danger">LOGOUT</button></td>
 	</tr>
 	<!-- <tr>
@@ -78,6 +78,7 @@
     
 	</tbody>
 </table>
+
 
 
 </main> 

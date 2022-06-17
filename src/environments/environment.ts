@@ -9,5 +9,5 @@ export const environment = {
     appId: "1:1068371710787:web:08952a7cbe983cde0595f6",
     measurementId: "G-0NSJW3LHPF"
   },
-  apiKey: 'SFGtP2w2kuBf494bSbmUaRCYeAdEcLHi'
+  apiKey: 'NGI3NjQ2Njg1NzYyMzY0NDc3NjE1ODUxNjU3ODQ1NTQ='
 };

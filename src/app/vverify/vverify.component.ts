@@ -12,10 +12,11 @@ import { SharedServiceService } from '../shared-service.service';
 })
 export class VverifyComponent implements OnInit {
 
+  display = 'none';
+  private otp = '';
   dataNew: any;
   data:any;
-  authyID = '';
-  verified = 0;
+  status = '';
   verifyForm = new FormGroup({
     mob: new FormControl('', Validators.compose([Validators.required])),
     otp: new FormControl('', Validators.compose([Validators.required]))
@@ -23,30 +24,30 @@ export class VverifyComponent implements OnInit {
   constructor(public router: Router, private http: HttpClient, public sharedService: SharedServiceService) { }
 
   ngOnInit(): void {
+    if(!this.sharedService.get('userId')){
+      this.router.navigate(['']);
+      console.log(this.sharedService.get('userId'))
+  }
   }
 
   sendOTP(){
-    const url ='https://usmartotp.herokuapp.com/?mobile='+this.verifyForm.value.mob+'&token='+ environment.apiKey
+    const url = 'https://usmartsms.herokuapp.com/?token='+environment.apiKey+'&mobile=91'+this.verifyForm.value.mob
     console.log(url)
     this.http.get(url).subscribe((res)=>{
      this.data = res
-     this.authyID = this.data.output.toString()
-     console.log(this.authyID)
+     this.status = this.data.status.toString()
+     this.otp = this.data.message.content.toString().split(' ')[4].toString()
+     if(this.status == 'success'){
+      this.display = 'block'
+     }
    })
   }
 
   async goForm(){
-    const url ='https://verifyusmart.herokuapp.com/?authyid='+this.authyID+'&otp='+this.verifyForm.value.otp+'&token='+ environment.apiKey
-    console.log(url)
-    await this.http.get(url).subscribe((res)=>{
-     this.dataNew = res
-     this.verified = Number(this.dataNew.output.toString())
-     if(this.verified){
+     if(this.status == 'success' && this.otp == this.verifyForm.value.otp){
       this.sharedService.set('mobile',this.verifyForm.value.mob)
       this.router.navigate(['form']);
-     } 
-     console.log(this.verified)
-    })
+     }
   }
 
 }

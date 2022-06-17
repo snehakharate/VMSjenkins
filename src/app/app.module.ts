@@ -26,7 +26,6 @@ import { DailyVisitorComponent } from './daily-visitor/daily-visitor.component';
 import { PreAppointmentComponent } from './pre-appointment/pre-appointment.component';
 import { GatePassComponent } from './gate-pass/gate-pass.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 
@@ -57,8 +56,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     AngularFirestoreModule,
     AngularFireStorageModule,
     WebcamModule,
-    HttpClientModule,
-    Ng2SearchPipeModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

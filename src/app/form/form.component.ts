@@ -5,6 +5,7 @@ import { FormControl, FormGroup , Validators } from '@angular/forms';
 import { SharedServiceService } from '../shared-service.service';
 import { firstValueFrom } from 'rxjs';
 import { DatabaseService } from '../database.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -27,12 +28,12 @@ export class FormComponent implements OnInit {
       vPen: new FormControl(),
       vOther: new FormControl(),
       vImg: new FormControl(),
-      example: new FormControl('',Validators.compose([Validators.required]))
+      example: new FormControl()
     }
   )
   visitorMob: any
 
-  constructor(public sharedService: SharedServiceService, public db: DatabaseService){}
+  constructor(public sharedService: SharedServiceService, public db: DatabaseService, public router: Router){}
 
   stream: any = null;
   status: any = null;
@@ -41,13 +42,18 @@ export class FormComponent implements OnInit {
   visitors: any;
 
   ngOnInit(): void {
-    this.userData = this.sharedService.get('userData')
-    
-    this.userData = JSON.parse(this.userData)
-    this.employeesD = this.userData.empDetails
-    console.log(this.employeesD)
-    this.visitorMob = (this.sharedService.get('mobile'))?.toString()
-    this.visitorDetails.value.totalVis = 0
+    if(!this.sharedService.get('userId')){
+      this.router.navigate(['']);
+      console.log(this.sharedService.get('userId'))
+    }
+    else{
+      this.userData = this.sharedService.get('userData')
+      this.userData = JSON.parse(this.userData)
+      this.employeesD = this.userData.empDetails
+      console.log(this.employeesD)
+      this.visitorMob = (this.sharedService.get('mobile'))?.toString()
+      this.visitorDetails.value.totalVis = 0
+    }
   }
 
   showWebcam = true;
@@ -88,9 +94,13 @@ export class FormComponent implements OnInit {
 
   createArray(){
     this.visitors = []
-    for(let i = 0; i< this.visitorDetails.value.totalVis; i++){
-      this.visitors.push(i.toString());
+    if(this.visitorDetails.value.totalVis>1){
+      
+      for(let i = 0; i< this.visitorDetails.value.totalVis-1; i++){
+        this.visitors.push(i.toString());
+      }
     }
+    
   }
 
   addVisitorName(index: any){

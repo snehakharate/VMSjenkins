@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from '../database.service';
 import { SharedServiceService } from '../shared-service.service';
+import { FormControl, FormGroup , Validators } from '@angular/forms';
 import { firstValueFrom } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 @Component({
@@ -30,6 +31,7 @@ export class CheckinComponent implements OnInit {
   async getData(userId: any){
     this.visitorData = await this.db.getvisitors(userId,0)
     console.log(this.visitorData)
+
   }
 
   nextPage(index: any){

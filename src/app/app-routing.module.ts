@@ -20,9 +20,23 @@ const routes: Routes = [
   {path:'home', component:HomeComponent},
   {path: 'vverify', component:VverifyComponent},
   {path: 'form', component:FormComponent},
-  {path: 'gpdetails', component:GatepassdetailsComponent},
-  {path: 'checkout', component: CheckinComponent},
-  {path:'dailyVisitor', component: DailyVisitorComponent},
+  //{path: 'gpdetails', component:GatepassdetailsComponent},
+  {path: 'checkout',
+      component: CheckinComponent, 
+      children: [
+        {
+          path: 'gpdetails',
+          component: GatepassdetailsComponent
+        }
+      ]
+    },  
+  {path:'dailyVisitor', component: DailyVisitorComponent,
+  children: [
+    {
+      path: 'gpdetails',
+      component: GatepassdetailsComponent
+    }
+  ]},
   {path:'preApp', component: PreAppointmentComponent},
   {path: 'gatePass', component:GatePassComponent},
   {path:'forgotPass', component:ForgotPasswordComponent}

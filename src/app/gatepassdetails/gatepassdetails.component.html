@@ -5,7 +5,7 @@
 <main class="bg-dark bg-opacity-50 gatePassD px-5 py-3 overflow-auto">
 
     <div class="text-center">
-        <button type="button" class="btn fw-bold mb-4 text-white" style="background-color: #3F6BB0;"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+        <button type="button" class="btn fw-bold mb-4 text-white" style="background-color: #3F6BB0;" (click) = "navigate()"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
           </svg> Back</button>
     </div>
@@ -26,7 +26,7 @@
               <p>Visitor Image</p>
           </div>
           <div class="col left">
-             <img class=" img-fluid my-3" src="../../assets/visitor.jpg" alt="">
+             <img class=" img-fluid my-3" src="{{visitorData.vImg}}" alt="">
           </div>
         </div>
         <!-- row 2 -->
@@ -35,7 +35,7 @@
               <p>Name</p>
           </div>
           <div class="col left">
-             <p>Dnyanada</p>
+             <p>{{visitorData.vName}}</p>
           </div>
         </div>
         <div class="row">
@@ -43,7 +43,7 @@
               <p>Visitor Mobile Number </p>
           </div>
           <div class="col left">
-             <p>7548963214</p>
+             <p>{{visitorData.vMobile}}</p>
           </div>
         </div>
         <div class="row">
@@ -51,7 +51,7 @@
               <p>Meeting Purpose</p>
           </div>
           <div class="col left">
-             <p></p>
+             <p>{{visitorData.vPov}}</p>
           </div>
         </div>
         <div class="row">
@@ -59,7 +59,7 @@
               <p>Comapny address</p>
           </div>
           <div class="col left">
-             <p></p>
+             <p>{{visitorData.vCaddr}}</p>
           </div>
         </div>
         <div class="row">
@@ -67,10 +67,10 @@
               <p>Accessories</p>
           </div>
           <div class="col left">
-             <p>Laptop: </p>
-             <p>Tab: </p>
-             <p>Pendrive: </p>
-             <p>Other: </p>
+             <p>Laptop: {{visitorData.vLap}}</p>
+             <p>Tab: {{visitorData.vTab}}</p>
+             <p>Pendrive: {{visitorData.vPen}}</p>
+             <p>Other: {{visitorData.vOther}}</p>
           </div>
         </div>
         <div class="row">
@@ -78,7 +78,7 @@
               <p>Total Visitor</p>
           </div>
           <div class="col left">
-             <p>1</p>
+             <p>{{visitorData.totalVis}}</p>
           </div>
         </div>
         <div class="row">
@@ -86,31 +86,15 @@
               <p>Employee Name</p>
           </div>
           <div class="col left">
-             <p>Anil</p>
+             <p>{{visitorData.empName}}</p>
           </div>
         </div>
-        <div class="row">
-          <div class="col right">
-              <p>Employee Mobile</p>
-          </div>
-          <div class="col left">
-             <p>9745862013</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col right">
-              <p>Department</p>
-          </div>
-          <div class="col left">
-             <p>Account</p>
-          </div>
-        </div>
-        <div class="row">
+        <div class="row" *ngFor="let visitor of visitorData.addVisitor">
           <div class="col right">
               <p>Additional Vistor Name</p>
           </div>
           <div class="col left">
-             <p>..</p>
+             <p>{{visitor}}</p>
           </div>
         </div>
         <div class="row">

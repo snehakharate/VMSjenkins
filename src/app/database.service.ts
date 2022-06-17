@@ -19,6 +19,9 @@ export class DatabaseService {
   userId: any;
   urlImg: any;
   visitorsData: any;
+  Date: any;
+  date: any;
+  time = ''; 
 
   constructor(db: AngularFirestore,private afAuth: AngularFireAuth,private router:Router, public sharedService: SharedServiceService, public fireStorage: AngularFireStorage) { 
     this.db = db;
@@ -109,12 +112,33 @@ export class DatabaseService {
       vPen: Form.value.vPen,
       vOther: Form.value.vOther,
       vImg: this.sharedService.get('urlImg')?.toString(),
-      addVisitor: []
+      addVisitor: [],
+      checkinTime: firebase.firestore.FieldValue.serverTimestamp(),
+      checkoutTime:'',
+      vDate: ''
     };
-    const newUser = this.db
+    const newUser = await this.db
       .collection<any>('visitors')
       .doc((111111 + totalUsers + 1).toString())
       .set(visitorData);
+    const checkInSnapshot = firstValueFrom(await this.db
+      .collection<any>('visitors')
+      .doc((111111 + totalUsers + 1).toString())
+      .get());
+    const checkIn = (await checkInSnapshot).data().checkinTime;
+    this.date = checkIn.toDate().toString()
+    const Time = this.date.split(' ')
+    for(let i =1;i<4;i++){
+      this.time = this.time + Time[i] + " "
+    }
+    console.log(this.time)
+    await this.db
+        .collection<any>('visitors')
+        .doc((111111 + totalUsers + 1).toString())
+        .update({
+          vDate: this.time,
+          checkinTime: Time[4],
+        }); 
     const snapshot = this.db
       .collection<any>('visitors')
       .doc('totalVisitors')
@@ -136,6 +160,7 @@ export class DatabaseService {
         }); 
     }
   }
+
 
   async addImgFun(orgPath: any, filePath: any) {
     this.urlImg = await (

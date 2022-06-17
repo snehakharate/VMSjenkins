@@ -42,6 +42,7 @@ export class FormComponent implements OnInit {
 
   ngOnInit(): void {
     this.userData = this.sharedService.get('userData')
+    
     this.userData = JSON.parse(this.userData)
     this.employeesD = this.userData.empDetails
     console.log(this.employeesD)
@@ -103,6 +104,7 @@ export class FormComponent implements OnInit {
     }
     else{
       console.log('invalid data')
+      // console.log(this.visitorDetails.value.vName)
     }
   }
 

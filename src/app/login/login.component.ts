@@ -23,14 +23,13 @@ export class LoginComponent implements OnInit {
 
   doLogin(formData: FormGroup) {
     if (formData.valid) {
-        this.db.loginUser(formData.value.userId,formData.value.password);
-    }
+        this.db.loginUser(formData.value.userId,formData.value.password); 
+    }    
+
   }
 
   popUp(){
     this.router.navigate(['../forgotPass']);
   }
-
-
 
 }

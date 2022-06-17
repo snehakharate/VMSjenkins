@@ -9,13 +9,19 @@
             <!-- Email input -->
             <div class="form-outline my-4">
               <label class="form-label text-white" for="form2Example1">Organization Security Code</label>
-              <input type="text" id="form2Example1" class="form-control" formControlName="userId" placeholder="Security Code"/>
+              <input type="text" id="form2Example1" name="userId" class="form-control" formControlName="userId" placeholder="Security Code"/>
+              <span class="text-danger" *ngIf="this.loginForm.value.userId == ''">
+               Security Code is required
+                </span>
             </div>
 
             <!-- Password input -->
             <div class="form-outline mb-4">
               <label class="form-label text-white" for="form2Example2">Password</label>
               <input type="password" id="form2Example2" class="form-control" formControlName="password" placeholder="Enter Password" />
+              <span class="text-danger" *ngIf="this.loginForm.value.password == ''">
+                Password is required
+                 </span>
             </div>
 
             <!--forget password-->

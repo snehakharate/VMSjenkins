@@ -16,18 +16,12 @@
                  <div class="col-lg-6">
                     <label class="form-label text-white"  for="form2Example1">Visitor Name<p class="text-danger d-inline">*</p></label>
                     <input type="text" formControlName="vName" class="form-control" placeholder="Full Name" required aria-label="First name">
-<<<<<<< HEAD
-        
-                </div> 
-
-=======
                     <span class="m-0 p-0" *ngIf="visitorDetails.controls['vName'].invalid && (visitorDetails.controls['vName'].dirty || visitorDetails.controls['vName'].touched)">
                       <div class="text-danger">
                       Name is required
                     </div>
                   </span>
                 </div>
->>>>>>> origin
                 <div class="col">
                     <label class="form-label text-white" for="form2Example1">Visitor Mobile<p class="text-danger d-inline">*</p></label>
                     <input type="number" formControlName="vMobile" [(ngModel)]="visitorMob" class="form-control" placeholder="Mobile Number" readonly required aria-label="First name">

@@ -16,15 +16,16 @@
                  <div class="col-lg-6">
                     <label class="form-label text-white"  for="form2Example1">Visitor Name<p class="text-danger d-inline">*</p></label>
                     <input type="text" formControlName="vName" class="form-control" placeholder="Full Name" required aria-label="First name">
-              <span class="text-danger" *ngIf="this.visitorDetails.value.vName == ''">
-                Name is required
-              </span>
-                </div> 
-
+                    <span class="m-0 p-0" *ngIf="visitorDetails.controls['vName'].invalid && (visitorDetails.controls['vName'].dirty || visitorDetails.controls['vName'].touched)">
+                      <div class="text-danger">
+                      Name is required
+                    </div>
+                  </span>
+                </div>
                 <div class="col">
                     <label class="form-label text-white" for="form2Example1">Visitor Mobile<p class="text-danger d-inline">*</p></label>
                     <input type="number" formControlName="vMobile" [(ngModel)]="visitorMob" class="form-control" placeholder="Mobile Number" readonly required aria-label="First name">
-  
+
                 </div>
               </div>
 
@@ -33,7 +34,7 @@
                 <div class="col-lg-6">
                     <label class="form-label text-white" for="form2Example1">Purpose Of Visit<p class="text-danger d-inline">*</p></label>
                     <!-- <input type="text" class="form-control" placeholder="First name" aria-label="First name"> -->
-                    <div class="input-group mb-3">
+                    <div class="input-group ">
                         <!-- <label class="input-group-text" for="inputGroupSelect01">Options</label> -->
                         <select class="form-select" formControlName="vPov" required id="inputGroupSelect01">
                           <option selected>Select</option>
@@ -43,9 +44,11 @@
                           <option value="Other">Other</option>
                         </select>
                       </div>
-                      <span class="text-danger" *ngIf="this.visitorDetails.value.vPov == ''">
-                       Select a meeting purpose
-                      </span>
+                      <span class="m-0 p-0" *ngIf="visitorDetails.controls['vPov'].invalid && (visitorDetails.controls['vPov'].dirty || visitorDetails.controls['vPov'].touched)">
+                        <div class="text-danger">
+                        Select purpose of visit
+                      </div>
+                    </span>
                 </div>
                 <div class="col-lg-6">
                     <label class="form-label text-white" for="form2Example1">Employee Name<p class="text-danger d-inline">*</p></label>
@@ -53,7 +56,13 @@
                     <datalist id = "employees">
                       <option value="{{emp.name}}" *ngFor="let emp of employeesD">{{emp.name}}</option>
                     </datalist>
-                    
+
+                    <span class="m-0 p-0" *ngIf="visitorDetails.controls['empName'].invalid && (visitorDetails.controls['empName'].dirty || visitorDetails.controls['empName'].touched)">
+                      <div class="text-danger">
+                      employee name is required
+                    </div>
+                  </span>
+
                     <!-- <ul>
                       <li *ngFor="let emp of employeesD">
                         {{ emp.name }}
@@ -69,7 +78,7 @@
             <div class="row mb-2">
                 <div class="col">
                     <label class="form-label text-white" for="form2Example1">Identity Proof<p class="text-danger d-inline">*</p></label>
-                    <div class="input-group mb-3">
+                    <div class="input-group">
                         <!-- <label class="input-group-text" for="inputGroupSelect01">Options</label> -->
                         <select class="form-select" required formControlName="vId" id="inputGroupSelect01">
                           <option selected>Select</option>
@@ -78,16 +87,20 @@
                           <option value="Employee ID">Employee ID</option>
                         </select>
                       </div>
-                      <span class="text-danger" *ngIf="this.visitorDetails.value.vId == ''">
-                       select Identity Proof
-                       </span>
+                      <span class="m-0 p-0" *ngIf="visitorDetails.controls['vId'].invalid && (visitorDetails.controls['vId'].dirty || visitorDetails.controls['vId'].touched)">
+                        <div class="text-danger">
+                        Select identity prrof
+                      </div>
+                    </span>
                 </div>
                 <div class="col-lg-6">
                     <label class="form-label text-white" for="form2Example1">Identity Number<p class="text-danger d-inline">*</p></label>
                     <input type="text" class="form-control" formControlName="vIdno" required placeholder="" aria-label="First name">
-                    <span class="text-danger" *ngIf="this.visitorDetails.value.vIdno == ''">
+                    <span class="m-0 p-0" *ngIf="visitorDetails.controls['vIdno'].invalid && (visitorDetails.controls['vIdno'].dirty || visitorDetails.controls['vIdno'].touched)">
+                      <div class="text-danger">
                       Identity number is required
-                      </span>
+                    </div>
+                  </span>
                 </div>
               </div>
 
@@ -99,6 +112,11 @@
                 <div class="col">
                     <label class="form-label text-white" for="form2Example1">Company Address<p class="text-danger d-inline">*</p></label>
                     <input type="text" class="form-control" formControlName="vCaddr" required placeholder="" aria-label="First name">
+                    <span class="m-0 p-0" *ngIf="visitorDetails.controls['vCaddr'].invalid && (visitorDetails.controls['vCaddr'].dirty || visitorDetails.controls['vCaddr'].touched)">
+                      <div class="text-danger">
+                      Company address is required
+                    </div>
+                  </span>
                 </div>
                 <span class="text-danger" *ngIf="this.visitorDetails.value.vCaddr == ''">
                   Address is required
@@ -110,9 +128,11 @@
                 <div class="col-lg-6">
                     <label class="form-label text-white" for="form2Example1">Total Visitors<p class="text-danger d-inline">*</p></label>
                     <input type="number" class="form-control" (change) = "createArray()" formControlName="totalVis" required placeholder="" aria-label="First name">
-                    <span class="text-danger" *ngIf="this.visitorDetails.value.totalVis == ''">
-                      Field is required
-                      </span>
+                    <span class="m-0 p-0" *ngIf="visitorDetails.controls['totalVis'].invalid && (visitorDetails.controls['totalVis'].dirty || visitorDetails.controls['totalVis'].touched)">
+                      <div class="text-danger">
+                      Please enter total number of visitors
+                    </div>
+                  </span>
                 </div>
                 <div class="col">
                     <!-- <label class="form-label text-white" for="form2Example1">Company Address<p class="text-danger d-inline"> *</p></label>
@@ -123,6 +143,11 @@
             <div class="col-lg-6" *ngFor="let visitor of visitors; let k = index">
               <label class="form-label text-white" for="form2Example1">Additional Visitor<p class="text-danger d-inline">*</p></label>
               <input type="text" class="form-control" (change)="addVisitorName(k)" formControlName = 'example'  required placeholder="" aria-label="First name">
+              <span class="m-0 p-0" *ngIf="visitorDetails.controls['example'].invalid && (visitorDetails.controls['example'].dirty || visitorDetails.controls['example'].touched)">
+                <div class="text-danger">
+                Name of visitor is required
+              </div>
+            </span>
             </div>
             </div>
 

@@ -24,8 +24,7 @@ export class GatepassdetailsComponent implements OnInit {
       console.log('You are here')
       this.visitorData = this.sharedService.get('data');
       this.visitorData = JSON.parse(this.visitorData);
-
-      this.gatePass = document.getElementById('gatePass')!;
+      this.gatePass = document.getElementById('img')!;
       console.log(this.visitorData)
     }
   }

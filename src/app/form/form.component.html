@@ -16,9 +16,7 @@
                  <div class="col-lg-6">
                     <label class="form-label text-white"  for="form2Example1">Visitor Name<p class="text-danger d-inline">*</p></label>
                     <input type="text" formControlName="vName" class="form-control" placeholder="Full Name" required aria-label="First name">
-              <span class="text-danger" *ngIf="this.visitorDetails.value.vName == ''">
-                Name is required
-              </span>
+        
                 </div> 
 
                 <div class="col">
@@ -43,9 +41,7 @@
                           <option value="Other">Other</option>
                         </select>
                       </div>
-                      <span class="text-danger" *ngIf="this.visitorDetails.value.vPov == ''">
-                       Select a meeting purpose
-                      </span>
+             
                 </div>
                 <div class="col-lg-6">
                     <label class="form-label text-white" for="form2Example1">Employee Name<p class="text-danger d-inline">*</p></label>
@@ -59,9 +55,8 @@
                         {{ emp.name }}
                       </li>
                      </ul> -->
-                     <span class="text-danger" *ngIf="this.visitorDetails.value.empName == ''">
-                      Employee name is required
-                     </span>
+                  
+          
                   </div>
               </div>
 
@@ -78,16 +73,12 @@
                           <option value="Employee ID">Employee ID</option>
                         </select>
                       </div>
-                      <span class="text-danger" *ngIf="this.visitorDetails.value.vId == ''">
-                       select Identity Proof
-                       </span>
+                
                 </div>
                 <div class="col-lg-6">
                     <label class="form-label text-white" for="form2Example1">Identity Number<p class="text-danger d-inline">*</p></label>
                     <input type="text" class="form-control" formControlName="vIdno" required placeholder="" aria-label="First name">
-                    <span class="text-danger" *ngIf="this.visitorDetails.value.vIdno == ''">
-                      Identity number is required
-                      </span>
+                  
                 </div>
               </div>
 
@@ -100,9 +91,7 @@
                     <label class="form-label text-white" for="form2Example1">Company Address<p class="text-danger d-inline">*</p></label>
                     <input type="text" class="form-control" formControlName="vCaddr" required placeholder="" aria-label="First name">
                 </div>
-                <span class="text-danger" *ngIf="this.visitorDetails.value.vCaddr == ''">
-                  Address is required
-                  </span>
+      
             </div>
 
               <!-- row4 -->
@@ -110,9 +99,7 @@
                 <div class="col-lg-6">
                     <label class="form-label text-white" for="form2Example1">Total Visitors<p class="text-danger d-inline">*</p></label>
                     <input type="number" class="form-control" (change) = "createArray()" formControlName="totalVis" required placeholder="" aria-label="First name">
-                    <span class="text-danger" *ngIf="this.visitorDetails.value.totalVis == ''">
-                      Field is required
-                      </span>
+              
                 </div>
                 <div class="col">
                     <!-- <label class="form-label text-white" for="form2Example1">Company Address<p class="text-danger d-inline"> *</p></label>
@@ -148,9 +135,9 @@
                 <label class="form-label text-white" for="form2Example1">Any Other</label>
               <input type="text" formControlName="vOther" class="form-control" placeholder="Other Details" aria-label="Last name">
             </div>
-            <div class="bg-white">
-              <input id="mobCam" name="mobCam"  class="text-dark"  type="file" accept="image/*" capture="environment">
-              <label for="mobCam">Camera</label>
+            <div id="mobCam" class="bg-white mt-3 text-center">
+              <input  name="mobCam"  class="text-dark mobCam"  type="file" accept="image/*" capture="environment">
+              <label for="mobCam">Capture</label>
             </div>
           </div>
               <div id="deskCam" class="container">

@@ -18,7 +18,7 @@ export class VverifyComponent implements OnInit {
   data:any;
   status = '';
   verifyForm = new FormGroup({
-    mob: new FormControl('', Validators.compose([Validators.required])),
+    mob: new FormControl('', Validators.compose([Validators.required,Validators.minLength(10)])),
     otp: new FormControl('', Validators.compose([Validators.required]))
   });
   constructor(public router: Router, private http: HttpClient, public sharedService: SharedServiceService) { }

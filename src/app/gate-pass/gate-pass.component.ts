@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SharedServiceService } from '../shared-service.service';
+import * as htmlToImage from 'html-to-image';
 
 @Component({
   selector: 'app-gate-pass',
@@ -8,6 +9,7 @@ import { SharedServiceService } from '../shared-service.service';
   styleUrls: ['./gate-pass.component.css']
 })
 export class GatePassComponent implements OnInit {
+  gatePass : any;
   html_Img: any;
 
   constructor(public sharedService: SharedServiceService, public router: Router) { }
@@ -17,6 +19,23 @@ export class GatePassComponent implements OnInit {
       this.router.navigate(['']);
       console.log(this.sharedService.get('userId'))
     }
+
+    this.gatePass = document.getElementById('img')!;
+
+    
+  }
+
+  htmlPng(){
+    htmlToImage.toJpeg(this.gatePass)
+  .then(function (dataUrl) {
+    var link = document.createElement('a');
+    link.download = 'U-SMART-Gate Pass.jpeg';
+    link.href = dataUrl;
+    link.click();
+  })
+  .catch(function (error) {
+    console.error('oops, something went wrong!', error);
+  });
   }
 
 }

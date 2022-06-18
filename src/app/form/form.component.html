@@ -12,8 +12,9 @@
 
             <!-- row1 -->
             <div class="row mb-2">
-                <div class="col-lg-6">
-                    <label class="form-label text-white" for="form2Example1">Visitor Name<p class="text-danger d-inline">*</p></label>
+
+                 <div class="col-lg-6">
+                    <label class="form-label text-white"  for="form2Example1">Visitor Name<p class="text-danger d-inline">*</p></label>
                     <input type="text" formControlName="vName" class="form-control" placeholder="Full Name" required aria-label="First name">
                     <span class="m-0 p-0" *ngIf="visitorDetails.controls['vName'].invalid && (visitorDetails.controls['vName'].dirty || visitorDetails.controls['vName'].touched)">
                       <div class="text-danger">
@@ -24,6 +25,7 @@
                 <div class="col">
                     <label class="form-label text-white" for="form2Example1">Visitor Mobile<p class="text-danger d-inline">*</p></label>
                     <input type="number" formControlName="vMobile" [(ngModel)]="visitorMob" class="form-control" placeholder="Mobile Number" readonly required aria-label="First name">
+
                 </div>
               </div>
 
@@ -66,6 +68,9 @@
                         {{ emp.name }}
                       </li>
                      </ul> -->
+                     <span class="text-danger" *ngIf="this.visitorDetails.value.empName == ''">
+                      Employee name is required
+                     </span>
                   </div>
               </div>
 
@@ -113,6 +118,9 @@
                     </div>
                   </span>
                 </div>
+                <span class="text-danger" *ngIf="this.visitorDetails.value.vCaddr == ''">
+                  Address is required
+                  </span>
             </div>
 
               <!-- row4 -->

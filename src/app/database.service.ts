@@ -116,7 +116,8 @@ export class DatabaseService {
       addVisitor: [],
       checkinTime: firebase.firestore.FieldValue.serverTimestamp(),
       checkoutTime:'',
-      vDate: ''
+      vDate: '',
+      visitorId: (111111 + totalUsers + 1).toString()
     };
     const newUser = await this.db
       .collection<any>('visitors')
@@ -183,8 +184,10 @@ export class DatabaseService {
     this.visitorsData = []
     for(let m=0;m<visitors.length;m++){
       this.errorData = await this.getvisitorData(visitors[m])
-      console.log(this.errorData)
-      if(this.errorData.checkoutTime  == "" || flag){
+      if(this.errorData.checkoutTime  == "" && !flag){
+        this.visitorsData.push(this.errorData)
+      }
+      else if(!(this.errorData.checkoutTime  == "") && flag){
         this.visitorsData.push(this.errorData)
       }
     }
@@ -201,28 +204,23 @@ export class DatabaseService {
     return visitorData
   }
 
-  async checkoutVisitor(index: any,userId: any){
-    const userSnapshot = firstValueFrom(await this.db
-      .collection<any>('users')
-      .doc(userId)
-      .get());
-    const visitors = (await userSnapshot).data().visitors;
+  async checkoutVisitor(visitorId: any){
     await this.db
         .collection<any>('visitors')
-        .doc(visitors[index])
+        .doc(visitorId)
         .update({
           checkoutTime: firebase.firestore.FieldValue.serverTimestamp()
         });
     const checkOutSnapshot = firstValueFrom(await this.db
           .collection<any>('visitors')
-          .doc(visitors[index])
+          .doc(visitorId)
           .get());
     const checkOut = (await checkOutSnapshot).data().checkoutTime;
     this.date = checkOut.toDate().toString()
     const Time = this.date.split(' ')
     await this.db
         .collection<any>('visitors')
-        .doc(visitors[index])
+        .doc(visitorId)
         .update({
           checkoutTime: Time[4]
         });

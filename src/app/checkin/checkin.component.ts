@@ -42,8 +42,7 @@ export class CheckinComponent implements OnInit {
   }
 
   async checkOut(index: any){
-    const userId = this.sharedService.get('userId')
-    await this.db.checkoutVisitor(index,userId)
+    this.db.checkoutVisitor(index)
     console.log('success')
     this.ngOnInit()
   }

@@ -68,9 +68,8 @@
                         {{ emp.name }}
                       </li>
                      </ul> -->
-                     <span class="text-danger" *ngIf="this.visitorDetails.value.empName == ''">
-                      Employee name is required
-                     </span>
+                  
+          
                   </div>
               </div>
 
@@ -118,9 +117,7 @@
                     </div>
                   </span>
                 </div>
-                <span class="text-danger" *ngIf="this.visitorDetails.value.vCaddr == ''">
-                  Address is required
-                  </span>
+      
             </div>
 
               <!-- row4 -->
@@ -173,9 +170,9 @@
                 <label class="form-label text-white" for="form2Example1">Any Other</label>
               <input type="text" formControlName="vOther" class="form-control" placeholder="Other Details" aria-label="Last name">
             </div>
-            <div class="bg-white">
-              <input id="mobCam" name="mobCam"  class="text-dark"  type="file" accept="image/*" capture="environment">
-              <label for="mobCam">Camera</label>
+            <div id="mobCam" class="bg-white mt-3 text-center">
+              <input  name="mobCam"  class="text-dark mobCam"  type="file" accept="image/*" capture="environment">
+              <label for="mobCam">Capture</label>
             </div>
           </div>
               <div id="deskCam" class="container">

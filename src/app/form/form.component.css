@@ -14,15 +14,13 @@
   margin-top: 2.3rem;
 }
 
-#mobCam::-webkit-file-upload-button {
+.mobCam::-webkit-file-upload-button {
   visibility: hidden;
 }
 
-#mobCam{
-  content: 'Camera' !important;
+.mobCam{
   display: inline-block;
   width: 100%;
-  border: 2px solid rgb(232, 232, 232);
   background-color: white;
   border-radius: 3px;
   padding: 5px 30px;

@@ -1,6 +1,8 @@
-
-.gatePass{
-    max-width:35% !important ;
+main{
+  height: 72vh;
+}
+.gatePass1{
+    max-width:40% !important ;
     border-radius: 10px;
     margin-top: 8%;
     margin-left: 24%;
@@ -21,18 +23,163 @@
     float: left;
 }
 
+
+/* new gate pass css*/
+
+h1{
+  margin: 0;
+  padding: 0;
+}
+h2{
+    margin: 0;
+    margin: 0.5rem 0;
+}
+
+h6{
+  margin: 0rem 0rem 0.8rem 2rem;
+  font-size: 16px;
+  font-weight: 500;
+}
+.gatePassD{
+    max-width:55% !important ;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 4rem;
+}
+
+/* Gate Pass*/
+.gatePass{
+  display: flex;
+  justify-content: center;
+}
+
+.gpBg{
+  font-family: 'Poppins', sans-serif;
+  background-color: #EFF5FF;
+  height: 398px;
+  min-width: 380px;
+  border-radius: 12px 12px 0 0;
+  padding-top:17px;
+}
+
+.wrapper1{
+  margin: 0px 17px 0px 17px;
+  height: 382px;
+  width: 377px;
+  border: 3px solid black;
+  border-bottom: none;
+  border-radius: 12px 12px 0px 0px;
+}
+
+.gpBg2{
+  background-color: #3F6BB0;
+  min-width: 380px;
+  height: 150px;
+  border-radius: 0px 0px 12px 12px;
+}
+
+.wrapper2{
+  margin: 0px 17px 0px 17px;
+  height: 132px;
+  width: 377px;
+  border: 3px solid white;
+  border-top: none;
+  border-radius: 0px 0px 12px 12px;
+}
+
+.compTitle{
+  font-size: 14px;
+  color: #6F6767;
+  margin: 1.7rem 1.7rem 0.5rem 1.3rem;
+}
+
+.compBg{
+  background-color: white;
+  height: 51px;
+  width: 333px;
+}
+
+.compName{
+  font-weight: 600;
+  margin-left: 0.5rem;
+  padding-top: 0.3rem;
+  margin-bottom: 0.1rem;
+}
+.location{
+  margin-bottom: 1rem;
+}
+p{
+  font-weight: 300;
+  font-size: 14px;
+}
+
+hr{
+  background-color: rgb(0, 0, 0);
+  opacity: 1;
+  margin: 0.7rem 1.8rem 1.5rem 1.8rem;
+  height: 1.5px;
+}
+
+.visitor{
+  font-size: 14px;
+  color: #6F6767;
+  margin: 0rem 1.7rem 0.4rem 2rem;
+}
+
+img{
+    width: 80%;
+}
+
+.imgBox{
+  border: 2px solid white;
+  margin: auto;
+  margin-top: 0.8rem;
+  margin-left: 0.8rem;
+  padding: 0.2rem;
+
+}
+#img{
+  width: fit-content;
+}
+
 @media screen and (max-width:992px) {
-    .gatePass{
-        max-width:70% !important;
-        margin: auto;
-    }
+  .gatePass1{
+      max-width:70% !important;
+      margin: auto;
+  }
 }
 
 @media screen and (max-width:440px) {
-    .gatePass{
-        max-width:85% !important;
-        margin: auto;
-        padding: 1.5rem !important;
-    }
+  .gatePass1{
+      max-width:95% !important;
+      margin: auto;
+      padding-left: 1.5rem !important;
+      padding-right: 1.5rem !important;
+  }
 }
 
+@media screen and (max-width:992px) {
+    .gatePassD{
+        max-width:70% !important;
+        margin: auto;
+    }
+    /* main{
+        margin-top: 3rem !important;
+    } */
+}
+
+@media screen and (max-width:440px) {
+
+    .gatePassD{
+        max-width:95% !important;
+        margin: auto;
+        padding: 1.3rem !important;
+    }
+    /* main{
+        margin-top: 3rem !important;
+    } */
+    .gatePass{
+      transform: scale(0.8);
+    }
+
+}

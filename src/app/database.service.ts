@@ -22,6 +22,7 @@ export class DatabaseService {
   Date: any;
   date: any;
   time = ''; 
+  errorData: any;
 
   constructor(db: AngularFirestore,private afAuth: AngularFireAuth,private router:Router, public sharedService: SharedServiceService, public fireStorage: AngularFireStorage) { 
     this.db = db;
@@ -173,7 +174,7 @@ export class DatabaseService {
     console.log(this.urlImg)
   }
 
-  async getvisitors(userId: any){
+  async getvisitors(userId: any, flag: any){
     const userSnapshot = firstValueFrom(await this.db
       .collection<any>('users')
       .doc(userId)
@@ -181,17 +182,49 @@ export class DatabaseService {
     const visitors = (await userSnapshot).data().visitors;
     this.visitorsData = []
     for(let m=0;m<visitors.length;m++){
-      this.visitorsData.push(await this.getvisitorData(visitors[m]))
+      this.errorData = await this.getvisitorData(visitors[m])
+      console.log(this.errorData)
+      if(this.errorData.checkoutTime  == "" || flag){
+        this.visitorsData.push(this.errorData)
+      }
     }
     return this.visitorsData
   }
 
   async getvisitorData(visitorId: string){
+    //(ref) => ref.where('checkoutTime', '==', ""))
     const userSnapshot = firstValueFrom(await this.db
       .collection<any>('visitors')
       .doc(visitorId)
       .get());
     const visitorData = (await userSnapshot).data();
     return visitorData
+  }
+
+  async checkoutVisitor(index: any,userId: any){
+    const userSnapshot = firstValueFrom(await this.db
+      .collection<any>('users')
+      .doc(userId)
+      .get());
+    const visitors = (await userSnapshot).data().visitors;
+    await this.db
+        .collection<any>('visitors')
+        .doc(visitors[index])
+        .update({
+          checkoutTime: firebase.firestore.FieldValue.serverTimestamp()
+        });
+    const checkOutSnapshot = firstValueFrom(await this.db
+          .collection<any>('visitors')
+          .doc(visitors[index])
+          .get());
+    const checkOut = (await checkOutSnapshot).data().checkoutTime;
+    this.date = checkOut.toDate().toString()
+    const Time = this.date.split(' ')
+    await this.db
+        .collection<any>('visitors')
+        .doc(visitors[index])
+        .update({
+          checkoutTime: Time[4]
+        });
   }
 }

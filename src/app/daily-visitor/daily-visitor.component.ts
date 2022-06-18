@@ -26,7 +26,7 @@ export class DailyVisitorComponent implements OnInit {
   }
 
   async getData(userId: any){
-    this.visitorData = await this.db.getvisitors(userId)
+    this.visitorData = await this.db.getvisitors(userId,1)
     console.log(this.visitorData)
   }
 

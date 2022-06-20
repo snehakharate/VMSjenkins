@@ -22,6 +22,7 @@ export class FormComponent implements OnInit {
       vId: new FormControl('',Validators.compose([Validators.required])),
       vIdno: new FormControl('',Validators.compose([Validators.required])),
       vCaddr: new FormControl('',Validators.compose([Validators.required])),
+      vCompname : new FormControl('',Validators.compose([Validators.required])),
       totalVis: new FormControl('',Validators.compose([Validators.required])),
       vTab: new FormControl(),
       vLap: new FormControl(),
@@ -95,12 +96,12 @@ export class FormComponent implements OnInit {
   createArray(){
     this.visitors = []
     if(this.visitorDetails.value.totalVis>1){
-      
+
       for(let i = 0; i< this.visitorDetails.value.totalVis-1; i++){
         this.visitors.push(i.toString());
       }
     }
-    
+
   }
 
   addVisitorName(index: any){

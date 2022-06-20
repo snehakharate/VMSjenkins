@@ -10,8 +10,8 @@
           </svg> Back</button>
     </div>
 
-    <button (click)="htmlPng()" class="btn btn-primary">PNG</button>
-    
+    <!-- <button (click)="htmlPng()" class="btn btn-primary">PNG</button> -->
+
 <div  class="gatePass ">
 
         <div  id="img">
@@ -62,7 +62,7 @@
           <div class="gpBg2">
             <div class="wrapper2 row">
               <div class="col-5">
-                <img class="imgBox" src="../../assets/visitor.jpg" alt="">
+                <img class="imgBox" src="{{visitorData.vImg}}" alt="">
               </div>
               <div class="col">
                 <h1 class="visitor text-white m-0 mt-3">Purpose : <h6 class="d-inline m-0">{{visitorData.vPov}}</h6></h1>

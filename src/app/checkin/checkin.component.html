@@ -1,7 +1,7 @@
 <app-nav></app-nav>
 
 <router-outlet></router-outlet>
-<main *ngIf = '!this.pageshift' class="bg-dark bg-opacity-50 checkout px-5 py-3 overflow-auto ">
+<main *ngIf = 'this.sharedService.get("pageshift") == "false"' class="bg-dark bg-opacity-50 checkout px-5 py-3 overflow-auto ">
     <div class="container">
         <div class="row text-white title-2">
           <div class="col-lg-2 line d-flex align-items-center p-0">

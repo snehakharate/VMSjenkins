@@ -31,7 +31,7 @@ export class DailyVisitorComponent implements OnInit {
   }
 
   nextPage(index: any){
-    this.pageshift = true
+    this.sharedService.set("pageshift","true")
     this.sharedService.set('data',JSON.stringify(this.visitorData[index]))
     this.router.navigate(['gpdetails'], {relativeTo:this.route});
     this.ngOnInit()

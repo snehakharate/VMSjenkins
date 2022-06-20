@@ -46,6 +46,9 @@ export class FormComponent implements OnInit {
       this.router.navigate(['']);
       console.log(this.sharedService.get('userId'))
     }
+    else if(this.sharedService.get("mobile") == ""){
+      this.router.navigate(['vverify'])
+    }
     else{
       this.userData = this.sharedService.get('userData')
       this.userData = JSON.parse(this.userData)
@@ -111,6 +114,8 @@ export class FormComponent implements OnInit {
   submitData(){
     if(this.visitorDetails.valid){
       this.db.addVisitor(this.visitorDetails,this.visitors)
+      this.sharedService.set("mobile","")
+      this.router.navigate(['gatepass']);
     }
     else{
       console.log('invalid data')

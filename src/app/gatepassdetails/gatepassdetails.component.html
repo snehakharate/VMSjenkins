@@ -29,7 +29,7 @@
                 <svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill location ms-1" viewBox="0 0 16 16">
                   <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
                 </svg>
-                <p class="ms-1">Pune</p>
+                <p class="ms-1">{{visitorData.vCaddr}}</p>
               </div>
             </div>
             <hr>
@@ -38,22 +38,22 @@
               <div class="row">
                 <div class="col">
                   <h1 class="visitor">Visitor Name</h1>
-                  <h6>John Doe</h6>
+                  <h6>{{visitorData.vName}}</h6>
                 </div>
                 <div class="col">
                   <h1 class="visitor">Date</h1>
-                  <h6>17/06/2022</h6>
+                  <h6>{{visitorData.vDate}}</h6>
                 </div>
               </div>
 
               <div class="row">
                 <div class="col">
                   <h1 class="visitor">Whom To Meet</h1>
-                  <h6>Dnyanada Mahajan</h6>
+                  <h6>{{visitorData.empName}}</h6>
                 </div>
                 <div class="col">
                   <h1 class="visitor">Time</h1>
-                  <h6>5.00 PM</h6>
+                  <h6>{{visitorData.checkinTime}}</h6>
                 </div>
               </div>
             </div>
@@ -65,8 +65,8 @@
                 <img class="imgBox" src="../../assets/visitor.jpg" alt="">
               </div>
               <div class="col">
-                <h1 class="visitor text-white m-0 mt-3">Purpose : <h6 class="d-inline m-0">Interview</h6></h1>
-                <h1 class="visitor text-white m-0 mt-4">Asset :  <h6 class="d-inline m-0">Laptop, Mobile Phone, Pendrive</h6></h1>
+                <h1 class="visitor text-white m-0 mt-3">Purpose : <h6 class="d-inline m-0">{{visitorData.vPov}}</h6></h1>
+                <h1 class="visitor text-white m-0 mt-4">Asset :  <h6 class="d-inline m-0">{{visitorData.vLap}} {{visitorData.vTab}} {{visitorData.vPen}} {{visitorData.vOther}}</h6></h1>
               </div>
             </div>
           </div>

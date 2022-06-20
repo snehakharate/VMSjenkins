@@ -11,18 +11,24 @@ import * as htmlToImage from 'html-to-image';
 export class GatePassComponent implements OnInit {
   gatePass : any;
   html_Img: any;
-
+  visitorData : any;
   constructor(public sharedService: SharedServiceService, public router: Router) { }
 
   ngOnInit(): void {
     if(!this.sharedService.get('userId')){
       this.router.navigate(['']);
       console.log(this.sharedService.get('userId'))
+    }else{
+      console.log('You are here')
+      this.visitorData = this.sharedService.get('data');
+      this.visitorData = JSON.parse(this.visitorData);
+      this.gatePass = document.getElementById('img')!;
+      console.log(this.visitorData)
     }
 
     this.gatePass = document.getElementById('img')!;
 
-    
+
   }
 
   htmlPng(){

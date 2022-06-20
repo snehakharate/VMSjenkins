@@ -68,8 +68,8 @@
                         {{ emp.name }}
                       </li>
                      </ul> -->
-                  
-          
+
+
                   </div>
               </div>
 
@@ -109,6 +109,14 @@
                     <input type="text" class="form-control" placeholder="" aria-label="First name">
                 </div> -->
                 <div class="col">
+                  <label class="form-label text-white" for="form2Example1">Company Name<p class="text-danger d-inline">*</p></label>
+                  <input type="text" class="form-control" formControlName="vCompname" required placeholder="" aria-label="First name">
+                  <span class="m-0 p-0" *ngIf="visitorDetails.controls['vCompname'].invalid && (visitorDetails.controls['vCompname'].dirty || visitorDetails.controls['vCompname'].touched)">
+                    <div class="text-danger">
+                    Company name required
+                  </div>
+                </span>
+
                     <label class="form-label text-white" for="form2Example1">Company Address<p class="text-danger d-inline">*</p></label>
                     <input type="text" class="form-control" formControlName="vCaddr" required placeholder="" aria-label="First name">
                     <span class="m-0 p-0" *ngIf="visitorDetails.controls['vCaddr'].invalid && (visitorDetails.controls['vCaddr'].dirty || visitorDetails.controls['vCaddr'].touched)">
@@ -117,7 +125,7 @@
                     </div>
                   </span>
                 </div>
-      
+
             </div>
 
               <!-- row4 -->

@@ -13,7 +13,15 @@ export class DailyVisitorComponent implements OnInit {
   constructor(private route: ActivatedRoute,public sharedService: SharedServiceService, public db: DatabaseService,public router: Router) { }
   pageshift = false
   visitorData:any;
+  checkIns : any;
+  checkOuts : any;
+  dailyVisitors : any;
+
   ngOnInit(): void {
+    this.db.getcheckInOuts()
+    this.checkIns = this.sharedService.get("checkIns")
+    this.checkOuts = this.sharedService.get("checkOuts")
+    this.dailyVisitors = this.sharedService.get("dailyVisitors")
     this.pageshift = false
     if(!this.sharedService.get('userId')){
       this.router.navigate(['']);

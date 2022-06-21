@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { DatabaseService } from '../database.service';
 import { SharedServiceService } from '../shared-service.service';
 import { FormControl, FormGroup , Validators } from '@angular/forms';
@@ -12,12 +12,19 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class CheckinComponent implements OnInit {
 
   visitorData : any;
+  checkIns : any;
+  checkOuts : any;
+  dailyVisitors : any;
   constructor(public route: ActivatedRoute, public db: DatabaseService, public sharedService: SharedServiceService, public router: Router) {
     this.pageshift = false
   }
 
   pageshift = false
   ngOnInit(): void {
+    this.db.getcheckInOuts()
+    this.checkIns = this.sharedService.get("checkIns")
+    this.checkOuts = this.sharedService.get("checkOuts")
+    this.dailyVisitors = this.sharedService.get("dailyVisitors")
     console.log(this.pageshift)
     this.pageshift = false
     if(!this.sharedService.get('userId')){
@@ -32,6 +39,10 @@ export class CheckinComponent implements OnInit {
 
   ngOnChanges(): void {
     this.pageshift = false
+    this.checkIns = this.sharedService.get("checkIns")
+    this.checkOuts = this.sharedService.get("checkOuts")
+    this.dailyVisitors = this.sharedService.get("dailyVisitors")
+    this.ngOnInit()
   }
 
 

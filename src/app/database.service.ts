@@ -7,6 +7,7 @@ import { firstValueFrom } from 'rxjs';
 import { AngularFireAuth } from "@angular/fire/compat/auth";
 import { SharedServiceService } from './shared-service.service';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { DailyVisitorComponent } from './daily-visitor/daily-visitor.component';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,8 @@ export class DatabaseService {
   date: any;
   time = ''; 
   errorData: any;
+  visitordata: any;
+  gatepass: any;
 
   constructor(db: AngularFirestore,private afAuth: AngularFireAuth,private router:Router, public sharedService: SharedServiceService, public fireStorage: AngularFireStorage) { 
     this.db = db;
@@ -99,6 +102,13 @@ export class DatabaseService {
       .doc('totalVisitors')
       .get());
     const totalUsers = (await totalUsersSnapshot).data().visitorId;
+    this.userId = this.sharedService.get('userId')
+    const totalCheckinsSnapshot = firstValueFrom(await this.db
+      .collection<any>('users')
+      .doc(this.userId.toString())
+      .get());
+    const totalCheckins = (await totalCheckinsSnapshot).data().checkIns;
+    const dailyVisitors = (await totalCheckinsSnapshot).data().DailyVisitors;
     const visitorData = {
       vName: Form.value.vName,
       vMobile: Form.value.vMobile,
@@ -112,6 +122,7 @@ export class DatabaseService {
       vLap: Form.value.vLap,
       vPen: Form.value.vPen,
       vOther: Form.value.vOther,
+      vCompname: Form.value.vCompname,
       vImg: this.sharedService.get('urlImg')?.toString(),
       addVisitor: [],
       checkinTime: firebase.firestore.FieldValue.serverTimestamp(),
@@ -145,12 +156,14 @@ export class DatabaseService {
       .collection<any>('visitors')
       .doc('totalVisitors')
       .set({ visitorId: totalUsers + 1 });
-    this.userId = this.sharedService.get('userId')
+    
     this.db
       .collection<any>('users')
       .doc(this.userId.toString())
       .update({
         visitors: firebase.firestore.FieldValue.arrayUnion((111111 + totalUsers + 1).toString()),
+        checkIns: totalCheckins + 1,
+        DailyVisitors: dailyVisitors + 1
       }); 
     for(let m=0;m<additional.length;m++)
     {
@@ -161,18 +174,40 @@ export class DatabaseService {
           addVisitor: firebase.firestore.FieldValue.arrayUnion(additional[m]),
         }); 
     }
+    const visitorSnapshot = firstValueFrom(await this.db
+      .collection<any>('visitors')
+      .doc((111111 + totalUsers + 1).toString())
+      .get());
+    this.visitordata = JSON.stringify((await visitorSnapshot).data())
+    this.sharedService.set("data",this.visitordata)
+    await this.getcheckInOuts()
   }
 
 
   async addImgFun(orgPath: any, filePath: any) {
+    const totalUsersSnapshot = firstValueFrom(await this.db
+      .collection<any>('visitors')
+      .doc('totalVisitors')
+      .get());
+    const totalUsers = (await totalUsersSnapshot).data().visitorId;
     this.urlImg = await (
       await this.fireStorage.upload(
-          filePath,
+        (111111 + totalUsers + 1).toString()+ filePath,
         orgPath
       )
     ).ref.getDownloadURL();
     this.sharedService.set('urlImg',this.urlImg)
     console.log(this.urlImg)
+  }
+
+  async addGatepass(orgPath: any, filePath: any){
+    this.gatepass = await (
+      await this.fireStorage.upload(
+        filePath,
+        orgPath
+      )
+    ).ref.getDownloadURL();
+    return this.gatepass
   }
 
   async getvisitors(userId: any, flag: any){
@@ -224,5 +259,34 @@ export class DatabaseService {
         .update({
           checkoutTime: Time[4]
         });
+    this.userId = this.sharedService.get('userId')
+    const totalCheckoutsSnapshot = firstValueFrom(await this.db
+          .collection<any>('users')
+          .doc(this.userId.toString())
+          .get());
+    const totalCheckouts = (await totalCheckoutsSnapshot).data().checkOuts;
+    const totalCheckins = (await totalCheckoutsSnapshot).data().checkIns;
+    await this.db
+        .collection<any>('users')
+        .doc(this.userId.toString())
+        .update({
+          checkOuts: totalCheckouts + 1,
+          checkIns: totalCheckins -1
+        });
+    await this.getcheckInOuts()
+  }
+
+  async getcheckInOuts(){
+    this.userId = this.sharedService.get('userId')
+    const totalCheckoutsSnapshot = firstValueFrom(await this.db
+          .collection<any>('users')
+          .doc(this.userId.toString())
+          .get());
+    const totalCheckouts = (await totalCheckoutsSnapshot).data().checkOuts;
+    const totalCheckins = (await totalCheckoutsSnapshot).data().checkIns;
+    const dailyVisitors = (await totalCheckoutsSnapshot).data().DailyVisitors;
+    this.sharedService.set("checkOuts",totalCheckouts.toString())
+    this.sharedService.set("checkIns",totalCheckins.toString())
+    this.sharedService.set("dailyVisitors",dailyVisitors.toString())
   }
 }

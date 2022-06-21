@@ -26,6 +26,7 @@ import { DailyVisitorComponent } from './daily-visitor/daily-visitor.component';
 import { PreAppointmentComponent } from './pre-appointment/pre-appointment.component';
 import { GatePassComponent } from './gate-pass/gate-pass.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { NgxUiLoaderHttpModule, NgxUiLoaderModule, NgxUiLoaderRouterModule } from 'ngx-ui-loader';
 
 
 
@@ -56,7 +57,39 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     AngularFirestoreModule,
     AngularFireStorageModule,
     WebcamModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxUiLoaderModule.forRoot({
+      "bgsColor": "red",
+      "bgsOpacity": 0.5,
+      "bgsPosition": "bottom-right",
+      "bgsSize": 60,
+      "bgsType": "ball-spin-clockwise",
+      "blur": 0,
+      "delay": 0,
+      "fastFadeOut": true,
+      "fgsColor": "#3f6bb0",
+      "fgsPosition": "center-center",
+      "fgsSize": 60,
+      "fgsType": "folding-cube",
+      "gap": 24,
+      "logoPosition": "center-center",
+      "logoSize": 120,
+      "logoUrl": "",
+      "masterLoaderId": "master",
+      "overlayBorderRadius": "0",
+      "overlayColor": "rgba(40,40,40,0)",
+      "pbColor": "red",
+      "pbDirection": "ltr",
+      "pbThickness": 3,
+      "hasProgressBar": false,
+      "text": "",
+      "textColor": "#FFFFFF",
+      "textPosition": "center-center",
+      "maxTime": -1,
+      "minTime": 300
+    }),
+    NgxUiLoaderHttpModule,
+    NgxUiLoaderRouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

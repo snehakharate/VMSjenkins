@@ -4,6 +4,7 @@ import { SharedServiceService } from '../shared-service.service';
 import { FormControl, FormGroup , Validators } from '@angular/forms';
 import { firstValueFrom } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 @Component({
   selector: 'app-checkin',
   templateUrl: './checkin.component.html',
@@ -15,12 +16,14 @@ export class CheckinComponent implements OnInit {
   checkIns : any;
   checkOuts : any;
   dailyVisitors : any;
-  constructor(public route: ActivatedRoute, public db: DatabaseService, public sharedService: SharedServiceService, public router: Router) {
+  constructor(public route: ActivatedRoute, public db: DatabaseService, public sharedService: SharedServiceService, public router: Router, private ngxService: NgxUiLoaderService) {
     this.pageshift = false
   }
 
   pageshift = false
   ngOnInit(): void {
+    this.ngxService.start()
+    console.log('Loader Started')
     this.db.getcheckInOuts()
     this.checkIns = this.sharedService.get("checkIns")
     this.checkOuts = this.sharedService.get("checkOuts")
@@ -49,6 +52,8 @@ export class CheckinComponent implements OnInit {
   async getData(userId: any){
     this.visitorData = await this.db.getvisitors(userId,0)
     console.log(this.visitorData)
+    this.ngxService.stop()
+    console.log('Loader Stopped')
 
   }
 
@@ -59,7 +64,7 @@ export class CheckinComponent implements OnInit {
   }
 
   async checkOut(index: any){
-    this.db.checkoutVisitor(index)
+    await this.db.checkoutVisitor(index)
     console.log('success')
     this.ngOnInit()
   }

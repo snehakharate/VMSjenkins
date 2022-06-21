@@ -19,7 +19,7 @@ export class VverifyComponent implements OnInit {
   status = '';
   verifyForm = new FormGroup({
     mob: new FormControl('', Validators.compose([Validators.required,Validators.minLength(10),Validators.maxLength(10)])),
-    otp: new FormControl('', Validators.compose([Validators.required]))
+    otp: new FormControl('', Validators.compose([Validators.required,Validators.minLength(6),Validators.maxLength(6)]))
   });
   constructor(public router: Router, private http: HttpClient, public sharedService: SharedServiceService) { }
 
@@ -39,6 +39,7 @@ export class VverifyComponent implements OnInit {
      this.otp = this.data.message.content.toString().split(' ')[4].toString()
      if(this.status == 'success'){
       this.display = 'block'
+      alert("OTP Sent Successfully!")
      }
    })
   }
@@ -46,7 +47,11 @@ export class VverifyComponent implements OnInit {
   async goForm(){
      if(this.status == 'success' && this.otp == this.verifyForm.value.otp){
       this.sharedService.set('mobile',this.verifyForm.value.mob)
+      alert("Verfication Successfull!")
       this.router.navigate(['form']);
+     }
+     else{
+      alert("Incorrect OTP!!")
      }
   }
 

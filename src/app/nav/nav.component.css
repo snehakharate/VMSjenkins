@@ -5,6 +5,10 @@
     cursor: pointer;
 }
 
+.logout{
+  cursor: pointer;
+}
+
 .row{
   min-width: 40%;
 }

@@ -13,23 +13,26 @@ import { DailyVisitorComponent } from './daily-visitor/daily-visitor.component';
 import { PreAppointmentComponent } from './pre-appointment/pre-appointment.component';
 import { GatePassComponent } from './gate-pass/gate-pass.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
+
+
 
 const routes: Routes = [
-
+  
   {path:'', component:LoginComponent},
   {path:'home', component:HomeComponent},
   {path: 'vverify', component:VverifyComponent},
   {path: 'form', component:FormComponent},
   //{path: 'gpdetails', component:GatepassdetailsComponent},
   {path: 'checkout',
-      component: CheckinComponent, 
+      component: CheckinComponent,
       children: [
         {
           path: 'gpdetails',
           component: GatepassdetailsComponent
         }
       ]
-    },  
+    },
   {path:'dailyVisitor', component: DailyVisitorComponent,
   children: [
     {

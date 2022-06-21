@@ -27,7 +27,6 @@ export class CheckinComponent implements OnInit {
   pageshift = false
   ngOnInit(): void {
     this.ngxService.start()
-    console.log('Loader Started')
     this.db.getcheckInOuts()
     this.checkIns = this.sharedService.get("checkIns")
     this.checkOuts = this.sharedService.get("checkOuts")
@@ -57,7 +56,7 @@ export class CheckinComponent implements OnInit {
     this.visitorData = await this.db.getvisitors(userId,0)
     console.log(this.visitorData)
     this.ngxService.stop()
-    console.log('Loader Stopped')
+
 
   }
 
@@ -68,8 +67,10 @@ export class CheckinComponent implements OnInit {
   }
 
   async checkOut(index: any){
+    this.ngxService.start()
     await this.db.checkoutVisitor(index)
     console.log('success')
+    this.ngxService.stop()
     this.ngOnInit()
   }
 

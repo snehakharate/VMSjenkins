@@ -6,6 +6,7 @@ import { SharedServiceService } from '../shared-service.service';
 import { firstValueFrom } from 'rxjs';
 import { DatabaseService } from '../database.service';
 import { Router } from '@angular/router';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -34,7 +35,7 @@ export class FormComponent implements OnInit {
   )
   visitorMob: any
 
-  constructor(public sharedService: SharedServiceService, public db: DatabaseService, public router: Router){}
+  constructor(public sharedService: SharedServiceService, public db: DatabaseService, public router: Router, private ngxService: NgxUiLoaderService){}
 
   stream: any = null;
   status: any = null;
@@ -115,8 +116,10 @@ export class FormComponent implements OnInit {
 
   async submitData(){
     if(this.visitorDetails.valid){
+      this.ngxService.start()
       await this.db.addVisitor(this.visitorDetails,this.visitors)
       this.sharedService.set("mobile","")
+      this.ngxService.stop()
       this.router.navigate(['gatepass']);
     }
     else{

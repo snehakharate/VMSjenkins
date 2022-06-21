@@ -21,7 +21,7 @@
           </div>
 
           <div class="col-lg d-flex p-0 search">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <input class="form-control mr-sm-2" type="search" [(ngModel)]="searchkey" (change) = "searchThis()" placeholder="Search" aria-label="Search">
           </div>
         </div>
       </div>

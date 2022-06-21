@@ -29,7 +29,11 @@ export class CheckinComponent implements OnInit {
   pageshift = false
   async ngOnInit() {
     this.ngxService.start()
-    console.log('Loader Started')
+    this.db.getcheckInOuts()
+    this.checkIns = this.sharedService.get("checkIns")
+    this.checkOuts = this.sharedService.get("checkOuts")
+    this.dailyVisitors = this.sharedService.get("dailyVisitors")
+    console.log(this.pageshift)
     this.pageshift = false
     if(!this.sharedService.get('userId')){
       this.router.navigate(['']);
@@ -59,7 +63,7 @@ export class CheckinComponent implements OnInit {
     this.visitorData = this.preData
     console.log(this.visitorData)
     this.ngxService.stop()
-    console.log('Loader Stopped')
+
 
   }
 
@@ -70,8 +74,10 @@ export class CheckinComponent implements OnInit {
   }
 
   async checkOut(index: any){
+    this.ngxService.start()
     await this.db.checkoutVisitor(index)
     console.log('success')
+    this.ngxService.stop()
     this.ngOnInit()
   }
 
@@ -81,7 +87,7 @@ export class CheckinComponent implements OnInit {
       const len = this.searchkey.length
       if(this.preData[i].vMobile.substring(0,len) == this.searchkey){
         this.visitorData.push(this.preData[i])
-      } 
+      }
     }
   }
 

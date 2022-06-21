@@ -17,9 +17,11 @@ import { window } from 'rxjs';
 export class CheckinComponent implements OnInit {
 
   visitorData : any;
+  preData: any;
   checkIns : any;
   checkOuts : any;
   dailyVisitors : any;
+  searchkey =""
   constructor(public route: ActivatedRoute, public db: DatabaseService, public sharedService: SharedServiceService, public router: Router, private ngxService: NgxUiLoaderService) {
     this.pageshift = false
   }
@@ -54,7 +56,8 @@ export class CheckinComponent implements OnInit {
 
 
   async getData(userId: any){
-    this.visitorData = await this.db.getvisitors(userId,0)
+    this.preData = await this.db.getvisitors(userId,0)
+    this.visitorData = this.preData
     console.log(this.visitorData)
     this.ngxService.stop()
     console.log('Loader Stopped')
@@ -71,6 +74,16 @@ export class CheckinComponent implements OnInit {
     await this.db.checkoutVisitor(index)
     console.log('success')
     this.ngOnInit()
+  }
+
+  searchThis(){
+    this.visitorData = []
+    for(let i =0; i< this.preData.length;i++){
+      const len = this.searchkey.length
+      if(this.preData[i].vMobile.substring(0,len) == this.searchkey){
+        this.visitorData.push(this.preData[i])
+      } 
+    }
   }
 
 

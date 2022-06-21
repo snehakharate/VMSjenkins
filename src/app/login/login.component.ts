@@ -12,13 +12,14 @@ import { SharedServiceService } from '../shared-service.service';
 export class LoginComponent implements OnInit {
 
   loginForm = new FormGroup({
-    userId: new FormControl('', Validators.compose([Validators.required])),
+    userId: new FormControl('', Validators.compose([Validators.required,Validators.minLength(6)])),
     password: new FormControl('', Validators.compose([Validators.required]))
   });
 
   constructor(private afAuth: AngularFireAuth, private router: Router,private db : DatabaseService, public sharedService: SharedServiceService) { }
 
   ngOnInit() {
+
   }
 
   doLogin(formData: FormGroup) {

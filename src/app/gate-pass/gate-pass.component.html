@@ -9,68 +9,69 @@
         <div class="text-center">
             <button type="submit" (click)="htmlPng()" class="btn btn-primary btn fw-bold mb-2">Download Gate Pass</button>
         </div>
-
-
-
-<div  class="gatePass mb-2">
-  <div  id="img">
-    <div class="gpBg">
-      <div class="wrapper1">
-        <div class="row justify-content-end">
-          <img src="../../assets/title.svg" alt="Title and Logo">
+        <div class="text-center">
+          <button id = "refresh"  (click) = "gatepassSend()" class="btn btn-primary btn fw-bold mb-2" Refresh>Send GatePass</button>
         </div>
-        <div>
-          <h1 class="compTitle">Your Company Name</h1>
-        </div>
-        <div class="compBg m-auto">
-        <h6 class="compName">TATA CONSULTANCY SERVICES</h6>
-        <div class="d-flex align-items-center">
-          <svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill location ms-1" viewBox="0 0 16 16">
-            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
-          </svg>
-          <p class="ms-1">Pune</p>
-        </div>
-      </div>
-      <hr>
 
-      <!-- Visitor Details -->
-        <div class="row">
-          <div class="col">
-            <h1 class="visitor">Visitor Name</h1>
-            <h6>John Doe</h6>
+        <div  class="gatePass ">
+          <div  id="img">
+            <div class="gpBg">
+              <div class="wrapper1">
+                <div class="row justify-content-end">
+                  <img src="../../assets/title.svg" alt="Title and Logo">
+                </div>
+                <div>
+                  <h1 class="compTitle">Your Company Name</h1>
+                </div>
+                <div class="compBg m-auto">
+                <h6 class="compName">{{visitorData.vCompname}}</h6>
+                <div class="d-flex align-items-center">
+                  <svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill location ms-1" viewBox="0 0 16 16">
+                    <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                  </svg>
+                  <p class="ms-1">{{visitorData.vCaddr}}</p>
+                </div>
+              </div>
+              <hr>
+  
+              <!-- Visitor Details -->
+                <div class="row">
+                  <div class="col">
+                    <h1 class="visitor">Visitor Name</h1>
+                    <h6>{{visitorData.vName}}</h6>
+                  </div>
+                  <div class="col">
+                    <h1 class="visitor">Date</h1>
+                    <h6>{{visitorData.vDate}}</h6>
+                  </div>
+                </div>
+  
+                <div class="row">
+                  <div class="col">
+                    <h1 class="visitor">Whom To Meet</h1>
+                    <h6>{{visitorData.empName}}</h6>
+                  </div>
+                  <div class="col">
+                    <h1 class="visitor">Time</h1>
+                    <h6>{{visitorData.checkinTime}}</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="gpBg2">
+              <div class="wrapper2 row">
+                <div class="col-5">
+                  <img class="imgBox" src="{{Image}}" alt="">
+                </div>
+                <div class="col">
+                  <h1 class="visitor text-white m-0 mt-3">Purpose : <h6 class="d-inline m-0">{{visitorData.vPov}}</h6></h1>
+                  <h1 class="visitor text-white m-0 mt-4">Asset :  <h6 class="d-inline m-0">{{visitorData.vLap}} {{visitorData.vTab}} {{visitorData.vPen}} {{visitorData.vOther}}</h6></h1>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="col">
-            <h1 class="visitor">Date</h1>
-            <h6>17/06/2022</h6>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col">
-            <h1 class="visitor">Whom To Meet</h1>
-            <h6>Dnyanada Mahajan</h6>
-          </div>
-          <div class="col">
-            <h1 class="visitor">Time</h1>
-            <h6>5.00 PM</h6>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="gpBg2">
-      <div class="wrapper2 row">
-        <div class="col-5">
-          <img class="imgBox" src="{{visitorData.vImg}}" alt="">
-        </div>
-        <div class="col">
-          <h1 class="visitor text-white m-0 mt-3">Purpose : <h6 class="d-inline m-0">Interview</h6></h1>
-          <h1 class="visitor text-white m-0 mt-4">Asset :  <h6 class="d-inline m-0">Laptop, Mobile Phone, Pendrive</h6></h1>
-        </div>
-      </div>
-    </div>
   </div>
-</div>
 
 </main>
 

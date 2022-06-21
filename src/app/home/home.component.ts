@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
     }
     const userId = this.sharedService.get('userId')
     this.userData = this.db.getuserData(userId);
+    this.sharedService.set("pageshift","false")
     //this.sharedService.set('userData',json)
   }
 }

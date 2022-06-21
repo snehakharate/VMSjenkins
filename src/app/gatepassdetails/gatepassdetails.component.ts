@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import * as htmlToImage from 'html-to-image';
 import { SharedServiceService } from '../shared-service.service';
 
@@ -13,9 +13,10 @@ export class GatepassdetailsComponent implements OnInit {
 
   gatePass : any;
   visitorData: any;
-  constructor(public sharedService: SharedServiceService, public router: Router, private location: Location) { }
+  constructor(public sharedService: SharedServiceService, public router: Router, private location: Location, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    console.log()
     if(!this.sharedService.get('userId')){
       this.router.navigate(['']);
       console.log(this.sharedService.get('userId'))
@@ -43,7 +44,8 @@ export class GatepassdetailsComponent implements OnInit {
   }
 
   navigate(){
-    this.location.back()
+    this.sharedService.set("pageshift","false")
+    this.router.navigate([(this.router.url.split('/')[1]).toString()])
   }
 
 }

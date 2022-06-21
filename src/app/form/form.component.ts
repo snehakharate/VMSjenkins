@@ -41,11 +41,15 @@ export class FormComponent implements OnInit {
   userData: any;
   employeesD: any;
   visitors: any;
+  display = 'none'
 
   ngOnInit(): void {
     if(!this.sharedService.get('userId')){
       this.router.navigate(['']);
       console.log(this.sharedService.get('userId'))
+    }
+    else if(this.sharedService.get("mobile") == ""){
+      this.router.navigate(['vverify'])
     }
     else{
       this.userData = this.sharedService.get('userData')
@@ -74,13 +78,13 @@ export class FormComponent implements OnInit {
 
 
 
-  public handleImage(webcamImage: WebcamImage): void {
+  public async handleImage(webcamImage: WebcamImage) {
       this.webcamImage = webcamImage;
       this.captureImage = webcamImage!.imageAsDataUrl;
       console.info('received webcam image', this.captureImage);
-      const file = new File([this.sharedService.convertDataUrlToBlob(this.captureImage)],'img_1.jpg', {type: `image/*.jpg`});
-      console.log(file)
-      this.db.addImgFun(file,this.visitorMob + '_img.jpg')
+      const file = new File([this.sharedService.convertDataUrlToBlob(this.captureImage)],'img_1.jpg', {type: `image/.jpg`});
+      await this.db.addImgFun(file,this.visitorMob + '_img.jpg')
+      this.display = 'block'
   }
 
 
@@ -109,9 +113,11 @@ export class FormComponent implements OnInit {
     console.log(this.visitors)
   }
 
-  submitData(){
+  async submitData(){
     if(this.visitorDetails.valid){
-      this.db.addVisitor(this.visitorDetails,this.visitors)
+      await this.db.addVisitor(this.visitorDetails,this.visitors)
+      this.sharedService.set("mobile","")
+      this.router.navigate(['gatepass']);
     }
     else{
       console.log('invalid data')

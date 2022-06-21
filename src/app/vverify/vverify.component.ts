@@ -18,7 +18,7 @@ export class VverifyComponent implements OnInit {
   data:any;
   status = '';
   verifyForm = new FormGroup({
-    mob: new FormControl('', Validators.compose([Validators.required,Validators.minLength(10)])),
+    mob: new FormControl('', Validators.compose([Validators.required,Validators.minLength(10),Validators.maxLength(10)])),
     otp: new FormControl('', Validators.compose([Validators.required]))
   });
   constructor(public router: Router, private http: HttpClient, public sharedService: SharedServiceService) { }
@@ -31,7 +31,7 @@ export class VverifyComponent implements OnInit {
   }
 
   sendOTP(){
-    const url = 'https://usmartsms.herokuapp.com/?token='+environment.apiKey+'&mobile=91'+this.verifyForm.value.mob
+    const url = 'https://r0mgkjqdsb.execute-api.ap-south-1.amazonaws.com/testotp/sendotp?api='+environment.apiKey+'&mobile='+this.verifyForm.value.mob
     console.log(url)
     this.http.get(url).subscribe((res)=>{
      this.data = res

@@ -5,6 +5,10 @@ import { FormControl, FormGroup , Validators } from '@angular/forms';
 import { firstValueFrom } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
+import { createPublicKey } from 'crypto';
+import { window } from 'rxjs';
+
+
 @Component({
   selector: 'app-checkin',
   templateUrl: './checkin.component.html',
@@ -68,5 +72,6 @@ export class CheckinComponent implements OnInit {
     console.log('success')
     this.ngOnInit()
   }
+
 
 }

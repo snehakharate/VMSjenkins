@@ -17,12 +17,18 @@
             <small *ngIf="verifyForm.controls['mob'].errors?.['minlength'] || verifyForm.controls['mob'].errors?.['maxlength']" class="text-danger">Please provide a valid mobile number</small>
           </div>
         </span>
-        <button type="submit" (click) = "sendOTP()" class="btn btn-primary btn fw-bold mt-3">Get OTP</button>
+
         </div>
 
         <div class="form-outline my-1 mt-3" [ngStyle]="{'display': display}" id = "OtpVerification">
           <label class="form-label text-white" for="form2Example1">Verify OTP </label>
           <input type="text" id="form2Example1" class="form-control" formControlName="otp" placeholder="Enter OTP"/>
+          <span class="m-0 p-0" *ngIf="verifyForm.controls['otp'].invalid && (verifyForm.controls['otp'].dirty || verifyForm.controls['otp'].touched) ">
+            <div>
+            <small *ngIf="verifyForm.controls['otp'].errors?.['required']" class="text-danger">OTP is required</small>
+            <small *ngIf="verifyForm.controls['otp'].errors?.['minlength'] || verifyForm.controls['otp'].errors?.['maxlength']" class="text-danger">Please provide a valid OTP</small>
+          </div>
+        </span>
           <button type="submit" (click) = "goForm()" class="btn btn-primary btn fw-bold mt-3">Verify</button>
         </div>
       </form>

@@ -68,21 +68,40 @@ export class DatabaseService {
     .then(loginResponse => {
           console.log(loginResponse);
           this.sharedService.set('userId',userId);
+          alert("Login Successful!!")
           this.router.navigate(['home']);
     })
         .catch(error => {
-          console.log(error);
+          // console.log(error);
+          alert("Incoreect Password!")
     });
   }
 
   async getuserEmail(userId: string){
-    const userSnapshot = firstValueFrom(await this.db
+    const totalUsersSnapshot = firstValueFrom(await this.db
       .collection<any>('users')
-      .doc(userId)
+      .doc('totalUsers')
       .get());
-    const userEmail = (await userSnapshot).data().userEmail;
-    //console.log(userEmail)
-    return userEmail;
+    const totalUsers = (await totalUsersSnapshot).data().userId;
+    // console.log(totalUsers)
+    if(Number(userId) < (Number(totalUsers) + 111112)){
+      const userSnapshot = firstValueFrom(await this.db
+        .collection<any>('users')
+        .doc(userId)
+        .get());
+        if(!(await userSnapshot).data()){
+          console.log("error")
+        }
+      const userEmail = (await userSnapshot).data().userEmail;
+      //console.log(userEmail)
+      return userEmail;
+    }
+    else{
+      // console.log("this is error done")
+      alert("Incoreect Security Code!")
+      return "error"
+    }
+    
   }
 
   async getuserData(userId: any){

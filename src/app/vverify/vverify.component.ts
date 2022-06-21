@@ -31,7 +31,7 @@ export class VverifyComponent implements OnInit {
   }
 
   sendOTP(){
-    const url = 'https://usmartsms.herokuapp.com/?token='+environment.apiKey+'&mobile=91'+this.verifyForm.value.mob
+    const url = 'https://r0mgkjqdsb.execute-api.ap-south-1.amazonaws.com/testotp/sendotp?api='+environment.apiKey+'&mobile='+this.verifyForm.value.mob
     console.log(url)
     this.http.get(url).subscribe((res)=>{
      this.data = res

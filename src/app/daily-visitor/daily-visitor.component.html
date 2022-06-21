@@ -1,7 +1,7 @@
 <app-nav></app-nav>
 
 <router-outlet></router-outlet>
-<main *ngIf = '!this.pageshift' class="bg-dark bg-opacity-50 dailyV px-5 py-3 overflow-auto ">
+<main *ngIf = 'this.sharedService.get("pageshift") == "false"' class="bg-dark bg-opacity-50 dailyV px-5 py-3 overflow-auto ">
 
     <div class="container">
         <div class="row text-white title-2">
@@ -10,13 +10,13 @@
           </div>
           <div class="col d-flex p-0 count">
             <div class="ccount p-2 rounded d-flex align-items-center bg-custom">
-                <h5 class="m-0">Daily Visitors: <p class="d-inline">2</p></h5>
+                <h5 class="m-0">Daily Visitors: <p class="d-inline">{{dailyVisitors}}</p></h5>
               </div>
               <div class="ccount p-2 d-flex align-items-center rounded bg-danger">
-                <h5 class="m-0">Check Out:<p class="d-inline">3</p> </h5>
+                <h5 class="m-0">Check Out:<p class="d-inline">{{checkOuts}}</p> </h5>
               </div>
               <div class="ccount p-2 d-flex align-items-center rounded bg-success">
-                <h5 class="m-0">Check In:<p class="d-inline">4</p> </h5>
+                <h5 class="m-0">Check In:<p class="d-inline">{{checkIns}}</p> </h5>
               </div>
           </div>
      
@@ -49,8 +49,8 @@
         <td>{{visitor.vMobile}}</td>
         <td>{{visitor.empName}}</td>
         <td>{{visitor.vPov}}</td>
-        <td>10:00:00</td>
-        <td>12:05:22</td>
+        <td>{{visitor.checkinTime}}</td>
+        <td>{{visitor.checkoutTime}}</td>
         <td><button type="button" class="btn btn-primary" (click) = "nextPage(k)">DETAILS</button></td>
 	</tr>
 	</tbody>

@@ -17,28 +17,29 @@ import { window } from 'rxjs';
 export class CheckinComponent implements OnInit {
 
   visitorData : any;
+  preData: any;
   checkIns : any;
   checkOuts : any;
   dailyVisitors : any;
+  searchkey =""
   constructor(public route: ActivatedRoute, public db: DatabaseService, public sharedService: SharedServiceService, public router: Router, private ngxService: NgxUiLoaderService) {
     this.pageshift = false
   }
 
   pageshift = false
-  ngOnInit(): void {
+  async ngOnInit() {
     this.ngxService.start()
     console.log('Loader Started')
-    this.db.getcheckInOuts()
-    this.checkIns = this.sharedService.get("checkIns")
-    this.checkOuts = this.sharedService.get("checkOuts")
-    this.dailyVisitors = this.sharedService.get("dailyVisitors")
-    console.log(this.pageshift)
     this.pageshift = false
     if(!this.sharedService.get('userId')){
       this.router.navigate(['']);
       console.log(this.sharedService.get('userId'))
     }
     else{
+      await this.db.getcheckInOuts()
+      this.checkIns = this.sharedService.get("checkIns")
+      this.checkOuts = this.sharedService.get("checkOuts")
+      this.dailyVisitors = this.sharedService.get("dailyVisitors")
       const userId = this.sharedService.get('userId')
       this.getData(userId)
     }
@@ -54,7 +55,8 @@ export class CheckinComponent implements OnInit {
 
 
   async getData(userId: any){
-    this.visitorData = await this.db.getvisitors(userId,0)
+    this.preData = await this.db.getvisitors(userId,0)
+    this.visitorData = this.preData
     console.log(this.visitorData)
     this.ngxService.stop()
     console.log('Loader Stopped')
@@ -71,6 +73,16 @@ export class CheckinComponent implements OnInit {
     await this.db.checkoutVisitor(index)
     console.log('success')
     this.ngOnInit()
+  }
+
+  searchThis(){
+    this.visitorData = []
+    for(let i =0; i< this.preData.length;i++){
+      const len = this.searchkey.length
+      if(this.preData[i].vMobile.substring(0,len) == this.searchkey){
+        this.visitorData.push(this.preData[i])
+      } 
+    }
   }
 
 

@@ -32,19 +32,27 @@ export class VverifyComponent implements OnInit {
   }
 
   sendOTP(){
-    const url = 'https://r0mgkjqdsb.execute-api.ap-south-1.amazonaws.com/testotp/sendotp?api='+environment.apiKey+'&mobile='+this.verifyForm.value.mob
-    console.log(url)
-    this.ngxService.start()
-    this.http.get(url).subscribe((res)=>{
-     this.data = res
-     this.status = this.data.status.toString()
-     this.otp = this.data.message.content.toString().split(' ')[4].toString()
-     if(this.status == 'success'){
-      this.display = 'block'
-      alert("OTP Sent Successfully!")
-      this.ngxService.stop()
-     }
-   })
+    if(this.verifyForm.value.mob.toString().length == 10){
+      const url = 'https://r0mgkjqdsb.execute-api.ap-south-1.amazonaws.com/testotp/sendotp?api='+environment.apiKey+'&mobile='+this.verifyForm.value.mob
+      // console.log(url)
+      this.ngxService.start()
+      this.http.get(url).subscribe((res)=>{
+      this.data = res
+      this.status = this.data.status.toString()
+      if(!this.status){
+        this.ngxService.stop()
+      }
+      this.otp = this.data.message.content.toString().split(' ')[4].toString()
+      if(this.status == 'success'){
+        this.display = 'block'
+        alert("OTP Sent Successfully!")
+        this.ngxService.stop()
+      }
+    })
+  }
+  else{
+    alert("Enter correct Mobile Number")
+  }
   }
 
   async goForm(){

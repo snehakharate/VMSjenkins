@@ -38,7 +38,7 @@ export class GatePassComponent implements OnInit {
     htmlToImage.toJpeg(this.gatePass).then(async (dataUrl) => { 
       const file = new File([this.sharedService.convertDataUrlToBlob(dataUrl)],'img_1.png', {type: `image/png`});
       this.vgatePass =  await this.db.addGatepass(file,this.visitorData.visitorId + '_gatepass.png')
-      const url = 'https://usmartwp.herokuapp.com/?&token='+environment.wpAPI+'&mobile='+this.visitorData.vMobile+'&name='+this.visitorData.vName+'&link='+this.vgatePass.toString()
+      const url = 'https://r0mgkjqdsb.execute-api.ap-south-1.amazonaws.com/testotp/wpgatepass?api='+environment.wpAPI+'&mobile='+this.visitorData.vMobile+'&link='+this.vgatePass.toString()+'&name='+this.visitorData.vName
         console.log(url)
         this.httpClient.get(url).subscribe((res)=>{
         console.log(res)

@@ -20,7 +20,7 @@
         <button type="submit" (click) = "sendOTP()" class="btn btn-primary btn fw-bold mt-3">Get OTP</button>
         </div>
 
-        <div class="form-outline my-1 mt-3 text-center" [ngStyle]="{'display': display}" id = "OtpVerification">
+        <div class="form-outline my-1 mt-3" [ngStyle]="{'display': display}" id = "OtpVerification">
           <label class="form-label text-white" for="form2Example1">Verify OTP </label>
           <input type="text" id="form2Example1" class="form-control" formControlName="otp" placeholder="Enter OTP"/>
           <button type="submit" (click) = "goForm()" class="btn btn-primary btn fw-bold mt-3">Verify</button>

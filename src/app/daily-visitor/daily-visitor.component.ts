@@ -20,17 +20,17 @@ export class DailyVisitorComponent implements OnInit {
   searchkey ="";
   preData:any;
 
-  ngOnInit(): void {
-    this.db.getcheckInOuts()
-    this.checkIns = this.sharedService.get("checkIns")
-    this.checkOuts = this.sharedService.get("checkOuts")
-    this.dailyVisitors = this.sharedService.get("dailyVisitors")
+  async ngOnInit() {
     this.pageshift = false
     if(!this.sharedService.get('userId')){
       this.router.navigate(['']);
       console.log(this.sharedService.get('userId'))
     }
     else{
+      await this.db.getcheckInOuts()
+      this.checkIns = this.sharedService.get("checkIns")
+      this.checkOuts = this.sharedService.get("checkOuts")
+      this.dailyVisitors = this.sharedService.get("dailyVisitors")
       const userId = this.sharedService.get('userId')
       this.getData(userId)
     }

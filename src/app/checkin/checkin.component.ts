@@ -27,20 +27,19 @@ export class CheckinComponent implements OnInit {
   }
 
   pageshift = false
-  ngOnInit(): void {
+  async ngOnInit() {
     this.ngxService.start()
     console.log('Loader Started')
-    this.db.getcheckInOuts()
-    this.checkIns = this.sharedService.get("checkIns")
-    this.checkOuts = this.sharedService.get("checkOuts")
-    this.dailyVisitors = this.sharedService.get("dailyVisitors")
-    console.log(this.pageshift)
     this.pageshift = false
     if(!this.sharedService.get('userId')){
       this.router.navigate(['']);
       console.log(this.sharedService.get('userId'))
     }
     else{
+      await this.db.getcheckInOuts()
+      this.checkIns = this.sharedService.get("checkIns")
+      this.checkOuts = this.sharedService.get("checkOuts")
+      this.dailyVisitors = this.sharedService.get("dailyVisitors")
       const userId = this.sharedService.get('userId')
       this.getData(userId)
     }

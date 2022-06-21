@@ -10,18 +10,22 @@
             <div class="form-outline my-4">
               <label class="form-label text-white" for="form2Example1">Organization Security Code</label>
               <input type="text" id="form2Example1" name="userId" class="form-control" formControlName="userId" placeholder="Security Code"/>
-              <span class="text-danger" *ngIf="this.loginForm.value.userId == ''">
-               Security Code is required
-                </span>
+              <span class="m-0 p-0" *ngIf="loginForm.controls['userId'].invalid && (loginForm.controls['userId'].dirty || loginForm.controls['userId'].touched) ">
+                <div class="text-danger">
+                Enter correct Security code
+              </div>
+            </span>
             </div>
 
             <!-- Password input -->
             <div class="form-outline mb-4">
               <label class="form-label text-white" for="form2Example2">Password</label>
               <input type="password" id="form2Example2" class="form-control" formControlName="password" placeholder="Enter Password" />
-              <span class="text-danger" *ngIf="this.loginForm.value.password == ''">
-                Password is required
-                 </span>
+              <span class="m-0 p-0" *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
+                <div class="text-danger">
+                Enter your password
+              </div>
+            </span>
             </div>
 
             <!--forget password-->
@@ -31,6 +35,13 @@
 
             <!-- Submit button -->
             <button type="submit" class="btn btn-primary btn w-100 mt-3 mb-4 fw-bold">Sign in</button>
+
+            <!---Loader--->
+            <!-- <div class="d-flex justify-content-center">
+              <div class="spinner-border" role="status">
+                  <span class="sr-only" id="loading"></span>
+              </div>
+          </div> -->
 
           </form>
     </main>

@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
         console.log(this.sharedService.get('userId'))
     }
     const userId = this.sharedService.get('userId')
-    this.userData = this.db.getuserData(userId);
+    this.userData = this.db.getuserData(userId);  
     //this.sharedService.set('userData',json)
   }
 }

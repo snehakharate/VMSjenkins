@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { DatabaseService } from '../database.service';
 import { SharedServiceService } from '../shared-service.service';
 
@@ -10,7 +11,7 @@ import { SharedServiceService } from '../shared-service.service';
 })
 export class DailyVisitorComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute,public sharedService: SharedServiceService, public db: DatabaseService,public router: Router) { }
+  constructor(private route: ActivatedRoute,public sharedService: SharedServiceService, public db: DatabaseService,public router: Router, private ngxService: NgxUiLoaderService) { }
   pageshift = false
   visitorData:any;
   checkIns : any;
@@ -34,8 +35,10 @@ export class DailyVisitorComponent implements OnInit {
   }
 
   async getData(userId: any){
+    this.ngxService.start()
     this.visitorData = await this.db.getvisitors(userId,1)
     console.log(this.visitorData)
+    this.ngxService.stop()
   }
 
   nextPage(index: any){

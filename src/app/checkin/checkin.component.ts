@@ -8,7 +8,6 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { createPublicKey } from 'crypto';
 import { window } from 'rxjs';
 
-
 @Component({
   selector: 'app-checkin',
   templateUrl: './checkin.component.html',
@@ -90,6 +89,5 @@ export class CheckinComponent implements OnInit {
       }
     }
   }
-
 
 }

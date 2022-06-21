@@ -76,7 +76,6 @@ import { NgxUiLoaderModule, NgxUiLoaderRouterModule } from 'ngx-ui-loader';
       "logoPosition": "center-center",
       "logoSize": 120,
       "logoUrl": "",
-      "masterLoaderId": "master",
       "overlayBorderRadius": "0",
       "overlayColor": "rgba(40,40,40,0.3)",
       "pbColor": "red",

@@ -16,6 +16,8 @@ export class DailyVisitorComponent implements OnInit {
   checkIns : any;
   checkOuts : any;
   dailyVisitors : any;
+  searchkey ="";
+  preData:any;
 
   ngOnInit(): void {
     this.db.getcheckInOuts()
@@ -34,7 +36,8 @@ export class DailyVisitorComponent implements OnInit {
   }
 
   async getData(userId: any){
-    this.visitorData = await this.db.getvisitors(userId,1)
+    this.preData = await this.db.getvisitors(userId,1)
+    this.visitorData = this.preData
     console.log(this.visitorData)
   }
 
@@ -43,6 +46,16 @@ export class DailyVisitorComponent implements OnInit {
     this.sharedService.set('data',JSON.stringify(this.visitorData[index]))
     this.router.navigate(['gpdetails'], {relativeTo:this.route});
     this.ngOnInit()
+  }
+
+  searchThis(){
+    this.visitorData = []
+    for(let i =0; i< this.preData.length;i++){
+      const len = this.searchkey.length
+      if(this.preData[i].vMobile.substring(0,len) == this.searchkey){
+        this.visitorData.push(this.preData[i])
+      } 
+    }
   }
 
 }

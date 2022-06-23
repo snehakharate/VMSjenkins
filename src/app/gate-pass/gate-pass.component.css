@@ -152,12 +152,12 @@ img{
   width: fit-content;
 }
 
-@media screen and (max-width:992px) {
+/* @media screen and (max-width:992px) {
   .gatePass1{
       max-width:70% !important;
       margin: auto;
   }
-}
+} */
 
 @media screen and (max-width:440px) {
   .gatePass1{
@@ -185,9 +185,9 @@ img{
         margin: auto;
         padding: 1.3rem !important;
     }
-    /* main{
+    main{
         margin-top: 3rem !important;
-    } */
+    }
     .gatePass{
       transform: scale(0.8);
     }

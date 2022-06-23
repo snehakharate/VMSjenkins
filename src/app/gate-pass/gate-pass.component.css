@@ -18,6 +18,11 @@ main{
    border-color:#476fb0;
 }
 
+#imgContainer{
+  max-height: 130px;
+}
+
+
 .text{
     font-size: 1rem;
     float: left;

@@ -63,12 +63,12 @@ main{
 
 }
 
-@media screen and (min-width:992px) {
-  /* #mobCam{
-    display: none;
-  } */
+/* @media screen and (min-width:992px) {
+  .cap-img{
+    height: 20px !important;
+  }
 
-}
+} */
 
 @media screen and (max-width:440px) {
     .form{

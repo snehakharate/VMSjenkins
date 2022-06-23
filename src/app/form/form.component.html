@@ -178,17 +178,17 @@
                 <label class="form-label text-white" for="form2Example1">Any Other</label>
               <input type="text" formControlName="vOther" class="form-control" placeholder="Other Details" aria-label="Last name">
             </div>
-            <div id="mobCam" class="bg-white mt-3 text-center">
+            <!-- <div id="mobCam" class="bg-white mt-3 text-center">
               <input  name="mobCam"  class="text-dark mobCam"  type="file" accept="image/*" capture="environment">
               <label for="mobCam">Capture</label>
-            </div>
+            </div> -->
           </div>
               <div id="deskCam" class="container">
 
                   <webcam  [allowCameraSwitch]="true" [height]="250" class="webcam" *ngIf="showWebcam"
                       [trigger]="triggerObservable"
                       (imageCapture)="handleImage($event)"></webcam>
-                      <img *ngIf="!showWebcam" src="{{ captureImage }}" height="300px">
+                      <img class="cap-img" *ngIf="!showWebcam" src="{{ captureImage }}" height="250px">
                       <input id="webCam" style = "display: none;" formControlName="vImg" name="webCam"  class="text-dark"  type="file">
 
                       <button (click)="triggerSnapshot();"  class="btn btn-primary btn w-50 mt-3 mb-4 fw-bold d-flex justify-content-start align-items-center" style="border-color:black;"> <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-camera me-3" viewBox="0 0 16 16">

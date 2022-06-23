@@ -33,7 +33,7 @@ export class VverifyComponent implements OnInit {
 
   sendOTP(){
     if(this.verifyForm.value.mob.toString().length == 10){
-      const url = 'https://r0mgkjqdsb.execute-api.ap-south-1.amazonaws.com/testotp/sendotp?api='+environment.apiKey+'&mobile='+this.verifyForm.value.mob
+      const url = 'https://cv12ew5wgj.execute-api.ap-south-1.amazonaws.com/testing/otp?api='+environment.apiKey+'&mobile='+this.verifyForm.value.mob
       // console.log(url)
       this.ngxService.start()
       this.http.get(url).subscribe((res)=>{

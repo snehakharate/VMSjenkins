@@ -26,7 +26,7 @@ import { DailyVisitorComponent } from './daily-visitor/daily-visitor.component';
 import { PreAppointmentComponent } from './pre-appointment/pre-appointment.component';
 import { GatePassComponent } from './gate-pass/gate-pass.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { NgxUiLoaderHttpModule, NgxUiLoaderModule, NgxUiLoaderRouterModule } from 'ngx-ui-loader';
+import { NgxUiLoaderModule, NgxUiLoaderRouterModule } from 'ngx-ui-loader';
 
 
 
@@ -76,7 +76,6 @@ import { NgxUiLoaderHttpModule, NgxUiLoaderModule, NgxUiLoaderRouterModule } fro
       "logoPosition": "center-center",
       "logoSize": 120,
       "logoUrl": "",
-      "masterLoaderId": "master",
       "overlayBorderRadius": "0",
       "overlayColor": "rgba(40,40,40,0.3)",
       "pbColor": "red",
@@ -89,7 +88,6 @@ import { NgxUiLoaderHttpModule, NgxUiLoaderModule, NgxUiLoaderRouterModule } fro
       "maxTime": -1,
       "minTime": 300
     }),
-    NgxUiLoaderHttpModule,
     NgxUiLoaderRouterModule
   ],
   providers: [],

@@ -80,7 +80,7 @@ h6{
 .gpBg2{
   background-color: #3F6BB0;
   min-width: 380px;
-  height: 150px;
+  min-height: 150px;
   border-radius: 0px 0px 12px 12px;
   max-height: fit-content;
   padding-bottom: 17px;

@@ -185,7 +185,7 @@
           </div>
               <div id="deskCam" class="container">
 
-                  <webcam  [allowCameraSwitch]="true" [height]="250" class="webcam" *ngIf="showWebcam"
+                  <webcam  [allowCameraSwitch]="true" [height]="300" class="webcam" *ngIf="showWebcam"
                       [trigger]="triggerObservable"
                       (imageCapture)="handleImage($event)"></webcam>
                       <img class="cap-img" *ngIf="!showWebcam" src="{{ captureImage }}" height="250px">

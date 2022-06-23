@@ -68,7 +68,7 @@ export class DatabaseService {
     .then(loginResponse => {
           console.log(loginResponse);
           this.sharedService.set('userId',userId);
-          alert("Login Successful!!")
+          // alert("Login Successful!!")
           this.router.navigate(['home']);
     })
         .catch(error => {

@@ -39,7 +39,7 @@ export class VverifyComponent implements OnInit {
      this.otp = this.data.message.content.toString().split(' ')[4].toString()
      if(this.status == 'success'){
       this.display = 'block'
-      alert("OTP Sent Successfully!")
+      // alert("OTP Sent Successfully!")
      }
    })
   }
@@ -47,11 +47,11 @@ export class VverifyComponent implements OnInit {
   async goForm(){
      if(this.status == 'success' && this.otp == this.verifyForm.value.otp){
       this.sharedService.set('mobile',this.verifyForm.value.mob)
-      alert("Verfication Successfull!")
+      // alert("Verfication Successfull!")
       this.router.navigate(['form']);
      }
      else{
-      alert("Incorrect OTP!!")
+     alert("Incorrect OTP!!")
      }
   }
 

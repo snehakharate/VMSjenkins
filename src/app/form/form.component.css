@@ -57,16 +57,16 @@ main{
     .form-label{
         font-size: 0.8rem;
     }
-    #deskCam{
+    /* #deskCam{
       display: none;
-    }
+    } */
 
 }
 
 @media screen and (min-width:992px) {
-  #mobCam{
+  /* #mobCam{
     display: none;
-  }
+  } */
 
 }
 

@@ -22,6 +22,7 @@ const routes: Routes = [
   {path:'', component:LoginComponent},
   {path:'home', component:HomeComponent},
   {path: 'vverify', component:VverifyComponent},
+  {path: 'vverify/:id', component:VverifyComponent},
   {path: 'form', component:FormComponent},
   //{path: 'gpdetails', component:GatepassdetailsComponent},
   {path: 'checkout',

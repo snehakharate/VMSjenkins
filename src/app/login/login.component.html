@@ -9,7 +9,7 @@
             <!-- Email input -->
             <div class="form-outline my-4">
               <label class="form-label text-white" for="form2Example1">Organization Security Code</label>
-              <input type="text" id="form2Example1" name="userId" class="form-control" formControlName="userId" placeholder="Security Code"/>
+              <input type="text" id="form2Example1" name="userId" class="form-control" value = "111112" formControlName="userId" placeholder="Security Code"/>
               <span class="m-0 p-0" *ngIf="loginForm.controls['userId'].invalid && (loginForm.controls['userId'].dirty || loginForm.controls['userId'].touched) ">
                 <div class="text-danger">
                 Enter correct Security code
@@ -20,7 +20,7 @@
             <!-- Password input -->
             <div class="form-outline mb-4">
               <label class="form-label text-white" for="form2Example2">Password</label>
-              <input type="password" id="form2Example2" class="form-control" formControlName="password" placeholder="Enter Password" />
+              <input type="password" id="form2Example2" class="form-control" name = "password" value = "usmartai" formControlName="password" placeholder="Enter Password" />
               <span class="m-0 p-0" *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
                 <div class="text-danger">
                 Enter your password

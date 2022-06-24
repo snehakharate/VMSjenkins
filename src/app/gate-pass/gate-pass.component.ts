@@ -30,6 +30,9 @@ export class GatePassComponent implements OnInit {
       this.visitorData = this.sharedService.get('data');
       this.visitorData = JSON.parse(this.visitorData);
       this.gatePass = document.getElementById('img')!;
+      if(this.sharedService.get("isQR") == "true"){
+        this.sharedService.set("userId","")
+      }
       console.log(this.visitorData)
     }
   }

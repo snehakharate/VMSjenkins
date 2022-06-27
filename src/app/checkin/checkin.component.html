@@ -1,7 +1,7 @@
 <app-nav></app-nav>
 <ngx-ui-loader></ngx-ui-loader>
 <router-outlet></router-outlet>
-<main *ngIf = 'this.sharedService.get("pageshift") == "false"' class="bg-dark bg-opacity-50 checkout px-5 py-3 overflow-auto ">
+<main id="scrollBar" *ngIf = 'this.sharedService.get("pageshift") == "false"' class="bg-dark bg-opacity-50 checkout px-5 py-3 overflow-auto ">
     <div class="container">
       <ngx-ui-loader></ngx-ui-loader>
         <div class="row text-white title-2">
@@ -54,6 +54,7 @@
 	</tr>
 	</tbody>
 </table>
+
 </main>
 
 

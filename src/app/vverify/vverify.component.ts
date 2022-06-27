@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { FormGroup,FormControl,Validators } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { firstValueFrom } from 'rxjs';
 import { SharedServiceService } from '../shared-service.service';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
+import { DatabaseService } from '../database.service';
 @Component({
   selector: 'app-vverify',
   templateUrl: './vverify.component.html',
@@ -22,13 +23,22 @@ export class VverifyComponent implements OnInit {
     mob: new FormControl('', Validators.compose([Validators.required,Validators.minLength(10),Validators.maxLength(10)])),
     otp: new FormControl('', Validators.compose([Validators.required,Validators.minLength(6),Validators.maxLength(6)]))
   });
-  constructor(public router: Router, private http: HttpClient, public sharedService: SharedServiceService, private ngxService: NgxUiLoaderService) { }
+  constructor(public db : DatabaseService, public router: Router, private http: HttpClient, public sharedService: SharedServiceService, private ngxService: NgxUiLoaderService, private route: ActivatedRoute) { }
 
-  ngOnInit(): void {
-    if(!this.sharedService.get('userId')){
+  user = {id: String}
+  userData: any;
+
+  async ngOnInit() {
+    if(this.route.snapshot.params['id']){
+      this.sharedService.set("userId",this.route.snapshot.params['id'].toString())
+      this.sharedService.set("isQR","true")
+      await this.db.getuserData(this.sharedService.get("userId"))
+      console.log(this.route.snapshot.params['id'].toString())
+    }
+    else if(!this.sharedService.get('userId')){
       this.router.navigate(['']);
-      console.log(this.sharedService.get('userId'))
-  }
+    }
+
   }
 
   sendOTP(){

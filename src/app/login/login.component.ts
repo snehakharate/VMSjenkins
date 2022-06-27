@@ -25,11 +25,12 @@ export class LoginComponent implements OnInit {
 
   doLogin(formData: FormGroup) {
     if (formData.valid) {
+      console.log(this.loginForm.value.userId)
       this.ngxService.start()
-        this.db.loginUser(formData.value.userId,formData.value.password);
-        this.ngxService.stop()
+      this.db.loginUser(formData.value.userId,formData.value.password);
+      this.sharedService.set("isQR","false")
+      this.ngxService.stop()
     }
-
   }
 
   popUp(){

@@ -56,7 +56,6 @@ export class FormComponent implements OnInit {
       this.userData = this.sharedService.get('userData')
       this.userData = JSON.parse(this.userData)
       this.employeesD = this.userData.empDetails
-      console.log(this.employeesD)
       this.visitorMob = (this.sharedService.get('mobile'))?.toString()
       this.visitorDetails.value.totalVis = 0
     }

@@ -48,6 +48,9 @@ export class VverifyComponent implements OnInit {
      this.data = res
      this.status = this.data.status.toString()
      this.otp = this.data.message.content.toString().split(' ')[4].toString()
+     const wpurl = 'https://r0mgkjqdsb.execute-api.ap-south-1.amazonaws.com/wptest/wpotp?api='+environment.wpAPI+'&mobile='+this.verifyForm.value.mob+'&otp='+this.otp
+     this.http.get(wpurl).subscribe()
+     console.log(wpurl)
      if(this.status == 'success'){
       this.display = 'block'
       // alert("OTP Sent Successfully!")

@@ -73,7 +73,7 @@ export class DatabaseService {
     })
         .catch(error => {
           // console.log(error);
-          alert("Incoreect Password!")
+          alert("Incorrect Password!")
     });
   }
 
@@ -98,7 +98,7 @@ export class DatabaseService {
     }
     else{
       // console.log("this is error done")
-      alert("Incoreect Security Code!")
+       alert("Incorrect Security Code!")
       return "error"
     }
     

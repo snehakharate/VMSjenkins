@@ -8,17 +8,19 @@
           <div class="col-lg-2 line d-flex align-items-center p-0">
             <h4 class="m-0">Visitors List</h4>
           </div>
+
           <div class="col d-flex p-0 count">
-            <div class="ccount p-2 rounded d-flex align-items-center bg-custom">
-                <h5 class="m-0">Daily Visitors: <p class="d-inline">{{dailyVisitors}}</p></h5>
+            <div class="ccount rounded d-flex align-items-cente bg-custom"> 
+              <button type="button" class="btn btn-primary1 text-white" [routerLink]="['/dailyVisitor']">Daily Visitors:<p class="d-inline">{{dailyVisitors}}</p></button>
               </div>
-              <div class="ccount p-2 d-flex align-items-center rounded bg-danger">
-                <h5 class="m-0">Check Out:<p class="d-inline">{{checkOuts}}</p> </h5>
+              <div class="ccount d-flex align-items-center rounded bg-danger">
+                <button type="button" class="btn btn-primary1 text-white" [routerLink]="['/checkouttable']">Check Out:<p class="d-inline">{{checkOuts}}</p></button>
               </div>
-              <div class="ccount p-2 d-flex align-items-center rounded bg-success">
-                <h5 class="m-0">Check In:<p class="d-inline">{{checkIns}}</p> </h5>
+              <div class="ccount d-flex align-items-center rounded bg-success">
+                <button type="button" class="btn btn-primary1 text-white" [routerLink]="['/checkout']">Check In:<p class="d-inline">{{checkIns}}</p></button>
               </div>
           </div>
+
           <div class="col-lg d-flex p-0 search">
             <input class="form-control mr-sm-2" [(ngModel)]="searchkey" (change) = "searchThis()" type="search" placeholder="Search">
           </div>

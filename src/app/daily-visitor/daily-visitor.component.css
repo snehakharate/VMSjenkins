@@ -117,8 +117,8 @@ only screen and (max-width: 760px),
         margin: 0 !important;
         justify-content: space-between;
     }
-    h5{
-        font-size: 0.85rem !important;
+    .btn-primary1{
+        font-size: 0.75rem !important;
     }
 
     .ccount{
@@ -127,8 +127,8 @@ only screen and (max-width: 760px),
 }
 
 @media screen and (max-width:440px) {
-    h5{
-        font-size: 0.85rem !important;
+    .btn-primary1{
+        font-size: 0.75rem !important;
     }
   
     .dailyV
@@ -152,12 +152,11 @@ only screen and (max-width: 760px),
 }
 
 @media screen and (min-height:920px) {
-    h5{
+    .btn-primary1{
         font-size: 1.4rem !important;
     }
  .dailyV{
     margin-top: 5rem !important;
     max-width:85% !important ;
  }
-
 }

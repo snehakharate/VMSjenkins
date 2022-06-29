@@ -27,6 +27,7 @@ import { PreAppointmentComponent } from './pre-appointment/pre-appointment.compo
 import { GatePassComponent } from './gate-pass/gate-pass.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { NgxUiLoaderModule, NgxUiLoaderRouterModule } from 'ngx-ui-loader';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -88,7 +89,8 @@ import { NgxUiLoaderModule, NgxUiLoaderRouterModule } from 'ngx-ui-loader';
       "maxTime": -1,
       "minTime": 300
     }),
-    NgxUiLoaderRouterModule
+    NgxUiLoaderRouterModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

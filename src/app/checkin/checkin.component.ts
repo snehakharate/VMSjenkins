@@ -7,6 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { createPublicKey } from 'crypto';
 import { window } from 'rxjs';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @Component({
   selector: 'app-checkin',
@@ -20,6 +21,11 @@ export class CheckinComponent implements OnInit {
   checkIns : any;
   checkOuts : any;
   dailyVisitors : any;
+
+ 
+  page:number=1;
+  maxSize:number=5;
+
   searchkey =""
   constructor(public route: ActivatedRoute, public db: DatabaseService, public sharedService: SharedServiceService, public router: Router, private ngxService: NgxUiLoaderService) {
     this.pageshift = false

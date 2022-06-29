@@ -1,0 +1,64 @@
+<app-nav></app-nav>
+<ngx-ui-loader></ngx-ui-loader>
+<router-outlet></router-outlet>
+<main id="scrollBar" *ngIf = 'this.sharedService.get("pageshift") == "false"' class="bg-dark bg-opacity-50 dailyV px-5 py-3 overflow-auto ">
+
+    <div class="container">
+        <div class="row text-white title-2">
+          <div class="col-lg-2 line d-flex align-items-center p-0">
+            <h4 class="m-0">Checkout Table</h4>
+          </div>
+
+          <div class="col d-flex p-0 count">
+            <div class="ccount rounded d-flex align-items-cente bg-custom"> 
+              <button type="button" class="btn btn-primary1 text-white" [routerLink]="['/dailyVisitor']">Daily Visitors:<p class="d-inline">{{dailyVisitors}}</p></button>
+              </div>
+              <div class="ccount d-flex align-items-center rounded bg-danger">
+                <button type="button" class="btn btn-primary1 text-white" [routerLink]="['/checkouttable']">Check Out:<p class="d-inline">{{checkOuts}}</p></button>
+              </div>
+              <div class="ccount d-flex align-items-center rounded bg-success">
+                <button type="button" class="btn btn-primary1 text-white" [routerLink]="['/checkout']">Check In:<p class="d-inline">{{checkIns}}</p></button>
+              </div>
+          </div>
+
+          <div class="col-lg d-flex p-0 search">
+            <input class="form-control mr-sm-2" type="search" [(ngModel)]="searchkey" (change) = "searchThis()" placeholder="Search" aria-label="Search">
+          </div>
+        </div>
+      </div>
+
+
+<!--table-->
+
+  <table class="table table-hover mt-4">
+	<thead>
+	<tr>
+        <th>Sr. No.</th>
+        <th >Visitor Name</th>
+        <th >Visitor Mobile</th>
+        <th>Host Name</th>
+        <th >Meeting Purpose</th>
+        <th >Entry Time</th>
+        <th >Exit Time</th>
+        <th >Details</th>
+	</tr>
+	</thead>
+	<tbody *ngFor="let visitor of visitorData, let k = index">
+    <tr>
+        <td>{{k + 1}}</td>
+        <td>{{visitor.vName}}</td>
+        <td>{{visitor.vMobile}}</td>
+        <td>{{visitor.empName}}</td>
+        <td>{{visitor.vPov}}</td>
+        <td>{{visitor.checkinTime}}</td>
+        <td>{{visitor.checkoutTime}}</td>
+        <td><button type="button" class="btn btn-primary" (click) = "nextPage(k)">DETAILS</button></td>
+	</tr>
+	</tbody>
+</table>
+
+
+</main>
+
+
+

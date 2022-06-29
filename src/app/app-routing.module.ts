@@ -14,6 +14,7 @@ import { PreAppointmentComponent } from './pre-appointment/pre-appointment.compo
 import { GatePassComponent } from './gate-pass/gate-pass.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 
 
@@ -34,6 +35,12 @@ const routes: Routes = [
         }
       ]
     },
+    {path: 'checkouttable', component: CheckoutComponent, children: [
+      {
+        path: 'gpdetails',
+        component: GatepassdetailsComponent
+      }
+    ]},
   {path:'dailyVisitor', component: DailyVisitorComponent,
   children: [
     {

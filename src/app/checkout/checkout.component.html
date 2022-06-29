@@ -43,7 +43,7 @@
         <th >Details</th>
 	</tr>
 	</thead>
-	<tbody *ngFor="let visitor of visitorData, let k = index">
+	<tbody *ngFor="let visitor of visitorData | paginate: { id:'pagination', itemsPerPage: 9, currentPage: page}, let k = index">
     <tr>
         <td>{{k + 1}}</td>
         <td>{{visitor.vName}}</td>
@@ -56,6 +56,8 @@
 	</tr>
 	</tbody>
 </table>
+<div class="mob m-0"><pagination-controls id="pagination"  [maxSize]="maxSize" (pageChange)="page = $event" 
+  class="my-pagination text-white"></pagination-controls></div>
 
 
 </main>

@@ -20,6 +20,9 @@ export class DailyVisitorComponent implements OnInit {
   searchkey ="";
   preData:any;
 
+  page:number=1;
+  maxSize:number=5;
+
   async ngOnInit() {
     this.pageshift = false
     if(!this.sharedService.get('userId') || (this.sharedService.get("isQR") == "true")){

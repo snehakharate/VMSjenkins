@@ -38,7 +38,7 @@ export class DailyVisitorComponent implements OnInit {
 
   async getData(userId: any){
     this.ngxService.start()
-    this.preData = await this.db.getvisitors(userId,1)
+    this.preData = await this.db.dailyVisitors(userId)
     this.visitorData = this.preData
     console.log(this.visitorData)
     this.ngxService.stop()

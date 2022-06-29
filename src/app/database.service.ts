@@ -245,6 +245,47 @@ export class DatabaseService {
         this.visitorsData.push(this.errorData)
       }
     }
+    if(flag){
+      const sortedArray: [] = this.visitorsData.sort((obj1: any, obj2: any) => {
+        if (obj1.checkoutTime > obj2.checkoutTime) {
+          return -1;
+        } else if (obj1.checkoutTime < obj2.checkoutTime) {
+          return 1;
+        }
+        return 0;
+      });
+    }
+    else{
+      const sortedArray: [] = this.visitorsData.sort((obj1: any, obj2: any) => {
+        if (obj1.checkinTime > obj2.checkinTime) {
+          return -1;
+        } else if (obj1.checkinTime < obj2.checkinTime) {
+          return 1;
+        }
+        return 0;
+      });
+    }
+    return this.visitorsData
+  }
+
+  async dailyVisitors(userId: any){
+    const userSnapshot = firstValueFrom(await this.db
+      .collection<any>('users')
+      .doc(userId)
+      .get());
+    const visitors = (await userSnapshot).data().visitors;
+    this.visitorsData = []
+    for(let m=0;m<visitors.length;m++){
+        this.visitorsData.push(await this.getvisitorData(visitors[m]))
+    }
+    const sortedArray: [] = this.visitorsData.sort((obj1: any, obj2: any) => {
+      if (obj1.checkoutTime > obj2.checkoutTime) {
+        return -1;
+      } else if (obj1.checkoutTime < obj2.checkoutTime) {
+        return 1;
+      }
+      return 0;
+    });
     return this.visitorsData
   }
 

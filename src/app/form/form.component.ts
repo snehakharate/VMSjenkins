@@ -47,7 +47,7 @@ export class FormComponent implements OnInit {
   ngOnInit(): void {
     if(!this.sharedService.get('userId')){
       this.router.navigate(['']);
-      console.log(this.sharedService.get('userId'))
+      // console.log(this.sharedService.get('userId'))
     }
     else if(!this.sharedService.get("mobile")){
       this.router.navigate(['vverify'])
@@ -110,7 +110,7 @@ export class FormComponent implements OnInit {
 
   addVisitorName(index: any){
     this.visitors[index] = this.visitorDetails.value.example
-    console.log(this.visitors)
+    // console.log(this.visitors)
   }
 
   async submitData(){
@@ -122,7 +122,7 @@ export class FormComponent implements OnInit {
       this.router.navigate(['gatepass']);
     }
     else{
-      console.log('invalid data')
+      // console.log('invalid data')
       // console.log(this.visitorDetails.value.vName)
     }
   }

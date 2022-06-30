@@ -38,11 +38,11 @@ export class CheckinComponent implements OnInit {
     this.checkIns = this.sharedService.get("checkIns")
     this.checkOuts = this.sharedService.get("checkOuts")
     this.dailyVisitors = this.sharedService.get("dailyVisitors")
-    console.log(this.pageshift)
+    // console.log(this.pageshift)
     this.pageshift = false
     if(!this.sharedService.get('userId') || (this.sharedService.get("isQR") == "true")){
       this.router.navigate(['']);
-      console.log(this.sharedService.get('userId'))
+      // console.log(this.sharedService.get('userId'))
     }
     else{
       await this.db.getcheckInOuts()
@@ -66,7 +66,7 @@ export class CheckinComponent implements OnInit {
   async getData(userId: any){
     this.preData = await this.db.getvisitors(userId,0)
     this.visitorData = this.preData
-    console.log(this.visitorData)
+    // console.log(this.visitorData)
     this.ngxService.stop()
 
 
@@ -81,7 +81,7 @@ export class CheckinComponent implements OnInit {
   async checkOut(index: any){
     this.ngxService.start()
     await this.db.checkoutVisitor(index)
-    console.log('success')
+    // console.log('success')
     this.ngxService.stop()
     this.ngOnInit()
   }

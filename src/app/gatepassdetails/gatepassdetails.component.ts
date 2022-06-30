@@ -16,17 +16,17 @@ export class GatepassdetailsComponent implements OnInit {
   constructor(public sharedService: SharedServiceService, public router: Router, private location: Location, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    console.log()
+    // console.log()
     if(!this.sharedService.get('userId')){
       this.router.navigate(['']);
-      console.log(this.sharedService.get('userId'))
+      // console.log(this.sharedService.get('userId'))
     }
     else{
-      console.log('You are here')
+      // console.log('You are here')
       this.visitorData = this.sharedService.get('data');
       this.visitorData = JSON.parse(this.visitorData);
       this.gatePass = document.getElementById('img')!;
-      console.log(this.visitorData)
+      // console.log(this.visitorData)
     }
   }
 

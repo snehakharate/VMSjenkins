@@ -13,6 +13,13 @@ main{
 .bg-custom{
     background-color: #3F6BB0;
 }
+.bg-custom1{
+    background-color: #7089b1;
+    transition-duration: 0.5s;
+}
+.bg-custom1 :hover{
+    background-color: #3F6BB0;
+}
  .btn-primary{
     background-color: #3F6BB0;
     border: 0;

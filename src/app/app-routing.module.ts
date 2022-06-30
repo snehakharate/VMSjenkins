@@ -15,6 +15,7 @@ import { GatePassComponent } from './gate-pass/gate-pass.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { NavComponent } from './nav/nav.component';
 
 
 

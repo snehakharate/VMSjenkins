@@ -61,6 +61,28 @@ export class FormComponent implements OnInit {
     }
   }
 
+  /*Incremental input for additional visitors*/
+  num:number=1
+  i=1;
+  plus(){
+    if(this.i !=10){
+      this.i++;
+      this.num=this.i
+      this.visitorDetails.value.totalVis = this.num
+      this.createArray()
+    }
+    
+  }
+  minus(){
+    if(this.i !=1){
+      this.i--;
+      this.num=this.i
+      this.visitorDetails.value.totalVis = this.num
+      this.createArray()
+    }
+    
+  }
+
   showWebcam = true;
   private trigger: Subject<any> = new Subject();
 
@@ -100,7 +122,6 @@ export class FormComponent implements OnInit {
   createArray(){
     this.visitors = []
     if(this.visitorDetails.value.totalVis>1){
-
       for(let i = 0; i< this.visitorDetails.value.totalVis-1; i++){
         this.visitors.push(i.toString());
       }

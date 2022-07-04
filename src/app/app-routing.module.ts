@@ -16,6 +16,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { NavComponent } from './nav/nav.component';
+import { HistoryComponent } from './history/history.component';
 
 
 
@@ -51,7 +52,8 @@ const routes: Routes = [
   ]},
   {path:'preApp', component: PreAppointmentComponent},
   {path: 'gatepass', component:GatePassComponent},
-  {path:'forgotPass', component:ForgotPasswordComponent}
+  {path:'forgotPass', component:ForgotPasswordComponent},
+  {path: 'history', component:HistoryComponent}
 
 ];
 

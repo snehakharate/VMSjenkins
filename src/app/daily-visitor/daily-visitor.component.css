@@ -10,6 +10,8 @@ main{
 .ccount{
     margin: auto;
 }
+
+/* buttons styling */
 .bg-custom{
     background-color: #3F6BB0;
 }
@@ -21,6 +23,14 @@ main{
 .button{
     font-size: small;
 }
+.bg-custom1{
+    background-color: #99a2af;
+    transition-duration: 0.5s;
+}
+.bg-custom1 :hover{
+    background-color: #3F6BB0;
+}
+
 h5{
     font: italic !important;
     font-size: 1rem;
@@ -128,7 +138,8 @@ only screen and (max-width: 760px),
         margin: auto;
     }
     main{
-        margin-top: 3rem !important;
+        margin-top: 1.5rem !important;
+        margin-bottom: 3rem !important;
     }
     .count{
         padding: 0 !important;
@@ -156,7 +167,8 @@ only screen and (max-width: 760px),
         padding: 1.3rem !important;
     }
     main{
-        margin-top: 3rem !important;
+        margin-top: 1.5rem !important;
+        margin-bottom: 5rem !important;
     }
     .count{
         padding: 0 !important;
@@ -185,5 +197,8 @@ only screen and (max-width: 760px),
  .dailyV{
     margin-top: 5rem !important;
     max-width:85% !important ;
+ }
+ main{
+    margin-bottom: 5rem !important;
  }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from '../database.service';
 import { SharedServiceService } from '../shared-service.service';
 import { FormControl, FormGroup , Validators } from '@angular/forms';
@@ -10,12 +10,13 @@ import { window } from 'rxjs';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 @Component({
-  selector: 'app-checkin',
-  templateUrl: './checkin.component.html',
-  styleUrls: ['./checkin.component.css']
+  selector: 'app-history',
+  templateUrl: './history.component.html',
+  styleUrls: ['./history.component.css']
 })
-export class CheckinComponent implements OnInit {
+export class HistoryComponent implements OnInit {
 
+  
   visitorData : any;
   preData: any;
   checkIns : any;
@@ -27,11 +28,17 @@ export class CheckinComponent implements OnInit {
   maxSize:number=5;
 
   searchkey =""
-  constructor(public route: ActivatedRoute, public db: DatabaseService, public sharedService: SharedServiceService, public router: Router, private ngxService: NgxUiLoaderService) {
+  searchdate=""
+
+  constructor(public route: ActivatedRoute, public db: DatabaseService, public sharedService: SharedServiceService, public router: Router, private ngxService: NgxUiLoaderService) { 
     this.pageshift = false
   }
 
+  // ngOnInit(): void {
+  // }
+
   pageshift = false
+  
   async ngOnInit() {
     this.ngxService.start()
     this.db.getcheckInOuts()
@@ -62,14 +69,11 @@ export class CheckinComponent implements OnInit {
     this.ngOnInit()
   }
 
-
   async getData(userId: any){
     this.preData = await this.db.getvisitors(userId,0)
     this.visitorData = this.preData
     // console.log(this.visitorData)
     this.ngxService.stop()
-
-
   }
 
   nextPage(index: any){
@@ -78,13 +82,22 @@ export class CheckinComponent implements OnInit {
     this.router.navigate(['gpdetails'], {relativeTo:this.route});
   }
 
-  async checkOut(index: any){
-    this.ngxService.start()
-    await this.db.checkoutVisitor(index)
-    // console.log('success')
-    this.ngxService.stop()
-    this.ngOnInit()
-  }
+  // async checkOut(index: any){
+  //   this.ngxService.start()
+  //   await this.db.checkoutVisitor(index)
+  //   // console.log('success')
+  //   this.ngxService.stop()
+  //   this.ngOnInit()
+  // }
 
- 
+  // searchThis(){
+  //   this.visitorData = []
+  //   for(let i =0; i< this.preData.length;i++){
+  //     const len = this.searchkey.length
+  //     if(this.preData[i].vMobile.substring(0,len) == this.searchkey){
+  //       this.visitorData.push(this.preData[i])
+  //     }
+  //   }
+  // }
+
 }

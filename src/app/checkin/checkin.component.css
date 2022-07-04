@@ -5,7 +5,7 @@ main{
     max-width:75% !important ;
     border-radius: 10px;
     margin: auto;
-    margin-top: 4rem;
+    margin-top: 5rem;
 }
 .ccount{
     margin: auto;
@@ -14,11 +14,12 @@ main{
     background-color: #3F6BB0;
 }
 .bg-custom1{
-    background-color: #7089b1;
+    background-color: #99a2af;
     transition-duration: 0.5s;
 }
 .bg-custom1 :hover{
-    background-color: #3F6BB0;
+     background-color: #3F6BB0; 
+    
 }
  .btn-primary{
     background-color: #3F6BB0;
@@ -137,10 +138,11 @@ only screen and (max-width: 760px),
     .checkout
 {
         max-width:70% !important;
-        margin: auto;
+        margin-bottom: 5rem !important;
     }
     main{
-        margin-top: 3rem !important;
+        margin-top: 0.1rem !important;
+       
     }
     .count{
         padding: 0 !important;
@@ -156,6 +158,8 @@ only screen and (max-width: 760px),
     }
 }
 
+
+
 @media screen and (max-width:440px) {
     .btn-primary1{
         font-size: 0.75rem !important;
@@ -168,7 +172,7 @@ only screen and (max-width: 760px),
         padding: 1.3rem !important;
     }
     main{
-        margin-top: 3rem !important;
+        margin-top: 1rem !important;
     }
     .count{
         padding: 0 !important;
@@ -195,7 +199,7 @@ only screen and (max-width: 760px),
         font-size: 1.4rem !important;
     }
  .checkout{
-    margin-top: 5rem !important;
+    margin-top: 1rem !important;
     max-width:85% !important ;
  }
 

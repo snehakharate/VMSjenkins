@@ -1,10 +1,9 @@
 
-
 .vVerify{
     max-width:35% !important ;
     border-radius: 10px;
-    margin-top: 8%;
-    margin-left: 24%;
+    margin-top: 8%; 
+    margin: auto;
 }
 
 .btn-primary{

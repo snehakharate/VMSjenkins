@@ -1,11 +1,11 @@
 main{
     min-height: 80vh;
 }
-.dailyV{
+.checkout{
     max-width:75% !important ;
     border-radius: 10px;
     margin: auto;
-    margin-top: 4rem;
+    margin-top: 5rem;
 }
 .ccount{
     margin: auto;
@@ -13,25 +13,22 @@ main{
 .bg-custom{
     background-color: #3F6BB0;
 }
-.btn-primary{
-    background-color: #3F6BB0;
-    border: 0;
-    font-size: small;
-} 
-.button{
-    font-size: small;
-}
 .bg-custom1{
-    background-color: #99a2af;
+    background-color: #7089b1;
     transition-duration: 0.5s;
 }
 .bg-custom1 :hover{
     background-color: #3F6BB0;
 }
-h5{
-    font: italic !important;
-    font-size: 1rem;
+ .btn-primary{
+    background-color: #3F6BB0;
+    border: 0;
+    font-size: small;
+}  
+.button{
+    font-size: small;
 }
+
 .line{
     border-right: 0.1rem solid rgb(76, 75, 75);
     margin-right: 0.5rem;
@@ -54,24 +51,6 @@ table {
     border: 1px solid #ccc; 
     text-align: left; 
   }
-
-  
-/* pagination styling */
-.my-pagination ::ng-deep .ngx-pagination{
-    float: right !important;
-    font-size: 1.1rem;
-    margin-bottom: 1rem !important;
-  }
-  .my-pagination ::ng-deep .ngx-pagination .current {
-      background: #3F6BB0;
-      border-radius: 5px !important; 
-      border: transparent !important;
-    }
-  .my-pagination ::ng-deep .ngx-pagination :hover {
-      background: #3F6BB0;
-      border-radius: 5px !important; 
-      border: transparent !important;
-    }
 
 @media 
 only screen and (max-width: 760px),
@@ -121,22 +100,48 @@ only screen and (max-width: 760px),
 	td:nth-of-type(4):before { content: "Host Name"; }
 	td:nth-of-type(5):before { content: "Meeting Purpose"; }
 	td:nth-of-type(6):before { content: "Entry Time"; }
-	td:nth-of-type(7):before { content: "Exit Time"; }
-	td:nth-of-type(8):before { content: "Details"; }
+	td:nth-of-type(7):before { content: "Visitor Details"; }
+	td:nth-of-type(8):before { content: "Logout"; }
 }
 
+/* pagination styling */
+.my-pagination ::ng-deep .ngx-pagination{
+  float: right !important;
+  font-size: 1.1rem;
+  margin-bottom: 1rem !important;
+}
+.my-pagination ::ng-deep .ngx-pagination .current {
+    background: #3F6BB0;
+    border-radius: 5px !important; 
+    border: transparent !important;
+  }
+.my-pagination ::ng-deep .ngx-pagination :hover {
+    background: #3F6BB0;
+    border-radius: 5px !important; 
+    border: transparent !important;
+  }
+  /* .my-pagination ::ng-deep .ngx-pagination .pagination-previous :hover{
+    background: #3F6BB0;
+    border-radius: 155px !important; 
+    border: transparent !important;
+  }
+  .my-pagination ::ng-deep .ngx-pagination .pagination-next :hover{
+    background: #3F6BB0;
+    border-radius: 2px !important; 
+    border: transparent !important;
+  } */
 
   
 @media screen and (max-width:992px) {
 
-    .dailyV
+    .checkout
 {
         max-width:70% !important;
-        margin: auto;
+        margin-bottom: 5rem !important;
     }
     main{
-        margin-top: 0.5rem !important;
-        margin-bottom: 5rem !important;
+        margin-top: 0.1rem !important;
+       
     }
     .count{
         padding: 0 !important;
@@ -152,20 +157,21 @@ only screen and (max-width: 760px),
     }
 }
 
+
+
 @media screen and (max-width:440px) {
     .btn-primary1{
         font-size: 0.75rem !important;
     }
   
-    .dailyV
+    .checkout
 {
         max-width:95% !important;
         margin: auto;
         padding: 1.3rem !important;
     }
     main{
-        margin-top: 1.5rem !important;
-        margin-bottom: 5rem !important;
+        margin-top: 1rem !important;
     }
     .count{
         padding: 0 !important;
@@ -191,8 +197,9 @@ only screen and (max-width: 760px),
     .btn-primary1{
         font-size: 1.4rem !important;
     }
- .dailyV{
-    margin-top: 5rem !important;
+ .checkout{
+    margin-top: 1rem !important;
     max-width:85% !important ;
  }
+
 }

@@ -5,7 +5,8 @@ main{
     max-width:40% !important ;
     border-radius: 10px;
     margin-top: 8%;
-    margin-left: 24%;
+    padding: 2rem 5rem 2rem 5rem;
+    margin: auto;
 }
 
 .btn-primary{
@@ -162,9 +163,12 @@ img{
 @media screen and (max-width:440px) {
   .gatePass1{
       max-width:95% !important;
+      max-height: 69vh;
       margin: auto;
       padding-left: 1.5rem !important;
       padding-right: 1.5rem !important;
+      margin-top: 1.5rem !important;
+      margin-bottom: 5rem !important;
   }
 
 }
@@ -174,6 +178,9 @@ img{
         max-width:70% !important;
         margin: auto;
     }
+    .title{
+      margin-top: 2rem;
+      } 
     /* main{
         margin-top: 3rem !important;
     } */
@@ -194,3 +201,4 @@ img{
     }
 
 }
+

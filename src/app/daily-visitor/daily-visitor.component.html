@@ -5,18 +5,18 @@
 
     <div class="container">
         <div class="row text-white title-2">
-          <div class="col-lg-2 line d-flex align-items-center p-0">
+          <!-- <div class="col-lg-2 line d-flex align-items-center p-0">
             <h4 class="m-0">Daily Visitors</h4>
-          </div>
+          </div> -->
 
           <div class="col d-flex p-0 count">
             <div class="ccount rounded d-flex align-items-cente bg-custom"> 
               <button type="button" class="btn btn-primary1 text-white" [routerLink]="['/dailyVisitor']">Daily Visitors:<p class="d-inline">{{dailyVisitors}}</p></button>
               </div>
-              <div class="ccount d-flex align-items-center rounded bg-danger">
+              <div class="ccount d-flex align-items-center rounded bg-custom1">
                 <button type="button" class="btn btn-primary1 text-white" [routerLink]="['/checkouttable']">Check Out:<p class="d-inline">{{checkOuts}}</p></button>
               </div>
-              <div class="ccount d-flex align-items-center rounded bg-success">
+              <div class="ccount d-flex align-items-center rounded bg-custom1">
                 <button type="button" class="btn btn-primary1 text-white" [routerLink]="['/checkout']">Check In:<p class="d-inline">{{checkIns}}</p></button>
               </div>
           </div>

@@ -239,10 +239,10 @@ export class DatabaseService {
     for(let m=0;m<visitors.length;m++){
       this.errorData = await this.getvisitorData(visitors[m])
       console.log(this.errorData)
-      if((this.errorData.checkoutTime  == "" && this.errorData.vDate == "Jun 30 2022 ") && !flag){
+      if((this.errorData.checkoutTime  == "" ) && !flag){
         this.visitorsData.push(this.errorData)
       }
-      else if((!(this.errorData.checkoutTime  == "" )) && (this.errorData.vDate =="Jun 30 2022 " && flag)){
+      else if((!(this.errorData.checkoutTime  == "" )) && flag){
         this.visitorsData.push(this.errorData)
       }
     }

@@ -21,6 +21,18 @@
               </div>
           </div>
 
+          <div class="col-lg d-flex p-0 search">
+            <input class="form-control mr-sm-2 me-2" [(ngModel)]="searchdata" type="search" placeholder="Search">
+          </div>
+
+          <div class="col-lg-2 d-flex p-0 search">
+            <input class="form-control mr-sm-2" [(ngModel)]="searchdate" type="date" placeholder="Enter Date">
+          </div>
+
+          <!-- <div>
+            {{myDate | date}}
+          </div> -->
+
           <!-- <div class="col-lg d-flex p-0 search">
             <input class="form-control mr-sm-2" [(ngModel)]="searchkey" (change) = "searchThis()" type="search" placeholder="Search">
           </div> -->
@@ -28,9 +40,7 @@
       </div>
 
 
-      <div class="col-lg d-flex p-0 mt-3 search">
-        <input class="form-control mr-sm-2" [(ngModel)]="searchdate" type="search" placeholder="Enter Date">
-      </div>
+     
 
 <!--table-->
 
@@ -43,18 +53,20 @@
           <th >Visitor Mobile</th>
           <th>Host Name</th>
           <th >Meeting Purpose</th>
+          <th>Date of visit</th>
           <th >Entry Time</th>
           <th >Visitor Details</th>
           <!-- <th >Check Out</th> -->
     </tr>
     </thead>
-    <tbody *ngFor="let visitor of visitorData | paginate: { id:'pagination', itemsPerPage: 9, currentPage: page } | history :searchdate, let k = index ">
+    <tbody *ngFor="let visitor of visitorData | paginate: { id:'pagination', itemsPerPage: 9, currentPage: page } | history : searchdate | search : searchdata, let k = index ">
     <tr>
           <td>{{9*(page-1) + k + 1}}</td>
           <td>{{visitor.vName}}</td>
           <td>{{visitor.vMobile}}</td>
           <td>{{visitor.empName}}</td>
           <td>{{visitor.vPov}}</td>
+          <td>{{visitor.vDate}}</td>
           <td>{{visitor.checkinTime}}</td>
           <td><button type="button" class="btn btn-primary" (click) = "nextPage(k)">PASS DETAILS</button></td>
           <!-- <td><button type="button" class="btn button btn-danger" (click) = "checkOut(visitor.visitorId)">CHECK OUT</button></td> -->

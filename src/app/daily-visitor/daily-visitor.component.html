@@ -22,7 +22,7 @@
           </div>
 
           <div class="col-lg d-flex p-0 search">
-            <input class="form-control mr-sm-2" type="search" [(ngModel)]="searchkey" (change) = "searchThis()" placeholder="Search" aria-label="Search">
+            <input class="form-control mr-sm-2" type="search" [(ngModel)]="searchkey" placeholder="Search" aria-label="Search">
           </div>
         </div>
       </div>
@@ -43,7 +43,7 @@
         <th >Details</th>
 	</tr>
 	</thead>
-	<tbody *ngFor="let visitor of visitorData |  paginate: { id:'pagination', itemsPerPage: 9, currentPage: page }, let k = index">
+	<tbody *ngFor="let visitor of visitorData |  paginate: { id:'pagination', itemsPerPage: 9, currentPage: page } | search :searchkey, let k = index">
     <tr>
         <td>{{k + 1}}</td>
         <td>{{visitor.vName}}</td>

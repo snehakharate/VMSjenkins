@@ -44,7 +44,7 @@
           <th >Check Out</th>
     </tr>
     </thead>
-    <tbody *ngFor="let visitor of visitorData | paginate: { id:'pagination', itemsPerPage: 9, currentPage: page }, let k = index ">
+    <tbody *ngFor="let visitor of visitorData | paginate: { id:'pagination', itemsPerPage: 9, currentPage: page } | search: searchkey, let k = index ">
     <tr>
           <td>{{9*(page-1) + k + 1}}</td>
           <td>{{visitor.vName}}</td>

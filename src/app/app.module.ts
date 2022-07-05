@@ -30,6 +30,7 @@ import { NgxUiLoaderModule, NgxUiLoaderRouterModule } from 'ngx-ui-loader';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { HistoryComponent } from './history/history.component';
 import { HistoryPipe } from './history.pipe';
+import { SearchPipe } from './search.pipe';
 
 
 
@@ -51,7 +52,8 @@ import { HistoryPipe } from './history.pipe';
     GatePassComponent,
     ForgotPasswordComponent,
     HistoryComponent,
-    HistoryPipe
+    HistoryPipe,
+    SearchPipe
   ],
   imports: [
     BrowserModule,

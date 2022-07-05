@@ -16,7 +16,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
 })
 export class HistoryComponent implements OnInit {
 
-  
+  myDate=Date.now();
+
+
   visitorData : any;
   preData: any;
   checkIns : any;
@@ -27,8 +29,9 @@ export class HistoryComponent implements OnInit {
   page:number=1;
   maxSize:number=5;
 
-  searchkey =""
   searchdate=""
+  searchdata=""
+  
 
   constructor(public route: ActivatedRoute, public db: DatabaseService, public sharedService: SharedServiceService, public router: Router, private ngxService: NgxUiLoaderService) { 
     this.pageshift = false

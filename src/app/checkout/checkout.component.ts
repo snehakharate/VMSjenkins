@@ -55,15 +55,15 @@ export class CheckoutComponent implements OnInit {
     this.ngOnInit()
   }
 
-  searchThis(){
-    this.visitorData = []
-    for(let i =0; i< this.preData.length;i++){
-      const len = this.searchkey.length
-      if(this.preData[i].vMobile.substring(0,len) == this.searchkey){
-        this.visitorData.push(this.preData[i])
-      } 
-    }
-  }
+  // searchThis(){
+  //   this.visitorData = []
+  //   for(let i =0; i< this.preData.length;i++){
+  //     const len = this.searchkey.length
+  //     if(this.preData[i].vMobile.substring(0,len) == this.searchkey){
+  //       this.visitorData.push(this.preData[i])
+  //     } 
+  //   }
+  // }
   // ngOnInit(): void {
   }
 

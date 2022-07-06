@@ -53,10 +53,10 @@ export class GatePassComponent implements OnInit {
       this.vgatePass =  await this.db.addGatepass(file,this.visitorData.visitorId + '_gatepass.png')
       const url = ['https://usmartwp.herokuapp.com/approve?link='+this.vgatePass.toString()+'&vName='+this.visitorData.vName + '&eName='+ this.visitorData.empName + '&Pov=' + this.visitorData.vPov +'&vMob='+this.visitorData.vMobile+'&eMob=' + this.empMob, 'https://usmartwp.herokuapp.com/deny?vName='+this.visitorData.vName + '&eName='+ this.visitorData.empName + '&vMob='+this.visitorData.vMobile+'&eMob=' + this.empMob]
       console.log(url)
-      this.httpClient.get(url[0]).subscribe((res)=>{
+      await this.httpClient.get(url[0]).subscribe((res)=>{
         console.log(res)
       })
-      this.httpClient.get(url[1]).subscribe((res)=>{
+      await this.httpClient.get(url[1]).subscribe((res)=>{
         console.log(res)
       })
     })

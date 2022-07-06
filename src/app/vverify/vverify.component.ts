@@ -33,7 +33,7 @@ export class VverifyComponent implements OnInit {
       this.sharedService.set("userId",this.route.snapshot.params['id'].toString())
       this.sharedService.set("isQR","true")
       await this.db.getuserData(this.sharedService.get("userId"))
-      console.log(this.route.snapshot.params['id'].toString())
+      // console.log(this.route.snapshot.params['id'].toString())
     }
     else if(!this.sharedService.get('userId')){
       this.router.navigate(['']);
@@ -43,7 +43,7 @@ export class VverifyComponent implements OnInit {
 
   sendOTP(){
     const url = 'https://cv12ew5wgj.execute-api.ap-south-1.amazonaws.com/testing/otp?api='+environment.apiKey+'&mobile='+this.verifyForm.value.mob
-    console.log(url)
+    // console.log(url)
     this.http.get(url).subscribe((res)=>{
      this.data = res
      this.status = this.data.status.toString()

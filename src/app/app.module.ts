@@ -28,6 +28,9 @@ import { GatePassComponent } from './gate-pass/gate-pass.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { NgxUiLoaderModule, NgxUiLoaderRouterModule } from 'ngx-ui-loader';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { HistoryComponent } from './history/history.component';
+import { HistoryPipe } from './history.pipe';
+import { SearchPipe } from './search.pipe';
 
 
 
@@ -47,7 +50,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
     DailyVisitorComponent,
     PreAppointmentComponent,
     GatePassComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    HistoryComponent,
+    HistoryPipe,
+    SearchPipe
   ],
   imports: [
     BrowserModule,

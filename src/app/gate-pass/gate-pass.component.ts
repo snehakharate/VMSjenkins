@@ -24,7 +24,7 @@ export class GatePassComponent implements OnInit {
   async ngOnInit() {
     if(!this.sharedService.get('userId')){
       this.router.navigate(['']);
-      console.log(this.sharedService.get('userId'))
+      // console.log(this.sharedService.get('userId'))
     }else{
       this.Image = this.sharedService.get("urlImg")
       this.visitorData = this.sharedService.get('data');
@@ -33,7 +33,7 @@ export class GatePassComponent implements OnInit {
       if(this.sharedService.get("isQR") == "true"){
         this.sharedService.set("userId","")
       }
-      console.log(this.visitorData)
+      // console.log(this.visitorData)
     }
   }
 
@@ -42,9 +42,9 @@ export class GatePassComponent implements OnInit {
       const file = new File([this.sharedService.convertDataUrlToBlob(dataUrl)],'img_1.png', {type: `image/png`});
       this.vgatePass =  await this.db.addGatepass(file,this.visitorData.visitorId + '_gatepass.png')
       const url = 'https://r0mgkjqdsb.execute-api.ap-south-1.amazonaws.com/testotp/wpgatepass?api='+environment.wpAPI+'&mobile='+this.visitorData.vMobile+'&link='+this.vgatePass.toString()+'&name='+this.visitorData.vName
-        console.log(url)
+        // console.log(url)
         this.httpClient.get(url).subscribe((res)=>{
-        console.log(res)
+        // console.log(res)
       })
     })
   }

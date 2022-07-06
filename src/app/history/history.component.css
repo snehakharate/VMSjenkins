@@ -14,12 +14,11 @@ main{
     background-color: #3F6BB0;
 }
 .bg-custom1{
-    background-color: #99a2af;
+    background-color: #7089b1;
     transition-duration: 0.5s;
 }
 .bg-custom1 :hover{
-     background-color: #3F6BB0; 
-    
+    background-color: #3F6BB0;
 }
  .btn-primary{
     background-color: #3F6BB0;
@@ -203,10 +202,4 @@ only screen and (max-width: 760px),
     max-width:85% !important ;
  }
 
-}
-
-.history{
-    float: right;
-    margin-top: 1rem;
-    margin-right: 1rem;
 }

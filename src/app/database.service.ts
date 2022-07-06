@@ -66,7 +66,7 @@ export class DatabaseService {
     // console.log(this.userEmail,password)
     this.afAuth.signInWithEmailAndPassword(this.userEmail, password)
     .then(loginResponse => {
-          console.log(loginResponse);
+          // console.log(loginResponse);
           this.sharedService.set('userId',userId);
           // alert("Login Successful!!")
           this.router.navigate(['home']);
@@ -90,7 +90,7 @@ export class DatabaseService {
         .doc(userId)
         .get());
         if(!(await userSnapshot).data()){
-          console.log("error")
+          // console.log("error")
         }
       const userEmail = (await userSnapshot).data().userEmail;
       //console.log(userEmail)
@@ -163,7 +163,7 @@ export class DatabaseService {
     for(let i =1;i<4;i++){
       this.time = this.time + Time[i] + " "
     }
-    console.log(this.time)
+    // console.log(this.time)
     await this.db
         .collection<any>('visitors')
         .doc((111111 + totalUsers + 1).toString())
@@ -216,7 +216,7 @@ export class DatabaseService {
       )
     ).ref.getDownloadURL();
     this.sharedService.set('urlImg',this.urlImg)
-    console.log(this.urlImg)
+    // console.log(this.urlImg)
   }
 
   async addGatepass(orgPath: any, filePath: any){
@@ -238,10 +238,11 @@ export class DatabaseService {
     this.visitorsData = []
     for(let m=0;m<visitors.length;m++){
       this.errorData = await this.getvisitorData(visitors[m])
-      if(this.errorData.checkoutTime  == "" && !flag){
+      console.log(this.errorData)
+      if((this.errorData.checkoutTime  == "" ) && !flag){
         this.visitorsData.push(this.errorData)
       }
-      else if(!(this.errorData.checkoutTime  == "") && flag){
+      else if((!(this.errorData.checkoutTime  == "" )) && flag){
         this.visitorsData.push(this.errorData)
       }
     }

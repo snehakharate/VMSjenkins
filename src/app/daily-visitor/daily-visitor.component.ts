@@ -27,7 +27,7 @@ export class DailyVisitorComponent implements OnInit {
     this.pageshift = false
     if(!this.sharedService.get('userId') || (this.sharedService.get("isQR") == "true")){
       this.router.navigate(['']);
-      console.log(this.sharedService.get('userId'))
+      // console.log(this.sharedService.get('userId'))
     }
     else{
       await this.db.getcheckInOuts()
@@ -43,7 +43,7 @@ export class DailyVisitorComponent implements OnInit {
     this.ngxService.start()
     this.preData = await this.db.getvisitors(userId,1)
     this.visitorData = this.preData
-    console.log(this.visitorData)
+    // console.log(this.visitorData)
     this.ngxService.stop()
   }
 
@@ -54,14 +54,14 @@ export class DailyVisitorComponent implements OnInit {
     this.ngOnInit()
   }
 
-  searchThis(){
-    this.visitorData = []
-    for(let i =0; i< this.preData.length;i++){
-      const len = this.searchkey.length
-      if(this.preData[i].vMobile.substring(0,len) == this.searchkey){
-        this.visitorData.push(this.preData[i])
-      } 
-    }
-  }
+  // searchThis(){
+  //   this.visitorData = []
+  //   for(let i =0; i< this.preData.length;i++){
+  //     const len = this.searchkey.length
+  //     if(this.preData[i].vMobile.substring(0,len) == this.searchkey){
+  //       this.visitorData.push(this.preData[i])
+  //     } 
+  //   }
+  // }
 
 }

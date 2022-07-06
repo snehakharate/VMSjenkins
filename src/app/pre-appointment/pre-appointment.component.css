@@ -105,7 +105,8 @@ only screen and (max-width: 760px),
         margin: auto;
     }
     main{
-        margin-top: 3rem !important;
+        margin-top: 1.5rem !important;
+        margin-bottom: 5rem !important;
     }
     .count{
         padding: 0 !important;
@@ -133,7 +134,8 @@ only screen and (max-width: 760px),
         padding: 1.3rem !important;
     }
     main{
-        margin-top: 3rem !important;
+        margin-top: 1.5rem !important;
+        margin-bottom: 5rem !important;
     }
     .count{
         padding: 0 !important;

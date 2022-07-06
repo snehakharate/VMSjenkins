@@ -1,7 +1,10 @@
 <app-nav></app-nav>
 <ngx-ui-loader></ngx-ui-loader>
-<div class=" title column text-center text-white">
-  <h1 class="fs-3 fw-bold m-0">WELCOME TO U-SMART</h1>
+
+<div class="tittleDiv">
+  <div class=" title column text-center text-white ">
+    <h1 class="fs-3 fw-bold m-0">WELCOME TO U-SMART</h1>
+  </div>
 </div>
 
 <main id="scrollBar" class="bg-dark bg-opacity-50 form p-5 mt-3 overflow-auto">
@@ -116,36 +119,50 @@
                     Company name required
                   </div>
                 </span>
+              </div>
 
-                    <label class="form-label text-white" for="form2Example1">Company Address<p class="text-danger d-inline">*</p></label>
-                    <input type="text" class="form-control" formControlName="vCaddr" required placeholder="" aria-label="First name">
-                    <span class="m-0 p-0" *ngIf="visitorDetails.controls['vCaddr'].invalid && (visitorDetails.controls['vCaddr'].dirty || visitorDetails.controls['vCaddr'].touched)">
-                      <div class="text-danger">
-                      Company address is required
-                    </div>
-                  </span>
+              <div class="col">
+                <label class="form-label text-white" for="form2Example1">Company Address<p class="text-danger d-inline">*</p></label>
+                <input type="text" class="form-control" formControlName="vCaddr" required placeholder="" aria-label="First name">
+                <span class="m-0 p-0" *ngIf="visitorDetails.controls['vCaddr'].invalid && (visitorDetails.controls['vCaddr'].dirty || visitorDetails.controls['vCaddr'].touched)">
+                  <div class="text-danger">
+                  Company address is required
                 </div>
-
+              </span>
             </div>
+              </div>
+
+                    
+
+           
 
               <!-- row4 -->
             <div class="row mb-2">
                 <div class="col-lg-6">
-                    <label class="form-label text-white" for="form2Example1">Total Visitors<p class="text-danger d-inline">*</p></label>
-                    <input type="number" class="form-control" (change) = "createArray()" formControlName="totalVis" required placeholder="" aria-label="First name">
+                    <label class="form-label text-white" for="form2Example1">Total Visitors<p class="text-danger d-inline">*</p></label> <br>
+                    
+                    <div class="d-flex align-items-center">
+                      <button (click)="minus()" type="button" class="btn m-1 p-0 iconBtn"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-dash text-white" viewBox="0 0 16 16">
+                        <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+                      </svg></button>
+                      <input type="number" class="form-control" value="{{num}}" formControlName = "totalVis">
+                      <button (click)="plus()" type="button" class="btn m-1 p-0 iconBtn"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-plus text-white" viewBox="0 0 16 16">
+                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                      </svg></button>
+                    </div>
+                    
+
                     <span class="m-0 p-0" *ngIf="visitorDetails.controls['totalVis'].invalid && (visitorDetails.controls['totalVis'].dirty || visitorDetails.controls['totalVis'].touched)">
                       <div class="text-danger">
                       Please enter total number of visitors
                     </div>
                   </span>
                 </div>
-                <div class="col">
-                    <!-- <label class="form-label text-white" for="form2Example1">Company Address<p class="text-danger d-inline"> *</p></label>
-                    <input type="text" class="form-control" placeholder="" aria-label="First name"> -->
-                    <button type="button" class="btn btn-primary add fw-bold">Add</button>
-                </div>
             </div>
-            <div class="col-lg-6" *ngFor="let visitor of visitors; let k = index">
+
+
+
+            <div class="col" *ngFor="let visitor of visitors; let k = index">
               <label class="form-label text-white" for="form2Example1">Additional Visitor<p class="text-danger d-inline">*</p></label>
               <input type="text" class="form-control" (change)="addVisitorName(k)" formControlName = 'example'  required placeholder="" aria-label="First name">
               <span class="m-0 p-0" *ngIf="visitorDetails.controls['example'].invalid && (visitorDetails.controls['example'].dirty || visitorDetails.controls['example'].touched)">

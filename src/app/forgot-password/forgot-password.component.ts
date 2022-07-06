@@ -21,7 +21,7 @@ export class ForgotPasswordComponent implements OnInit {
 
   async resetPasswordInit() { 
     this.email = await this.db.getuserEmail(this.resetForm.value.userId);
-    console.log(this.email)
+    // console.log(this.email)
     return this.afAuth.sendPasswordResetEmail(
       this.email, 
       { url: 'http://localhost:4200' }); 

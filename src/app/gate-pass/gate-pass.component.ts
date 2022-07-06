@@ -26,7 +26,7 @@ export class GatePassComponent implements OnInit {
   async ngOnInit() {
     if(!this.sharedService.get('userId')){
       this.router.navigate(['']);
-      console.log(this.sharedService.get('userId'))
+      // console.log(this.sharedService.get('userId'))
     }else{
       this.Image = this.sharedService.get("urlImg")
       this.visitorData = this.sharedService.get('data');
@@ -35,7 +35,7 @@ export class GatePassComponent implements OnInit {
       if(this.sharedService.get("isQR") == "true"){
         this.sharedService.set("userId","")
       }
-      console.log(this.visitorData)
+      // console.log(this.visitorData)
     }
   }
 

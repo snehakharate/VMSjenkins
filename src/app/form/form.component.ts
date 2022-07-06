@@ -47,7 +47,7 @@ export class FormComponent implements OnInit {
   ngOnInit(): void {
     if(!this.sharedService.get('userId')){
       this.router.navigate(['']);
-      console.log(this.sharedService.get('userId'))
+      // console.log(this.sharedService.get('userId'))
     }
     else if(this.sharedService.get("mobile") == ""){
       this.router.navigate(['vverify'])
@@ -58,7 +58,30 @@ export class FormComponent implements OnInit {
       this.employeesD = this.userData.empDetails
       this.visitorMob = (this.sharedService.get('mobile'))?.toString()
       this.visitorDetails.value.totalVis = 0
+      this.createArray()
     }
+  }
+
+  /*Incremental input for additional visitors*/
+  num:number=1
+  i=1;
+  plus(){
+    if(this.i !=10){
+      this.i++;
+      this.num=this.i
+      this.visitorDetails.value.totalVis = this.num
+      this.createArray()
+    }
+    
+  }
+  minus(){
+    if(this.i !=1){
+      this.i--;
+      this.num=this.i
+      this.visitorDetails.value.totalVis = this.num
+      this.createArray()
+    }
+    
   }
 
   showWebcam = true;
@@ -100,7 +123,6 @@ export class FormComponent implements OnInit {
   createArray(){
     this.visitors = []
     if(this.visitorDetails.value.totalVis>1){
-
       for(let i = 0; i< this.visitorDetails.value.totalVis-1; i++){
         this.visitors.push(i.toString());
       }
@@ -110,7 +132,7 @@ export class FormComponent implements OnInit {
 
   addVisitorName(index: any){
     this.visitors[index] = this.visitorDetails.value.example
-    console.log(this.visitors)
+    // console.log(this.visitors)
   }
 
   async submitData(){
@@ -122,7 +144,7 @@ export class FormComponent implements OnInit {
       this.router.navigate(['gatepass']);
     }
     else{
-      console.log('invalid data')
+      // console.log('invalid data')
       // console.log(this.visitorDetails.value.vName)
     }
   }

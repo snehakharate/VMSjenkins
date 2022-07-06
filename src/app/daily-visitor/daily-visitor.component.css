@@ -1,5 +1,5 @@
 main{
-    height: 80vh;
+    min-height: 80vh;
 }
 .dailyV{
     max-width:75% !important ;
@@ -47,6 +47,24 @@ table {
     border: 1px solid #ccc; 
     text-align: left; 
   }
+
+  
+/* pagination styling */
+.my-pagination ::ng-deep .ngx-pagination{
+    float: right !important;
+    font-size: 1.1rem;
+    margin-bottom: 1rem !important;
+  }
+  .my-pagination ::ng-deep .ngx-pagination .current {
+      background: #3F6BB0;
+      border-radius: 5px !important; 
+      border: transparent !important;
+    }
+  .my-pagination ::ng-deep .ngx-pagination :hover {
+      background: #3F6BB0;
+      border-radius: 5px !important; 
+      border: transparent !important;
+    }
 
 @media 
 only screen and (max-width: 760px),
@@ -149,6 +167,15 @@ only screen and (max-width: 760px),
         margin: 0.7rem 0rem;
        
     }
+    .my-pagination ::ng-deep .ngx-pagination{
+        font-size: 0.85rem;
+        padding-bottom: 1rem;
+        padding: 0;
+      }
+      .mob{
+        display: flex;
+        justify-content: center;
+      }
 }
 
 @media screen and (min-height:920px) {

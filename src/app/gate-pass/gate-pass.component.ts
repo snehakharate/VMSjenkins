@@ -43,7 +43,7 @@ export class GatePassComponent implements OnInit {
     this.userData = this.sharedService.get('userData')
     this.userData = JSON.parse(this.userData)
     for(let i =0 ; i<this.userData.empDetails.length;i++){
-      if(this.userData.empDetails[i].name == this.visitorData.empName){
+      if(this.userData.empDetails[i].name.replace('\n','') == this.visitorData.empName){
         this.empMob = this.userData.empDetails[i].phone;
       }
     }

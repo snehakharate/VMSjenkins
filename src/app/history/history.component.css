@@ -33,6 +33,11 @@ main{
     border-right: 0.1rem solid rgb(76, 75, 75);
     margin-right: 0.5rem;
 }
+
+.search{
+    margin: 0;
+}
+
 table { 
     width: 100%; 
     border-collapse: collapse; 
@@ -155,6 +160,9 @@ only screen and (max-width: 760px),
     .ccount{
         margin: 0.7rem 0rem;
     }
+    .searchdate{
+        margin-top: 1rem;
+      }
 }
 
 
@@ -190,6 +198,9 @@ only screen and (max-width: 760px),
       .mob{
         display: flex;
         justify-content: center;
+      }
+      .searchdate{
+        margin-top: 1rem;
       }
 }
 

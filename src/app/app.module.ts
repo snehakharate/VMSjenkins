@@ -31,6 +31,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { HistoryComponent } from './history/history.component';
 import { HistoryPipe } from './history.pipe';
 import { SearchPipe } from './search.pipe';
+import { NgOtpInputModule } from 'ng-otp-input';
 
 
 
@@ -96,7 +97,8 @@ import { SearchPipe } from './search.pipe';
       "minTime": 300
     }),
     NgxUiLoaderRouterModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgOtpInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

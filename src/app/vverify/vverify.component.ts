@@ -58,6 +58,14 @@ export class VverifyComponent implements OnInit {
    })
   }
 
+
+  onOtpChange(event: any){ 
+    if(event.length == 6){
+      this.verifyForm.value.otp=event;
+      console.log(this.verifyForm.value.otp);
+    }
+  }
+
   async goForm(){
      if(this.status == 'success' && this.otp == this.verifyForm.value.otp){
       this.ngxService.start()

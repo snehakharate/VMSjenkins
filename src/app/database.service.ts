@@ -276,7 +276,7 @@ export class DatabaseService {
     return this.visitorsData
   }
 
-  async dailyVisitors(userId: any){
+  async dailyVisitors(userId: any, flag: any){
     const today: any = new Date();
     const Time = today.toString().split(' ')
     let timex = ""
@@ -291,7 +291,7 @@ export class DatabaseService {
     this.visitorsData = []
     for(let m=0;m<visitors.length;m++){
         this.errorData = await this.getvisitorData(visitors[m])
-        if(this.errorData.vDate == timex){
+        if(this.errorData.vDate == timex || flag){
           this.visitorsData.push(this.errorData)
         }
     }

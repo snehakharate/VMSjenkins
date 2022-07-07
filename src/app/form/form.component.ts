@@ -49,7 +49,7 @@ export class FormComponent implements OnInit {
       this.router.navigate(['']);
       // console.log(this.sharedService.get('userId'))
     }
-    else if(!this.sharedService.get("mobile")){
+    else if(this.sharedService.get("mobile") == ""){
       this.router.navigate(['vverify'])
     }
     else{

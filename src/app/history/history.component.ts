@@ -73,7 +73,7 @@ export class HistoryComponent implements OnInit {
   }
 
   async getData(userId: any){
-    this.preData = await this.db.getvisitors(userId,0)
+    this.preData = await this.db.dailyVisitors(userId,1)
     this.visitorData = this.preData
     // console.log(this.visitorData)
     this.ngxService.stop()

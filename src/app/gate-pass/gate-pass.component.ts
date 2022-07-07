@@ -19,6 +19,8 @@ export class GatePassComponent implements OnInit {
   visitorData : any;
   vgatePass:any;
   display='none';
+  userData: any;
+  empMob: any;
   constructor(public sharedService: SharedServiceService, public router: Router, public db: DatabaseService,public httpClient: HttpClient) { }
   Image: any;
   clicked = false
@@ -39,14 +41,26 @@ export class GatePassComponent implements OnInit {
   }
 
   async gatepassSend(){
-    htmlToImage.toJpeg(this.gatePass).then(async (dataUrl) => { 
+    this.userData = this.sharedService.get('userData')
+    this.userData = JSON.parse(this.userData)
+    for(let i =0 ; i<this.userData.empDetails.length;i++){
+      if(this.userData.empDetails[i].name.replace('\n','') == this.visitorData.empName){
+        this.empMob = this.userData.empDetails[i].phone;
+      }
+    }
+    console.log(this.empMob)
+    
+    await htmlToImage.toJpeg(this.gatePass).then(async (dataUrl) => { 
+      
       const file = new File([this.sharedService.convertDataUrlToBlob(dataUrl)],'img_1.png', {type: `image/png`});
       this.vgatePass =  await this.db.addGatepass(file,this.visitorData.visitorId + '_gatepass.png')
-      const url = 'https://r0mgkjqdsb.execute-api.ap-south-1.amazonaws.com/testotp/wpgatepass?api='+environment.wpAPI+'&mobile='+this.visitorData.vMobile+'&link='+this.vgatePass.toString()+'&name='+this.visitorData.vName
-        // console.log(url)
-        this.httpClient.get(url).subscribe((res)=>{
-        // console.log(res)
+      const url = 'https://usmartwp.herokuapp.com/approve?link='+this.vgatePass.toString()+'&vName='+this.visitorData.vName + '&eName='+ this.visitorData.empName + '&Pov=' + this.visitorData.vPov +'&vMob='+this.visitorData.vMobile+'&eMob=' + this.empMob + '&visitorId=' + this.visitorData.visitorId
+      console.log(url)
+      await this.httpClient.get(url).subscribe((res)=>{
+        const response = res
       })
+      const url2 = 'https://usmartwp.herokuapp.com/deny?&eName='+ this.visitorData.empName + '&eMob=' + this.empMob + '&visitorId=' + this.visitorData.visitorId
+      await this.httpClient.get(url2).subscribe((res)=>{})
     })
   }
 

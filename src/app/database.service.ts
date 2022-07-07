@@ -230,6 +230,13 @@ export class DatabaseService {
   }
 
   async getvisitors(userId: any, flag: any){
+    const today: any = new Date();
+    const Time = today.toString().split(' ')
+    let timex = ""
+    for(let i =1;i<4;i++){
+      timex = timex + Time[i] + " "
+    }
+    console.log(today.toDateString())
     const userSnapshot = firstValueFrom(await this.db
       .collection<any>('users')
       .doc(userId)
@@ -239,10 +246,10 @@ export class DatabaseService {
     for(let m=0;m<visitors.length;m++){
       this.errorData = await this.getvisitorData(visitors[m])
       console.log(this.errorData)
-      if((this.errorData.checkoutTime  == "" ) && !flag){
+      if((this.errorData.checkoutTime  == "" && this.errorData.vDate == timex) && !flag){
         this.visitorsData.push(this.errorData)
       }
-      else if((!(this.errorData.checkoutTime  == "" )) && flag){
+      else if((!(this.errorData.checkoutTime  == "" ) && this.errorData.vDate == timex) && flag){
         this.visitorsData.push(this.errorData)
       }
     }
@@ -270,6 +277,12 @@ export class DatabaseService {
   }
 
   async dailyVisitors(userId: any){
+    const today: any = new Date();
+    const Time = today.toString().split(' ')
+    let timex = ""
+    for(let i =1;i<4;i++){
+      timex = timex + Time[i] + " "
+    }
     const userSnapshot = firstValueFrom(await this.db
       .collection<any>('users')
       .doc(userId)
@@ -277,7 +290,10 @@ export class DatabaseService {
     const visitors = (await userSnapshot).data().visitors;
     this.visitorsData = []
     for(let m=0;m<visitors.length;m++){
-        this.visitorsData.push(await this.getvisitorData(visitors[m]))
+        this.errorData = await this.getvisitorData(visitors[m])
+        if(this.errorData.vDate == timex){
+          this.visitorsData.push(this.errorData)
+        }
     }
     const sortedArray: [] = this.visitorsData.sort((obj1: any, obj2: any) => {
       if (obj1.checkoutTime > obj2.checkoutTime) {

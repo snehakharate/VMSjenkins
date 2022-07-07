@@ -23,7 +23,9 @@ export class VverifyComponent implements OnInit {
     mob: new FormControl('', Validators.compose([Validators.required,Validators.minLength(10),Validators.maxLength(10)])),
     otp: new FormControl('', Validators.compose([Validators.required,Validators.minLength(6),Validators.maxLength(6)]))
   });
-  constructor(public db : DatabaseService, public router: Router, private http: HttpClient, public sharedService: SharedServiceService, private ngxService: NgxUiLoaderService, private route: ActivatedRoute) { }
+  constructor(public db : DatabaseService, public router: Router, private http: HttpClient, public sharedService: SharedServiceService, private ngxService: NgxUiLoaderService, private route: ActivatedRoute) {
+    this.sharedService.set('mobile',"")
+   }
 
   user = {id: String}
   userData: any;

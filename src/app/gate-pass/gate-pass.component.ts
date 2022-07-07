@@ -18,6 +18,7 @@ export class GatePassComponent implements OnInit {
   html_Img: any;
   visitorData : any;
   vgatePass:any;
+  display='none';
   constructor(public sharedService: SharedServiceService, public router: Router, public db: DatabaseService,public httpClient: HttpClient) { }
   Image: any;
   clicked = false

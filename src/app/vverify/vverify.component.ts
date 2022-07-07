@@ -18,6 +18,7 @@ export class VverifyComponent implements OnInit {
   private otp = '';
   dataNew: any;
   data:any;
+  isdisabled: any;
   status = '';
 
   timer='none';
@@ -38,6 +39,7 @@ export class VverifyComponent implements OnInit {
   userData: any;
 
   async ngOnInit() {
+    this.isdisabled = true;
     if(this.route.snapshot.params['id']){
       this.sharedService.set("userId",this.route.snapshot.params['id'].toString())
       this.sharedService.set("isQR","true")
@@ -64,6 +66,7 @@ export class VverifyComponent implements OnInit {
       this.display = 'block'
       this.timer='block'
       this.getOtp='none'
+      this.isdisabled = false;
       // alert("OTP Sent Successfully!")
      }
    })
@@ -110,7 +113,7 @@ export class VverifyComponent implements OnInit {
 
   CountdownEvent2(event: any){
     console.log(event)
-    if(event.left==0){
+    if(event.left==0 && this.display == "block"){
       this.timer='none'
       this.resend='none'
       this.resendbtn= 'block'

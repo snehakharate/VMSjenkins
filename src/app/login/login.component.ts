@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Data, Router } from '@angular/router';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { AngularFireAuth } from "@angular/fire/compat/auth";
 import { DatabaseService } from '../database.service';
 import { SharedServiceService } from '../shared-service.service';
@@ -12,9 +12,9 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
 })
 export class LoginComponent implements OnInit {
 
-  loginForm = new FormGroup({
-    userId: new FormControl('', Validators.compose([Validators.required,Validators.minLength(6)])),
-    password: new FormControl('', Validators.compose([Validators.required]))
+  loginForm = new UntypedFormGroup({
+    userId: new UntypedFormControl('', Validators.compose([Validators.required,Validators.minLength(6)])),
+    password: new UntypedFormControl('', Validators.compose([Validators.required]))
   });
 
   constructor(private afAuth: AngularFireAuth, private router: Router,private db : DatabaseService, public sharedService: SharedServiceService ,private ngxService: NgxUiLoaderService ) { }
@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
 
   }
 
-  doLogin(formData: FormGroup) {
+  doLogin(formData: UntypedFormGroup) {
     if (formData.valid) {
       // console.log(this.loginForm.value.userId)
       this.ngxService.start()

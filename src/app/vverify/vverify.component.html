@@ -20,8 +20,13 @@
             <small *ngIf="verifyForm.controls['mob'].errors?.['minlength'] || verifyForm.controls['mob'].errors?.['maxlength']" class="text-danger">Please provide a valid mobile number</small>
           </div>
         </span>
-          <button type="submit" (click) = "sendOTP()" class="btn btn-primary btn fw-bold mt-3">Get OTP</button>
+          <button [ngStyle]="{'display': getOtp}" type="submit" (click)="cd.begin()" (click) = "sendOTP()" class="btn btn-primary btn fw-bold mt-3">Get OTP</button>
+          <p [ngStyle]="{'display': timer}" class="otptimer text-white">You can resend otp in <countdown #cd [config]="{leftTime:30,demand:true}" (event)="CountdownEvent($event)"></countdown> </p>
+          <p [ngStyle]="{'display': resend}" class="text-white">You can resend otp in <countdown #cd2 [config]="{leftTime:30}" (event)="CountdownEvent2($event)"></countdown> </p>
+          <a [ngStyle]="{'display': resendbtn}" (click)="cd2.restart()" (click) = "resendOTP()">Resend OTP</a>
         </div>
+
+
 
         <div class="form-outline my-1 mt-3" [ngStyle]="{'display': display}" id = "OtpVerification">
           <!--  -->

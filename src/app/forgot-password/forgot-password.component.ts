@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/compat/auth";
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { DatabaseService } from '../database.service';
 
 @Component({
@@ -12,8 +12,8 @@ export class ForgotPasswordComponent implements OnInit {
 
   constructor(private afAuth: AngularFireAuth, public db : DatabaseService) { }
   email: any;
-  resetForm = new FormGroup({
-    userId: new FormControl('', Validators.compose([Validators.required,Validators.minLength(6)])),
+  resetForm = new UntypedFormGroup({
+    userId: new UntypedFormControl('', Validators.compose([Validators.required,Validators.minLength(6)])),
   });
 
   ngOnInit(): void {

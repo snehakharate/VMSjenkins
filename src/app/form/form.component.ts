@@ -58,6 +58,7 @@ export class FormComponent implements OnInit {
       this.employeesD = this.userData.empDetails
       this.visitorMob = (this.sharedService.get('mobile'))?.toString()
       this.visitorDetails.value.totalVis = 0
+      this.createArray()
     }
   }
 

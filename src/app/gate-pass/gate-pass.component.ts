@@ -18,6 +18,7 @@ export class GatePassComponent implements OnInit {
   html_Img: any;
   visitorData : any;
   vgatePass:any;
+  display='none';
   userData: any;
   empMob: any;
   constructor(public sharedService: SharedServiceService, public router: Router, public db: DatabaseService,public httpClient: HttpClient) { }
@@ -48,7 +49,9 @@ export class GatePassComponent implements OnInit {
       }
     }
     console.log(this.empMob)
+    
     await htmlToImage.toJpeg(this.gatePass).then(async (dataUrl) => { 
+      
       const file = new File([this.sharedService.convertDataUrlToBlob(dataUrl)],'img_1.png', {type: `image/png`});
       this.vgatePass =  await this.db.addGatepass(file,this.visitorData.visitorId + '_gatepass.png')
       const url = 'https://usmartwp.herokuapp.com/approve?link='+this.vgatePass.toString()+'&vName='+this.visitorData.vName + '&eName='+ this.visitorData.empName + '&Pov=' + this.visitorData.vPov +'&vMob='+this.visitorData.vMobile+'&eMob=' + this.empMob + '&visitorId=' + this.visitorData.visitorId

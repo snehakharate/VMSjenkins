@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { WebcamImage, WebcamInitError, WebcamUtil } from 'ngx-webcam';
 import { Observable, Subject } from 'rxjs';
-import { FormControl, FormGroup , Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup , Validators } from '@angular/forms';
 import { SharedServiceService } from '../shared-service.service';
 import { firstValueFrom } from 'rxjs';
 import { DatabaseService } from '../database.service';
@@ -14,23 +14,23 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
 })
 export class FormComponent implements OnInit {
 
-  visitorDetails = new FormGroup(
+  visitorDetails = new UntypedFormGroup(
     {
-      vName: new FormControl('',Validators.compose([Validators.required])),
-      vMobile: new FormControl('',Validators.compose([Validators.required])),
-      vPov: new FormControl('',Validators.compose([Validators.required])),
-      empName: new FormControl('',Validators.compose([Validators.required])),
-      vId: new FormControl('',Validators.compose([Validators.required])),
-      vIdno: new FormControl('',Validators.compose([Validators.required])),
-      vCaddr: new FormControl('',Validators.compose([Validators.required])),
-      vCompname : new FormControl('',Validators.compose([Validators.required])),
-      totalVis: new FormControl('',Validators.compose([Validators.required])),
-      vTab: new FormControl(),
-      vLap: new FormControl(),
-      vPen: new FormControl(),
-      vOther: new FormControl(),
-      vImg: new FormControl(),
-      example: new FormControl()
+      vName: new UntypedFormControl('',Validators.compose([Validators.required])),
+      vMobile: new UntypedFormControl('',Validators.compose([Validators.required])),
+      vPov: new UntypedFormControl('',Validators.compose([Validators.required])),
+      empName: new UntypedFormControl('',Validators.compose([Validators.required])),
+      vId: new UntypedFormControl('',Validators.compose([Validators.required])),
+      vIdno: new UntypedFormControl('',Validators.compose([Validators.required])),
+      vCaddr: new UntypedFormControl('',Validators.compose([Validators.required])),
+      vCompname : new UntypedFormControl('',Validators.compose([Validators.required])),
+      totalVis: new UntypedFormControl('',Validators.compose([Validators.required])),
+      vTab: new UntypedFormControl(),
+      vLap: new UntypedFormControl(),
+      vPen: new UntypedFormControl(),
+      vOther: new UntypedFormControl(),
+      vImg: new UntypedFormControl(),
+      example: new UntypedFormControl()
     }
   )
   visitorMob: any

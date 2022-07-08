@@ -31,8 +31,12 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { HistoryComponent } from './history/history.component';
 import { HistoryPipe } from './history.pipe';
 import { SearchPipe } from './search.pipe';
+import { NgOtpInputModule } from 'ng-otp-input';
+import { CountdownConfig, CountdownGlobalConfig, CountdownModule} from 'ngx-countdown';
 
-
+function countdownConfigFactory(): CountdownConfig {
+  return { format: `mm:ss` };
+}
 
 
 @NgModule({
@@ -96,9 +100,12 @@ import { SearchPipe } from './search.pipe';
       "minTime": 300
     }),
     NgxUiLoaderRouterModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgOtpInputModule,
+    CountdownModule
   ],
-  providers: [],
+  providers: [    { provide: CountdownGlobalConfig, useFactory: countdownConfigFactory }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

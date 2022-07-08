@@ -1,5 +1,6 @@
 main{
-  height: 70vh;
+  height: 30vh;
+  overflow: hidden;
 }
 .gatePass1{
     max-width:40% !important ;
@@ -7,6 +8,8 @@ main{
     margin-top: 8%;
     padding: 2rem 5rem 2rem 5rem;
     margin: auto;
+   
+  
 }
 
 .btn-primary{
@@ -50,7 +53,7 @@ h6{
     max-width:55% !important ;
     border-radius: 10px;
     margin: auto;
-    margin-top: 4rem;
+    margin-top: rem;
 }
 
 /* Gate Pass*/
@@ -58,6 +61,7 @@ h6{
   display: flex;
   justify-content: center;
   max-height: fit-content;
+  margin-top: 5rem;
 }
 
 .gpBg{
@@ -175,12 +179,18 @@ img{
 
 @media screen and (max-width:992px) {
     .gatePass1{
-        max-width:70% !important;
+        max-width:65% !important;
         margin: auto;
+    }
+    main{
+      height: 25vh;
     }
     .title{
       margin-top: 2rem;
       } 
+      .gatePass{
+        margin-top: 15rem;
+      }
     /* main{
         margin-top: 3rem !important;
     } */
@@ -189,7 +199,7 @@ img{
 @media screen and (max-width:440px) {
 
     .gatePass1{
-        max-width:95% !important;
+        max-width:80% !important;
         margin: auto;
         padding: 1.3rem !important;
     }

@@ -14,26 +14,34 @@
         <div class="form-outline my-1">
           <label class="form-label text-white" for="form2Example1">Enter Visitor Mobile Number </label>
           <input type="text" id="form2Example1" class="form-control" formControlName="mob" name="no" minlength="10" placeholder="Mobile Number"/>
-          <button type="submit" (click) = "sendOTP()" class="btn btn-primary btn fw-bold mt-3">Get OTP</button>
-
           <span class="m-0 p-0" *ngIf="verifyForm.controls['mob'].invalid && (verifyForm.controls['mob'].dirty || verifyForm.controls['mob'].touched) ">
             <div>
             <small *ngIf="verifyForm.controls['mob'].errors?.['required']" class="text-danger">Mobile number is required</small>
             <small *ngIf="verifyForm.controls['mob'].errors?.['minlength'] || verifyForm.controls['mob'].errors?.['maxlength']" class="text-danger">Please provide a valid mobile number</small>
           </div>
         </span>
-
+          <button [ngStyle]="{'display': getOtp}" type="submit" (click)="cd.begin()" (click) = "sendOTP()" class="btn btn-primary btn fw-bold mt-3">Get OTP</button>
+          <p [ngStyle]="{'display': timer}" class="otptimer text-white">You can resend otp in <countdown #cd [config]="{leftTime:90,demand:true}" (event)="CountdownEvent($event)"></countdown> </p>
+          <p [ngStyle]="{'display': resend}" class="text-white">You can resend otp in <countdown #cd2 [config]="{leftTime:90}" (event)="CountdownEvent2($event)"></countdown> </p>
+          <button class="btn btn-primary btn fw-bold mt-3" [ngStyle]="{'display': resendbtn}" (click)="cd2.restart()" (click) = "resendOTP()">Resend OTP</button>
         </div>
 
+
+
         <div class="form-outline my-1 mt-3" [ngStyle]="{'display': display}" id = "OtpVerification">
+          <!--  -->
           <label class="form-label text-white" for="form2Example1">Verify OTP </label>
-          <input type="text" id="form2Example1" class="form-control" formControlName="otp" placeholder="Enter OTP"/>
-          <span class="m-0 p-0" *ngIf="verifyForm.controls['otp'].invalid && (verifyForm.controls['otp'].dirty || verifyForm.controls['otp'].touched) ">
+          <ng-otp-input class="otpInput" (onInputChange)="onOtpChange($event)" [config]="{length:6,allowNumbersOnly:true, inputStyles: {
+            'width': '2rem',
+            'height': '2rem',
+            'font-size': '1.2rem'
+           }}" [ngStyle]="{'height.px':1000}" ></ng-otp-input>
+          <!-- <span class="m-0 p-0" *ngIf="verifyForm.controls['otp'].invalid && (verifyForm.controls['otp'].dirty || verifyForm.controls['otp'].touched) ">
             <div>
             <small *ngIf="verifyForm.controls['otp'].errors?.['required']" class="text-danger">OTP is required</small>
             <small *ngIf="verifyForm.controls['otp'].errors?.['minlength'] || verifyForm.controls['otp'].errors?.['maxlength']" class="text-danger">Please provide a valid OTP</small>
           </div>
-        </span>
+        </span> -->
           <button type="submit" (click) = "goForm()" class="btn btn-primary btn fw-bold mt-3">Verify</button>
         </div>
       </form>

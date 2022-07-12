@@ -1,33 +1,44 @@
-pipeline {
-    agent any
+node(){
+    stage('Cloning Git') {
+        checkout scm
+    }
+        
+    stage('Install dependencies') {
+        nodejs('nodejs') {
+            sh 'npm install'
+            echo "Modules installed"
+        }
+        
+    }
+    stage('Build') {
+        nodejs('nodejs') {
+            sh 'npm run build'
+            echo "Build completed"
+        }
+        
+    }
 
-    stages {
-        
-        stage('Building') {
-            steps {
-                echo 'The Code will be now be built into an artifact'
-            }
-        }
-        stage('Artifact Archiving') {
-            steps {
-                echo 'The Artifact will be uploaded to an artifact repository'
-            }
-        }
-        stage('Testing') {
-            steps {
-                echo 'The Artifact will be tested'
-            }
-        }
-        stage('Staging') {
-            steps {
-                echo 'The Artifact is staged onto the staging server'
-            }
-        }
-        
-        stage('Deploy') {
-            steps {
-                echo 'The software will now be deployed!'
-            }
-        }
-    }    
+    stage('Package Build') {
+        sh "tar -zcvf bundle.tar.gz dist/automationdemo/"
+    }
+
+    stage('Artifacts Creation') {
+        fingerprint 'bundle.tar.gz'
+        archiveArtifacts 'bundle.tar.gz'
+        echo "Artifacts created"
+    }
+
+    stage('Stash changes') {
+        stash allowEmpty: true, includes: 'bundle.tar.gz', name: 'buildArtifacts'
+    }
+}
+
+node('awsnode') {
+    echo 'Unstash'
+    unstash 'buildArtifacts'
+    echo 'Artifacts copied'
+
+    echo 'Copy'
+    sh "yes | sudo cp -R bundle.tar.gz /var/www/html && cd /var/www/html && sudo tar -xvf bundle.tar.gz"
+    echo 'Copy completed'
 }
